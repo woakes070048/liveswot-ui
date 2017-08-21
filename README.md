@@ -3,12 +3,12 @@ A platform to collaborate on your SWOT analysis with your team mates in real tim
 
 ![picture alt](https://raw.githubusercontent.com/imranariffin/liveswot/master/preview/main-page.png "")
 
-## Stack:
+## Stack
 
 * Front End: React.js, Material UI, Bootstrap
 * Back End (Tentative): Django, Socket.io, Express.js, SQLite
 
-## TODO:
+## TODO
 
 * FE: Beautify TextField for adding items to the list
 * BE: Init django backend
