@@ -5,8 +5,8 @@ A platform to collaborate on your SWOT analysis with your team mates in real tim
 
 ## Stack:
 
-Front End: React.js, Material UI, Bootstrap
-Back End (Tentative): Django, Socket.io, Express.js, SQLite
+* Front End: React.js, Material UI, Bootstrap
+* Back End (Tentative): Django, Socket.io, Express.js, SQLite
 
 ## TODO:
 
