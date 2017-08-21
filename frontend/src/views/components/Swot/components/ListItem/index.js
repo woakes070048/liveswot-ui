@@ -6,8 +6,8 @@ import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
 import { Row, Col } from 'react-bootstrap';
 
 const itemTextStyle = {
-	'overflow-x': 'auto', /* scroll horizontally when word overflow */
-	'white-space':'normal', /* break line when paragraph overlow */
+	'overflowX': 'auto', /* scroll horizontally when word overflow */
+	'whiteSpace':'normal', /* break line when paragraph overlow */
 };
 
 export default class ListItem extends Component {

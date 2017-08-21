@@ -26,10 +26,6 @@ class WhiteBoard extends Component {
   render() {
     console.log('WhiteBoard.render()');
 
-    if (this.props.items.size === 0) {
-      return null;
-    }
-
     return (
       <Row>
         <Col md={12} sm={12}>

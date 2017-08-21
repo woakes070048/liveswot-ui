@@ -5,6 +5,12 @@ import Swot from './components/Swot/index.js';
 import Footer from './components/Footer/index.js';
 
 class App extends Component {
+
+
+  componentDidMount() {
+    this.props.onMountApp();
+  }
+
   render() {
   	console.log('App.render()');
   	

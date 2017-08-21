@@ -16,6 +16,7 @@ class AppContainer extends Component {
 			items: ItemStore.getState(),
 			onAddItem: ItemActions.addItem,
 			onVoteItem: ItemActions.voteItem,
+			onMountApp: ItemActions.handleMountApp,
 		};
 	}
 
@@ -27,6 +28,7 @@ class AppContainer extends Component {
 				items={this.state.items} 
 				onAddItem={this.state.onAddItem}
 				onVoteItem={this.state.onVoteItem}
+				onMountApp={this.state.onMountApp}
 			/>
 		);
 	}
