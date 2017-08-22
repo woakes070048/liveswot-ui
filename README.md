@@ -10,8 +10,9 @@ A platform to collaborate on your SWOT analysis with your team mates in real tim
 
 ## TODO
 
-* FE: Beautify TextField for adding items to the list
-* BE: Init django backend
-* FE/BE: Implement live SWOT using socket.io
-* FE/BE: Implement OAUth user signup and login
-* FE/BE: Implement Create Groups
+- [ ] FE: Beautify TextField for adding items to the list
+- [X] BE: Init django backend
+- [ ] FE: Create routes
+- [ ] FE/BE: Implement OAUth user signup and login
+- [ ] FE/BE: Implement Invite to SWOT
+- [ ] FE/BE: Implement live SWOT using socket.io
