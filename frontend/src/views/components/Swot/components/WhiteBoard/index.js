@@ -61,7 +61,7 @@ class WhiteBoard extends Component {
       if (!event.shiftKey) {
         // press enter => submit 
         event.preventDefault();
-        this.props.onAddItem(event.target.value, this.props.boardType);
+        this.props.onAddItem('username', event.target.value, this.props.boardType);
         this.setState({text: ''});
       }
       // press shift + enter => create new line

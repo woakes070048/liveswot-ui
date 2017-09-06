@@ -18,6 +18,8 @@ export default class List extends Component {
       return null;
     }
 
+    console.log(this.props.items);
+
 		return (
       <Table
         height={this.state.height}
@@ -32,8 +34,8 @@ export default class List extends Component {
           showRowHover={false}
           stripedRows={false}
         >
-          {[...this.props.items.values()].sort((a, b) => {
-            return a.vote - b.vote;
+          {[].concat(this.props.items).sort((a, b) => {
+            return a.votes - b.votes;
           }).reverse().map((item) => {
             return (
               <ListItem 

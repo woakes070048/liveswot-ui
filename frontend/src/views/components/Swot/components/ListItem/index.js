@@ -29,7 +29,7 @@ export default class ListItem extends Component {
 				<TableRowColumn>
 					<Row>
 						<Col md={1}>
-							<IconButton onClick={() => { this.props.onVoteItem(this.props.item.id) }}>
+							<IconButton onClick={this.handleVoteItem}>
 								<ExpandLess color={this.state.color}/>
 							</IconButton>
 						</Col>
