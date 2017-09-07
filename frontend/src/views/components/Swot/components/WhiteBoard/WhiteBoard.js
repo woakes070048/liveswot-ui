@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import List from '../List/index.js';
+import List from '../List/List';
 import {Row, Col} from 'react-bootstrap';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
+import PropTypes from 'prop-types';
 
 const paperStyle = {
   height: 400,
@@ -24,8 +25,6 @@ class WhiteBoard extends Component {
   }
 
   render() {
-    console.log('WhiteBoard.render()');
-
     return (
       <Row>
         <Col md={12} sm={12}>
@@ -57,12 +56,15 @@ class WhiteBoard extends Component {
   }
 
   onKeyPress(event) {
+    event.preventDefault();
     if (event.charCode === 13) {
       if (!event.shiftKey) {
         // press enter => submit 
-        event.preventDefault();
-        this.props.onAddItem('username', event.target.value, this.props.boardType);
-        this.setState({text: ''});
+        if (event.target.value !== '') {
+          // input text not empty
+          this.props.onAddItem('username', event.target.value, this.props.boardType);
+          this.setState({text: ''});
+        }
       }
       // press shift + enter => create new line
     }
@@ -79,3 +81,17 @@ class WhiteBoard extends Component {
 }
 
 export default WhiteBoard;
+
+WhiteBoard.PropTypes = {
+  boardType: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
+    voted: PropTypes.bool.isRequired,
+    vote: PropTypes.func.isRequired,
+  })).isRequired,
+  onAddItem: PropTypes.func.isRequired,
+  onVoteItem: PropTypes.func.isRequired,
+};
