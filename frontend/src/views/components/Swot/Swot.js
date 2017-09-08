@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Grid, Row, Col } from 'react-bootstrap';
-import WhiteBoard from './components/WhiteBoard/index.js';
+import WhiteBoard from './components/WhiteBoard/WhiteBoard';
 
 export default class Swot extends Component {
 	render() {
-		console.log('Swot.render()');
-
 		return (
 			<MuiThemeProvider>
 				<Grid>

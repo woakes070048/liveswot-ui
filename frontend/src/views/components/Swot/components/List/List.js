@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table, TableBody } from 'material-ui/Table';
-import ListItem from '../ListItem/index.js';
+import ListItem from '../ListItem/ListItem';
+import PropTypes from 'prop-types';
 
 export default class List extends Component {
 
@@ -12,13 +13,9 @@ export default class List extends Component {
 	}
 
 	render() {
-		console.log('List.render()');
-		
-    if (this.props.items.size === 0) {
+    if (this.props.items.length === 0) {
       return null;
     }
-
-    console.log(this.props.items);
 
 		return (
       <Table
@@ -50,3 +47,14 @@ export default class List extends Component {
 		);
 	}
 }
+
+List.PropTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
+    voted: PropTypes.bool.isRequired,
+    vote: PropTypes.func.isRequired,
+  })).isRequired,
+};

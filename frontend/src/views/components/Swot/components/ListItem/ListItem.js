@@ -4,6 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import {grey500} from 'material-ui/styles/colors';
 import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
 import { Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const itemTextStyle = {
 	'overflowX': 'auto', /* scroll horizontally when word overflow */
@@ -22,8 +23,6 @@ export default class ListItem extends Component {
 	}
 
 	render() {
-		console.log('ListItem.render()');
-
 		return (
 			<TableRow>
 				<TableRowColumn>
@@ -46,3 +45,15 @@ export default class ListItem extends Component {
 		this.props.onVoteItem(this.props.item.id);
 	}
 }
+
+ListItem.PropTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
+    voted: PropTypes.bool.isRequired,
+    vote: PropTypes.func.isRequired,
+  }).isRequired,
+  onVoteItem: PropTypes.func.isRequired,
+};

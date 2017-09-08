@@ -1,33 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header/index.js';
-import Swot from './components/Swot/index.js';
-import Footer from './components/Footer/index.js';
+import Header from './components/Header/Header';
+import Swot from './components/Swot/Swot';
+import Footer from './components/Footer/Footer';
+import Item from '../objects/Item';
+import Counter from '../objects/Counter';
 
-let _counter = 1;
-
-const Counter = {
-  increment() {
-    return 'id-' + String(_counter++);
-  },
-};
-
-class Item {
-  constructor(id, username, text, boardType) {
-    this.id = id;
-    this.username = username;
-    this.text = text;
-    this.boardType = boardType;
-    this.votes = 0;
-    this.voted = false;
-    this.vote = this.vote.bind(this);
-  }
-
-  vote() {
-    this.voted = !this.voted;
-    if (this.voted) this.votes++; else this.votes--;
-  }
-}
 
 class App extends Component {
   constructor(props) {
@@ -47,8 +25,6 @@ class App extends Component {
   }
 
   render() {
-  	console.log('App.render()');
-  	
     return (
       <div>
         <Header/>
