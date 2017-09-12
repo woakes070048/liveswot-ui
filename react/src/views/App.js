@@ -5,6 +5,7 @@ import Swot from './components/Swot/Swot';
 import Footer from './components/Footer/Footer';
 import Item from '../objects/Item';
 import Counter from '../objects/Counter';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -22,9 +23,14 @@ class App extends Component {
 
   componentDidMount() {
     // this.props.onMountApp();
+    // axios.get('/api/items.json').then((res) => {
+    //   console.log(res);
+    //   this.setState({items: res.data});
+    // });
   }
 
   render() {
+    console.log(this.state.items);
     return (
       <div>
         <Header/>

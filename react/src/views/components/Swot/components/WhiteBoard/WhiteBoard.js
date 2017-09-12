@@ -22,6 +22,7 @@ class WhiteBoard extends Component {
 
     this.onKeyPress = this.onKeyPress.bind(this);
     this.onTextChange = this.onTextChange.bind(this);
+    this.getTitle = this.getTitle.bind(this);
   }
 
   render() {

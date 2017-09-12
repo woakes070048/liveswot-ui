@@ -20,8 +20,22 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
-	url(r'^api/swot-items/$', views.SwotItemList.as_view()),
-	url(r'^api/(?P<pk>[0-9]+)/$', views.SwotItemDetail.as_view()),
+	url(
+        r'^api/items/$', 
+        views.ItemList.as_view(),
+        name='get_post_item',
+    ),
+	url(
+        r'^api/items/(?P<pk>[0-9]+)/$', 
+        views.ItemDetail.as_view(),
+        name='get_delete_update_item',
+    ),
+    url(
+        r'^api/items/(?P<pk>[0-9]+)/upvotes/$', 
+        views.UpVoteList.as_view(),
+        name='get_delete_upvote',
+    ),
+    # url(r'^api/items/(?P<pk>[0-9]+)/upvotes/(?P<upvote__pk>[0-9]+)/$', views.UpVoteDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

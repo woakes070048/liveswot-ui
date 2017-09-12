@@ -31,21 +31,29 @@ describe('WhiteBoard', () => {
 		expect(wrapper.containsMatchingElement([<Row />])).to.equal(true);
 	});
 
+	it('should start with empty text input');
+	it('should not accept empty text input');
+	it('should clear text input after adding item');
 	// it('should start with empty text input', () => {
+	// 	const onAddItemSpy = spy();
+	// 	const onVoteItemSpy = spy();
 	// 	wrapper = mount(
 	// 		<MuiThemeProvider>
 	// 			<WhiteBoard 
 	// 				boardType={'strength'} 
+	// 				onAddItem={onAddItemSpy}
+	// 				onVoteItem={onVoteItemSpy}
 	// 				items={[
 	// 					new Item('id-1', 'imranariffin', 'text 1', 'strength')
 	// 				]}
 	// 			/>
 	// 		</MuiThemeProvider>
 	// 	);
-	// 	// console.log(wrapper);
+	// 	console.log(wrapper.debug());
+	// 	// console.log(wrapper.instance().text());
 
 	// 	// expect(wrapper.state('text')).to.equal('');
-	// 	console.log(wrapper.instance().state.text);
+	// 	console.log(wrapper.state('text'));
 	// 	wrapper.onTextChange({target: {value: 'new Text'}});
 	// 	console.log(wrapper.instance().state.text);
 	// });
@@ -70,16 +78,16 @@ describe('WhiteBoard', () => {
 	// 	expect(onKeyPressSpy.calledOnce).to.equal(true);
 	// });
 
-	it('should clear text input after pressing Enter', () => {
-		const onAddItemSpy = spy();
-		wrapper = mount(
-			<MuiThemeProvider>
-				<WhiteBoard 
-					boardType={'strength'} 
-					items={[]}
-					onAddItem={onAddItemSpy}
-				/>
-			</MuiThemeProvider>
-		);
-	});
+	// it('should clear text input after pressing Enter', () => {
+	// 	const onAddItemSpy = spy();
+	// 	wrapper = mount(
+	// 		<MuiThemeProvider>
+	// 			<WhiteBoard 
+	// 				boardType={'strength'} 
+	// 				items={[]}
+	// 				onAddItem={onAddItemSpy}
+	// 			/>
+	// 		</MuiThemeProvider>
+	// 	);
+	// });
 });
