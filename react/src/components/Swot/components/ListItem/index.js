@@ -3,7 +3,6 @@ import { TableRow, TableRowColumn } from 'material-ui/Table';
 import IconButton from 'material-ui/IconButton';
 import {grey500} from 'material-ui/styles/colors';
 import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
-import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const itemTextStyle = {
@@ -26,16 +25,16 @@ export default class ListItem extends Component {
 		return (
 			<TableRow>
 				<TableRowColumn>
-					<Row>
-						<Col md={1}>
+					<div>
+						<div md={1}>
 							<IconButton onClick={this.handleVoteItem}>
 								<ExpandLess color={this.state.color}/>
 							</IconButton>
-						</Col>
-						<Col style={itemTextStyle} md={11}>
+						</div>
+						<div style={itemTextStyle} md={11}>
 								{this.props.item.text}
-						</Col>
-					</Row>
+						</div>
+					</div>
 				</TableRowColumn>
 			</TableRow>
 		);

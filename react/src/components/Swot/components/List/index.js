@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table, TableBody } from 'material-ui/Table';
-import ListItem from '../ListItem/ListItem';
+import ListItem from '../ListItem';
 import PropTypes from 'prop-types';
 
 export default class List extends Component {
@@ -32,12 +32,12 @@ export default class List extends Component {
           stripedRows={false}
         >
           {[].concat(this.props.items).sort((a, b) => {
-            return a.votes - b.votes;
-          }).reverse().map((item) => {
+            return b.votes - a.votes;
+          }).map((item) => {
             return (
-              <ListItem 
+              <ListItem
               	onVoteItem={this.props.onVoteItem}
-              	item={item} 
+              	item={item}
                 key={item.id}
               />
             );

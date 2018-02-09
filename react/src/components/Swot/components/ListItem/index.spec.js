@@ -5,14 +5,14 @@ import { shallow, mount } from 'enzyme';
 import { spy } from 'sinon';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { TableRow } from 'material-ui/Table';
-import ListItem from './ListItem';
+import ListItem from './';
 import Item from '../../../../../objects/Item';
 
 describe('ListItem', () => {
 	let wrapper;
 	let item;
 	beforeEach(() => {
-		item = new Item('id-1', 'imranariffin', 'text 1', 'strength'); 
+		item = new Item('id-1', 'imranariffin', 'text 1', 'strength');
 	});
 
 	it('should render without crashing', () => {

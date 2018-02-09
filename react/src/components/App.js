@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header/Header';
-import Swot from './components/Swot/Swot';
-import Footer from './components/Footer/Footer';
+import Header from './Header';
+import Swot from './Swot';
+import Footer from './Footer';
 import Item from '../objects/Item';
 import Counter from '../objects/Counter';
 import axios from 'axios';
