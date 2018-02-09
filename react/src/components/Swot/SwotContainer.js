@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
-import Swot from '../../components/Swot';
 
 const mapStateToProps = (props = {
-  strengths = [], weaknesses = [],
-  opportunities = [], threats = [],
-) => {
+  strengths: [], weaknesses: [],
+  opportunities: [], threats: []
+}) => {
   return Object.assign({}, {
     strengths: [].concat(props.strengths),
     weaknesses: [].concat(props.weaknesses),
@@ -13,16 +12,13 @@ const mapStateToProps = (props = {
   });
 };
 
-const mapDispatchToProps = (addItem, voteItem) => {
+const mapDispatchToProps = (state, ownProps) => {
   return {
-    onAddItem: () => { addItem(); },
-    onVoteItem: () => { voteItem(); },
-  }
-}
+    ...state, ...ownProps
+  };
+};
 
-const SwotContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Swot);
-
-export default SwotContainer;
+);
