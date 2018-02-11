@@ -1,15 +1,15 @@
 
 import { ADD_ITEM } from '../actions/actionTypes';
 
-const swotItemsReducer = (state = [], action) => {
+const items = (state = [], action) => {
   switch (action.type) {
     case ADD_ITEM:
       const { text, boardType } = action;
       const id = `${state.length}`;
-      return [ { id, text, boardType }, ...state ];
+      return [ ...state, { id, text, boardType } ];
     default:
       return state;
   }
 };
 
-export default swotItemsReducer;
+export default items;

@@ -1,6 +1,6 @@
-import { combineReducer } from 'redux';
-import swotItemsReducer from './swotItemsReducer';
+import { combineReducers } from 'redux';
+import items from './items';
 
-export default combineReducer({
-  swotItemsReducer,
+export default combineReducers({
+  items,
 });

@@ -19,9 +19,8 @@ export default class WhiteBoard extends Component {
       text: '',
     };
 
-    this.onKeyPress = this.onKeyPress.bind(this);
-    this.onTextChange = this.onTextChange.bind(this);
-    this.getTitle = this.getTitle.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
   }
 
   render() {
@@ -30,25 +29,25 @@ export default class WhiteBoard extends Component {
     return (
       <div>
         <div md={12} sm={12}>
-          <h3>{this.getTitle()}</h3>
+          <h3>{ this.props.title }</h3>
         </div>
         <div md={12} sm={12}>
           <Paper style={paperStyle}>
             <div>
               <div md={12}>
-                <TextField
-                  hintText={'Write down a ' + this.props.boardType}
-                  fullWidth={true}
-                  multiLine={true}
-                  rows={1}
-                  rowsMax={3}
-                  value={this.state.text}
-                  onKeyPress={this.onKeyPress}
-                  onChange={this.onTextChange}
-                />
+                <form method="POST" onSubmit={ this.onSubmit }>
+                  <TextField
+                    hintText={'Write down a ' + this.props.boardType}
+                    fullWidth={true}
+                    rows={1}
+                    rowsMax={3}
+                    onChange={ this.handleTextChange }
+                    value={ this.state.text }
+                  />
+                </form>
               </div>
               <div md={12}>
-                <List {...this.props} />
+                <List { ...this.props } />
               </div>
             </div>
           </Paper>
@@ -57,28 +56,15 @@ export default class WhiteBoard extends Component {
     );
   }
 
-  onKeyPress(event) {
+  onSubmit(event) {
     event.preventDefault();
-    if (event.charCode === 13) {
-      if (!event.shiftKey) {
-        // press enter => submit
-        if (event.target.value !== '') {
-          // input text not empty
-          this.props.onAddItem('username', event.target.value, this.props.boardType);
-          this.setState({text: ''});
-        }
-      }
-      // press shift + enter => create new line
-    }
+    const text = this.state.text;
+    this.props.handleSubmit(text, this.props.boardType);
+    this.setState({ text: '' });
   }
 
-  onTextChange(event) {
-    this.setState({text: event.target.value});
-  }
-
-  getTitle() {
-    return this.props.boardType.charAt(0).toUpperCase() +
-      this.props.boardType.slice(1, this.props.boardType.length);
+  handleTextChange(event) {
+    this.setState({ text: event.target.value });
   }
 }
 

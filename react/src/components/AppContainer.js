@@ -5,15 +5,17 @@ const filterByBoardType = (boardType) => {
   return (item, index) => item.boardType === boardType;
 };
 
-const mapStateToProps = (state = { items: [
-  { id: '0', text: 'Halo', boardType: 'strength'}
-]}) => {
-  const items = state.items;
+const mapStateToProps = (state = {
+  items: [ { id: '0', text: 'Halo', boardType: 'strength' } ]
+}) => {
+  const { items } = state;
+  console.log('AppContainer: state = ');
+  console.log(state);
   return {
     strengths: [ ...items ].filter(filterByBoardType('strength')),
     weaknesses: [ ...items ].filter(filterByBoardType('weakness')),
-    opportunities: [ ...items ].filter(filterByBoardType('opportunities')),
-    threats: [ ...items ].filter(filterByBoardType('threats')),
+    opportunities: [ ...items ].filter(filterByBoardType('opportunity')),
+    threats: [ ...items ].filter(filterByBoardType('threat')),
   };
 };
 
