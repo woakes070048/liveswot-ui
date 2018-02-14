@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import WhiteBoard from './WhiteBoard';
+import WhiteBoard from './';
 import { Row } from 'react-bootstrap';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Item from '../../../../../objects/Item';
@@ -16,11 +16,11 @@ describe('WhiteBoard', () => {
 		const div = document.createElement('div');
 		ReactDOM.render(
 			<MuiThemeProvider>
-				<WhiteBoard 
-					boardType={'strength'} 
+				<WhiteBoard
+					boardType={'strength'}
 					items={[]}
 				/>
-			</MuiThemeProvider>, 
+			</MuiThemeProvider>,
 			div
 		);
 	});
@@ -39,8 +39,8 @@ describe('WhiteBoard', () => {
 	// 	const onVoteItemSpy = spy();
 	// 	wrapper = mount(
 	// 		<MuiThemeProvider>
-	// 			<WhiteBoard 
-	// 				boardType={'strength'} 
+	// 			<WhiteBoard
+	// 				boardType={'strength'}
 	// 				onAddItem={onAddItemSpy}
 	// 				onVoteItem={onVoteItemSpy}
 	// 				items={[
@@ -62,8 +62,8 @@ describe('WhiteBoard', () => {
 	// 	const onKeyPressSpy = spy(WhiteBoard.prototype, 'onKeyPress');
 	// 	wrapper = mount(
 	// 		<MuiThemeProvider>
-	// 			<WhiteBoard 
-	// 				boardType={'strength'} 
+	// 			<WhiteBoard
+	// 				boardType={'strength'}
 	// 				items={[]}
 	// 			/>
 	// 		</MuiThemeProvider>
@@ -82,8 +82,8 @@ describe('WhiteBoard', () => {
 	// 	const onAddItemSpy = spy();
 	// 	wrapper = mount(
 	// 		<MuiThemeProvider>
-	// 			<WhiteBoard 
-	// 				boardType={'strength'} 
+	// 			<WhiteBoard
+	// 				boardType={'strength'}
 	// 				items={[]}
 	// 				onAddItem={onAddItemSpy}
 	// 			/>

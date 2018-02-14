@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Table, TableBody } from 'material-ui/Table';
-import ListItem from '../ListItem/ListItem';
+import ListItem from '../ListItem';
 import PropTypes from 'prop-types';
 
-export default class List extends Component {
+export class List extends Component {
 
 	constructor(props) {
 		super(props);
@@ -32,12 +32,12 @@ export default class List extends Component {
           stripedRows={false}
         >
           {[].concat(this.props.items).sort((a, b) => {
-            return a.votes - b.votes;
-          }).reverse().map((item) => {
+            return b.votes - a.votes;
+          }).map((item) => {
             return (
-              <ListItem 
+              <ListItem
               	onVoteItem={this.props.onVoteItem}
-              	item={item} 
+              	item={item}
                 key={item.id}
               />
             );
@@ -48,13 +48,13 @@ export default class List extends Component {
 	}
 }
 
-List.PropTypes = {
+List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
+    // username: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    votes: PropTypes.number.isRequired,
-    voted: PropTypes.bool.isRequired,
-    vote: PropTypes.func.isRequired,
+    // votes: PropTypes.number.isRequired,
+    // voted: PropTypes.bool.isRequired,
+    // vote: PropTypes.func.isRequired,
   })).isRequired,
 };

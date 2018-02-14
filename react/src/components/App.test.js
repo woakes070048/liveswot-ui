@@ -3,20 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
-import { spy } 'sinon';
+import { spy } from 'sinon';
 
 describe('App', () => {
-	let wrapper;
+	let app = shallow(<App />);
 	beforeEach(() => {});
 
-	it('renders without crashing', () => {
-	  const div = document.createElement('div');
-	  ReactDOM.render(<App />, div);
+	it('should have votes as its state', () => {
+		expect(app).toMatchSnapshot();
 	});
 
-	it('should have votes as its state' () => {
-		wrapper = shallow(<App />);
-	});
 	it('should have items as its state');
 	it('should have onAddItem as its method');
 	it('should have onVoteItem as its method');

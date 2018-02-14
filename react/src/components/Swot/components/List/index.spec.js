@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import List from './List';
+import List from './';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Item from '../../../../../objects/Item';
@@ -21,19 +21,19 @@ describe('List', () => {
 
 	it('should be able to contain empty items', () => {
 		wrapper = shallow(<List items={[]} />);
-		
+
 		expect(wrapper.instance().props.items).to.eql([]);
 	});
 
 	it('should be able to contain a few items', () => {
 		wrapper = mount(
 			<MuiThemeProvider>
-				<List 
+				<List
 					items={[
 						new Item('id-1', 'imranariffin', 'text 1', 'strength'),
 						new Item('id-2', 'imranariffin', 'text 2', 'strength'),
 						new Item('id-3', 'imranariffin', 'text 3', 'strength'),
-					]} 
+					]}
 				/>
 			</MuiThemeProvider>
 		);
@@ -61,12 +61,12 @@ describe('List', () => {
 	it('should populate ListItems within TableBody', () => {
 		wrapper = mount(
 			<MuiThemeProvider>
-				<List 
+				<List
 					items={[
 						new Item('id-1', 'imranariffin', 'text 1', 'strength'),
 						new Item('id-2', 'imranariffin', 'text 2', 'strength'),
 						new Item('id-3', 'imranariffin', 'text 3', 'strength'),
-					]} 
+					]}
 				/>
 			</MuiThemeProvider>
 		);
@@ -80,12 +80,12 @@ describe('List', () => {
 	it('should order ListItems in reverse based on votes', () => {
 		wrapper = mount(
 			<MuiThemeProvider>
-				<List 
+				<List
 					items={[
 						new Item('id-1', 'imranariffin', 'text 1', 'strength').vote(),
 						new Item('id-2', 'imranariffin', 'text 2', 'strength'),
 						new Item('id-3', 'imranariffin', 'text 3', 'strength'),
-					]} 
+					]}
 				/>
 			</MuiThemeProvider>
 		);
