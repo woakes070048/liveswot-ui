@@ -8,8 +8,6 @@ import Counter from '../objects/Counter';
 
 class App extends Component {
   render() {
-    console.log('at App, props:');
-    console.log(this.props);
     return (
       <div>
         <Header/>

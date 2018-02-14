@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import List from '../List';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
 import PropTypes from 'prop-types';
 
 const paperStyle = {
@@ -32,25 +30,25 @@ export default class WhiteBoard extends Component {
           <h3>{ this.props.title }</h3>
         </div>
         <div md={12} sm={12}>
-          <Paper style={paperStyle}>
+          <div style={paperStyle}> {/* Paper */}
             <div>
               <div md={12}>
                 <form method="POST" onSubmit={ this.onSubmit }>
-                  <TextField
+                  <div>  {/* TextField */}
                     hintText={'Write down a ' + this.props.boardType}
                     fullWidth={true}
                     rows={1}
                     rowsMax={3}
                     onChange={ this.handleTextChange }
                     value={ this.state.text }
-                  />
+                  </div>
                 </form>
               </div>
               <div md={12}>
                 <List { ...this.props } />
               </div>
             </div>
-          </Paper>
+          </div>
         </div>
       </div>
     );
@@ -71,7 +69,7 @@ export default class WhiteBoard extends Component {
 WhiteBoard.propTypes = {
   boardType: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     // username: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     // votes: PropTypes.number.isRequired,
