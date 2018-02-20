@@ -1,45 +1,30 @@
 import React, { Component } from 'react';
-import WhiteBoard from './components/WhiteBoard';
+import 'preact-material-components/Card/style.css';
+import 'preact-material-components/LayoutGrid/style.css';
+import 'preact-material-components/Icon/style.css';
+import 'preact-material-components/Button/style.css';
+import './style.css';
+import { localizedText } from '../../utils';
+
+import SwotCard from './components/SwotCard';
 
 export default class Swot extends Component {
 	render() {
     console.log('at Swot, props:');
     console.log(this.props);
 		return (
-			<div>
-				<div>
-					<div md={6} sm={12}>
-						<WhiteBoard
-							boardType={'strength'}
-							items={this.props.strengths}
-							onAddItem={this.props.onAddItem}
-							onVoteItem={this.props.onVoteItem}
-						/>
-					</div>
-					<div md={6} sm={12}>
-						<WhiteBoard
-							boardType={'weakness'}
-							items={this.props.weaknesses}
-							onAddItem={this.props.onAddItem}
-							onVoteItem={this.props.onVoteItem}
-						/>
-					</div>
-					<div md={6} sm={12}>
-						<WhiteBoard
-							boardType={'opportunity'}
-							items={this.props.opportunities}
-							onAddItem={this.props.onAddItem}
-							onVoteItem={this.props.onVoteItem}
-						/>
-					</div>
-					<div md={6} sm={12}>
-						<WhiteBoard
-							boardType={'threat'}
-							items={this.props.threats}
-							onAddItem={this.props.onAddItem}
-							onVoteItem={this.props.onVoteItem}
-						/>
-					</div>
+			<div className="mdc-layout-grid__inner">
+				<div className="mdc-layout-grid__cell--span-6">
+					<SwotCard cardType={ localizedText().body.swot.strengths }/>
+				</div>
+				<div className="mdc-layout-grid__cell--span-6">
+					<SwotCard cardType={ localizedText().body.swot.weaknesses }/>
+				</div>
+				<div className="mdc-layout-grid__cell--span-6">
+					<SwotCard cardType={ localizedText().body.swot.opportunities}/>
+				</div>
+				<div className="mdc-layout-grid__cell--span-6">
+					<SwotCard cardType={ localizedText().body.swot.threats }/>
 				</div>
 			</div>
 		);

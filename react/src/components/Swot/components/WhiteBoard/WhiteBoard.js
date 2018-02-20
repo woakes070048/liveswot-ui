@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import List from '../List';
 import PropTypes from 'prop-types';
 
+import 'preact-material-components/Card/style.css';
+
 const paperStyle = {
   height: 400,
   width: '100%',
@@ -25,31 +27,8 @@ export default class WhiteBoard extends Component {
     console.log('at WhiteBoard, props:');
     console.log(this.props);
     return (
-      <div>
-        <div md={12} sm={12}>
-          <h3>{ this.props.title }</h3>
-        </div>
-        <div md={12} sm={12}>
-          <div style={paperStyle}> {/* Paper */}
-            <div>
-              <div md={12}>
-                <form method="POST" onSubmit={ this.onSubmit }>
-                  <div>  {/* TextField */}
-                    hintText={'Write down a ' + this.props.boardType}
-                    fullWidth={true}
-                    rows={1}
-                    rowsMax={3}
-                    onChange={ this.handleTextChange }
-                    value={ this.state.text }
-                  </div>
-                </form>
-              </div>
-              <div md={12}>
-                <List { ...this.props } />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="mdc-card">
+        Simple Card
       </div>
     );
   }

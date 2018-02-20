@@ -1,11 +1,4 @@
-import React, { Component } from 'react';
+import HeaderContainer from './HeaderContainer';
+import Header from './Header';
 
-export default class Header extends Component {
-	render() {
-		return (
-			<div> {/* AppBar */}
-				title="LiveSWOT.com"
-			</div>
-		);
-	}
-}
+export default HeaderContainer(Header);
