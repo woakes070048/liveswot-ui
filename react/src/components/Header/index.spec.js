@@ -6,19 +6,9 @@ import Header from './index';
 
 
 describe('Header', () => {
-	let wrapper;
+  beforeEach(() => {});
 
-  beforeEach(() => {
-    wrapper = shallow(<Header />);
-  });
-
-	it('should contain AppBar', () => {});
-
-	it('should contain the title', () => {
-	});
-
-	it('it should render without crashing', () => {
-		const div = document.createElement('div');
-  	ReactDOM.render(<Header />, div);
-	});
+	it('should contain AppBar');
+	it('should contain the title');
+	it('it should render without crashing');
 });

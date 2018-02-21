@@ -8,10 +8,7 @@ describe('App', () => {
 	let app = shallow(<App />);
 	beforeEach(() => {});
 
-	it('should have votes as its state', () => {
-		expect(app).toMatchSnapshot();
-	});
-
+	it('should have votes as its state', () => {});
 	it('should have items as its state');
 	it('should have onAddItem as its method');
 	it('should have onVoteItem as its method');
