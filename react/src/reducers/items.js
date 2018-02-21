@@ -2,30 +2,31 @@
 import { ADD_ITEM, VOTE_ITEM } from '../actions/actionTypes';
 
 const items = (state = [], action) => {
+  let newState = state;
   switch (action.type) {
 
     case ADD_ITEM:
       const { text, cardType } = action;
       const newId = state.length;
-      return [ ...state, { id: newId, text, cardType, vote: 0 } ];
+      newState = [ ...state, { id: newId, text, cardType, vote: 0 } ];
+      break;
 
     case VOTE_ITEM:
       const { id: voteId } = action;
-      const newState = state.map((item) => {
+      newState = state.map((item) => {
         return item.id === voteId
           ? { ...item, vote: item.vote + 1 }
           : { ...item };
       });
-
-      newState.sort((a, b) => {
-        return b.vote - a.vote;
-      });
-
-      return newState;
+      break;
 
     default:
-      return state;
+      break;
   }
+
+  return newState.sort((a, b) => {
+    return b.vote - a.vote;
+  });
 };
 
 export default items;

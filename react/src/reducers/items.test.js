@@ -49,13 +49,36 @@ describe('items reducer', () => {
       const id = 1;
       const action = VoteItem(id);
 
-      const expected = [
-        { vote: 1, id: 1, text: 'second item', cardType: 'strength' },
-        { vote: 0, id: 0, text: 'first item', cardType: 'strength' },
-      ];
-      const actual = items(state, action);
+      const expected = {
+        vote: 1, id: 1,
+        text: 'second item', cardType: 'strength'
+      };
+      const actual = items(state, action).find((e) => e.id === 1);
 
       expect(actual).to.deep.equal(expected);
+    });
+  });
+
+  describe('items sorted in descending order by vote', () => {
+    describe('items initially empty list', () => {
+      const state = [];
+      describe('two items is added and one is voted', () => {
+        const actual = items(
+          items(
+            items(state, AddItem('first', 'strength')),
+            AddItem('second', 'strength'),
+          ),
+          VoteItem(1)
+        );
+
+        const expected = [
+          { vote: 1, id: 1, text: 'second', cardType: 'strength' },
+          { vote: 0, id: 0, text: 'first', cardType: 'strength' },
+        ];
+
+        expect(actual.length).to.equal(2);
+        expect(actual).to.deep.equal(expected);
+      });
     });
   });
 });
