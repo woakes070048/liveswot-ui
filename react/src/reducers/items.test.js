@@ -9,26 +9,26 @@ describe('items reducer', () => {
     const initState = [];
 
     it('adds one item', () => {
-      const text = 'new item', boardType = 'strength';
-      const action = AddItem(text, boardType);
-      const expected = [ { ...initState, vote: 0, id: 0, text, boardType } ];
+      const text = 'new item', cardType = 'strength';
+      const action = AddItem(text, cardType);
+      const expected = [ { ...initState, vote: 0, id: 0, text, cardType } ];
 
       expect(items(initState, action)).to.deep.equal(expected);
     });
   });
 
-  describe('already has two items with zero vote with same boardType', () => {
+  describe('already has two items with zero vote with same cardType', () => {
 
     const state = [
-      { vote: 0, id: 0, text: 'first item', boardType: 'strength' },
-      { vote: 0, id: 1, text: 'second item', boardType: 'strength' },
+      { vote: 0, id: 0, text: 'first item', cardType: 'strength' },
+      { vote: 0, id: 1, text: 'second item', cardType: 'strength' },
     ];
 
     it('adds one more item', () => {
-      const text = 'third item', boardType = 'strength';
-      const action = AddItem(text, boardType);
+      const text = 'third item', cardType = 'strength';
+      const action = AddItem(text, cardType);
 
-      const expectedNewItem = { id: 2, vote: 0, text, boardType };
+      const expectedNewItem = { id: 2, vote: 0, text, cardType };
       expect(items(state, action)).to.deep.equal([ ...state, expectedNewItem ]);
     });
 
@@ -37,8 +37,8 @@ describe('items reducer', () => {
       const action = VoteItem(id);
 
       const expected = [
-        { vote: 1, id: 0, text: 'first item', boardType: 'strength' },
-        { vote: 0, id: 1, text: 'second item', boardType: 'strength' },
+        { vote: 1, id: 0, text: 'first item', cardType: 'strength' },
+        { vote: 0, id: 1, text: 'second item', cardType: 'strength' },
       ];
       const actual = items(state, action);
 
@@ -50,8 +50,8 @@ describe('items reducer', () => {
       const action = VoteItem(id);
 
       const expected = [
-        { vote: 1, id: 1, text: 'second item', boardType: 'strength' },
-        { vote: 0, id: 0, text: 'first item', boardType: 'strength' },
+        { vote: 1, id: 1, text: 'second item', cardType: 'strength' },
+        { vote: 0, id: 0, text: 'first item', cardType: 'strength' },
       ];
       const actual = items(state, action);
 

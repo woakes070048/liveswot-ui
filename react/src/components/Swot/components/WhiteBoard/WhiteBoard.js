@@ -36,7 +36,7 @@ export default class WhiteBoard extends Component {
   onSubmit(event) {
     event.preventDefault();
     const text = this.state.text;
-    this.props.handleSubmit(text, this.props.boardType);
+    this.props.handleSubmit(text, this.props.cardType);
     this.setState({ text: '' });
   }
 
@@ -46,7 +46,7 @@ export default class WhiteBoard extends Component {
 }
 
 WhiteBoard.propTypes = {
-  boardType: PropTypes.string.isRequired,
+  cardType: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     // username: PropTypes.string.isRequired,

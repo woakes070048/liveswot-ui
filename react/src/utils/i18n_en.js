@@ -5,10 +5,12 @@ const en = {
   },
   body: {
     swot: {
-      strengths: 'strengths',
-      weaknesses: 'weaknesses',
-      opportunities: 'opportunities',
-      threats: 'threats',
+      cardType: {
+        strength: 'Strengths',
+        weakness: 'Weaknesses',
+        opportunity: 'Opportunities',
+        threat: 'Threats',
+      },
     }
   },
   footer: {

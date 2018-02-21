@@ -3,28 +3,25 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/LayoutGrid/style.css';
 import 'preact-material-components/Icon/style.css';
 import 'preact-material-components/Button/style.css';
-import './style.css';
-import { localizedText } from '../../utils';
 
+import './style.css';
 import SwotCard from './components/SwotCard';
 
 export default class Swot extends Component {
 	render() {
-    console.log('at Swot, props:');
-    console.log(this.props);
 		return (
 			<div className="mdc-layout-grid__inner">
 				<div className="mdc-layout-grid__cell--span-6">
-					<SwotCard cardType={ localizedText().body.swot.strengths }/>
+					<SwotCard cardType='strength'/>
 				</div>
 				<div className="mdc-layout-grid__cell--span-6">
-					<SwotCard cardType={ localizedText().body.swot.weaknesses }/>
+					<SwotCard cardType='weakness'/>
 				</div>
 				<div className="mdc-layout-grid__cell--span-6">
-					<SwotCard cardType={ localizedText().body.swot.opportunities}/>
+					<SwotCard cardType='opportunity'/>
 				</div>
 				<div className="mdc-layout-grid__cell--span-6">
-					<SwotCard cardType={ localizedText().body.swot.threats }/>
+					<SwotCard cardType='threat'/>
 				</div>
 			</div>
 		);
