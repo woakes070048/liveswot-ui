@@ -5,9 +5,9 @@ const items = (state = [], action) => {
   switch (action.type) {
 
     case ADD_ITEM:
-      const { text, boardType } = action;
+      const { text, cardType } = action;
       const newId = state.length;
-      return [ ...state, { id: newId, text, boardType, vote: 0 } ];
+      return [ ...state, { id: newId, text, cardType, vote: 0 } ];
 
     case VOTE_ITEM:
       const { id: voteId } = action;

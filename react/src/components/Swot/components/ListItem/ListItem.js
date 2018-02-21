@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { TableRow, TableRowColumn } from 'material-ui/Table';
-import IconButton from 'material-ui/IconButton';
-import {grey500} from 'material-ui/styles/colors';
-import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
 import PropTypes from 'prop-types';
 
 const itemTextStyle = {
@@ -15,7 +11,7 @@ export default class ListItem extends Component {
 		super(props);
 		this.state = {
 			voted: false,
-			color: grey500,
+			color: '#aaaaaa',
 		};
 
 		this.handleVoteItem = this.handleVoteItem.bind(this);
@@ -25,20 +21,20 @@ export default class ListItem extends Component {
 		console.log('at ListItem, props:');
     console.log(this.props);
 		return (
-			<TableRow>
-				<TableRowColumn>
+			<div> {/* TableRow */}
+				<div> {/* TableRowColumn */}
 					<div>
 						<div md={1}>
-							<IconButton onClick={this.handleVoteItem}>
-								<ExpandLess color={this.state.color}/>
-							</IconButton>
+							<div onClick={this.handleVoteItem}> {/* IconButton */}
+								<div color={this.state.color}/> {/* Expandless */}
+							</div>
 						</div>
 						<div style={itemTextStyle} md={11}>
 								{this.props.item.text}
 						</div>
 					</div>
-				</TableRowColumn>
-			</TableRow>
+				</div>
+			</div>
 		);
 	}
 
@@ -49,7 +45,7 @@ export default class ListItem extends Component {
 
 ListItem.propTypes = {
   item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     // username: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     // votes: PropTypes.number.isRequired,

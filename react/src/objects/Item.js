@@ -1,9 +1,9 @@
 export default class Item {
-  constructor(id, username, text, boardType) {
+  constructor(id, username, text, cardType) {
     this.id = id;
     this.username = username;
     this.text = text;
-    this.boardType = boardType;
+    this.cardType = cardType;
     this.votes = 0;
     this.voted = false;
     this.vote = this.vote.bind(this);

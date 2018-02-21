@@ -1,7 +1,4 @@
-import {Component} from 'react';
+import Footer from './Footer';
+import FooterContainer from './FooterContainer';
 
-export default class Footer extends Component {
-	render() {
-		return null;
-	}
-}
+export default FooterContainer(Footer);

@@ -1,21 +1,19 @@
 import { connect } from 'react-redux';
 import { AddItem, VoteItem } from '../actions';
 
-const filterByBoardType = (boardType) => {
-  return (item, index) => item.boardType === boardType;
+const filterByCardType = (cardType) => {
+  return (item, index) => item.cardType === cardType;
 };
 
 const mapStateToProps = (state = {
-  items: [ { id: '0', text: 'Halo', boardType: 'strength' } ]
+  items: [ { id: '0', text: 'Halo', CardType: 'strength' } ]
 }) => {
   const { items } = state;
-  console.log('AppContainer: state = ');
-  console.log(state);
   return {
-    strengths: [ ...items ].filter(filterByBoardType('strength')),
-    weaknesses: [ ...items ].filter(filterByBoardType('weakness')),
-    opportunities: [ ...items ].filter(filterByBoardType('opportunity')),
-    threats: [ ...items ].filter(filterByBoardType('threat')),
+    strengths: [ ...items ].filter(filterByCardType('strength')),
+    weaknesses: [ ...items ].filter(filterByCardType('weakness')),
+    opportunities: [ ...items ].filter(filterByCardType('opportunity')),
+    threats: [ ...items ].filter(filterByCardType('threat')),
   };
 };
 

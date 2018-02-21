@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Table, TableBody } from 'material-ui/Table';
 import ListItem from '../ListItem';
 import PropTypes from 'prop-types';
 
@@ -18,19 +17,19 @@ export class List extends Component {
     }
 
 		return (
-      <Table
-        height={this.state.height}
+			<div
+				height={this.state.height}
         fixedHeader={true}
         fixedFooter={true}
         selectable={true}
         multiSelectable={false}
-      >
-        <TableBody
+      > {/* TableBody */}
+        <div
           displayRowCheckbox={false}
           deselectOnClickaway={true}
           showRowHover={false}
           stripedRows={false}
-        >
+        > {/* TableBody */}
           {[].concat(this.props.items).sort((a, b) => {
             return b.votes - a.votes;
           }).map((item) => {
@@ -42,15 +41,15 @@ export class List extends Component {
               />
             );
            })}
-        </TableBody>
-      </Table>
+        </div>
+      </div>
 		);
 	}
 }
 
 List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     // username: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     // votes: PropTypes.number.isRequired,

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
-import { expect } from 'chai';
 import { spy } from 'sinon';
 
 describe('App', () => {
