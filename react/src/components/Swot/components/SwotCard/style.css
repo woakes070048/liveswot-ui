@@ -5,3 +5,11 @@
 .input-fullwidth {
   width: 100%;
 }
+
+.swot-card {
+  width: 100%;
+  height: 370px;
+  background-color: white;
+  justify-content: flex-start;
+  overflow-y: auto;
+}

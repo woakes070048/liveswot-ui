@@ -14,8 +14,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(ClearNewItem(cardType));
       dispatch(AddItem(text, cardType));
     },
-    onChange: (e) => {
-      dispatch(UpdateNewItem(e.target.value, ownProps.cardType));
+    onChange: (text) => {
+      dispatch(UpdateNewItem(text, ownProps.cardType));
     }
   };
 };
