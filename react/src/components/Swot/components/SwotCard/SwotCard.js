@@ -10,11 +10,11 @@ const SwotCard = (props) => {
     <div>
       <form method="POST" onSubmit={ (e) => {
         e.preventDefault();
-        props.onSubmit(props.text, props.cardType); 
+        props.onSubmit(props.text, props.cardType);
       } }>
         <input
           type="text"
-          placeholder={ localizedText().body.swot.cardType[props.cardType] }
+          placeholder={ localizedText().swot.cardType[props.cardType] }
           className="input-fullwidth"
           value={ props.text }
           onChange={ props.onChange }

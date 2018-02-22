@@ -1,21 +1,14 @@
 
 const en = {
-  header: {
-    title: 'LiveSWOT'
+  title: 'LiveSWOT',
+  swot: {
+    cardType: {
+      strength: 'Strengths',
+      weakness: 'Weaknesses',
+      opportunity: 'Opportunities',
+      threat: 'Threats',
+    },
   },
-  body: {
-    swot: {
-      cardType: {
-        strength: 'Strengths',
-        weakness: 'Weaknesses',
-        opportunity: 'Opportunities',
-        threat: 'Threats',
-      },
-    }
-  },
-  footer: {
-
-  }
 };
 
 export default en;
