@@ -1,0 +1,11 @@
+@import 'globals';
+
+@include react-md-everything;
+
+html, body {
+	/*height: 100%; */
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+	background-color: #e6e6e6;
+}
