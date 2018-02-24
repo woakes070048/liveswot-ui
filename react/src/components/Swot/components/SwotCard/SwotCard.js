@@ -2,8 +2,9 @@ import React from 'react';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TextField/style.css';
 import { TextField, Card, CardTitle, CardText } from 'react-md';
-import { List, ListItem, FontIcon } from 'react-md';
+import { List, ListItem } from 'react-md';
 
+import VoteButton from '../VoteButton';
 import './style.css';
 import { localizedText } from '../../../../utils';
 
@@ -34,7 +35,10 @@ const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
                     key={ index }
                     primaryText={ item.text }
                     secondaryText={ `brownbear` }
-                    rightIcon={<FontIcon>arrow_drop_up</FontIcon> }
+                    rightIcon={[
+                      <VoteButton key={0} type='up'/>,
+                      <VoteButton key={1} type='down'/>,
+                    ]}
                   >
                   </ListItem>
                 ))
