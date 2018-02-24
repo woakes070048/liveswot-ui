@@ -1,49 +1,53 @@
 import React from 'react';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TextField/style.css';
+import { TextField, Card, CardTitle, CardText } from 'react-md';
+import { List, ListItem } from 'react-md';
 
+import VoteButton from '../VoteButton';
 import './style.css';
 import { localizedText } from '../../../../utils';
 
-const SwotCard = (props) => {
+const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
   return (
     <div>
       <form method="POST" onSubmit={ (e) => {
         e.preventDefault();
-        props.onSubmit(props.text, props.cardType); 
+        onSubmit(text, cardType);
       } }>
-        <input
-          type="text"
-          placeholder={ localizedText().body.swot.cardType[props.cardType] }
-          className="input-fullwidth"
-          value={ props.text }
-          onChange={ props.onChange }
-          />
-        <div className="mdc-line-ripple"></div>
+        <TextField
+          id="id-is-required"
+          onChange={ onChange }
+          value={ text }
+          label={ localizedText().swot.cardType[cardType] }
+          lineDirection="center"
+          placeholder={`Add ${localizedText().swot.cardType[cardType]}`}
+        />
       </form>
-      <div className="my-card mdc-card">
-        <div className="mdc-card__media--content">
-          <ul className="mdc-list mdc-list--two-line mdc-list--dense mdc-list--avatar-list swot-list">
-            {
-              props.items.map((item, index) => (
-                <li key={ index } className="mdc-list-item">
-                  <span className="mdc-list-item__text"> { item.text }
-                    <span className="mdc-list-item__secondary-text"> brownbear </span>
-                  </span>
-                  <a
-                    className="mdc-list-item__meta material-icons"
-                    href=""
-                    aria-label="Remove from favorites"
-                    title="Remove from favorites"
-                    onClick={ (e) => { e.preventDefault() } }>
-                    favorite
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
+      <Card className='swot-card'>
+        <CardText>
+          {
+            items.length > 0 &&
+            <List>
+              {
+                items.map((item, index) => (
+                  <ListItem
+                    key={ index }
+                    primaryText={ item.text }
+                    secondaryText={ `brownbear` }
+                    rightIcon={[
+                      <VoteButton key={0} type='up'/>,
+                      <VoteButton key={1} type='down'/>,
+                    ]}
+                  >
+                  </ListItem>
+                ))
+              }
+            </List>
+            || <CardTitle title={ localizedText().swot.cardType[cardType] } />
+          }
+        </CardText>
+      </Card>
     </div>
   );
 };
