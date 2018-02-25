@@ -4,8 +4,7 @@ import './index.css';
 import App from './components';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './reducers';
+import store from './store';
 import WebFontLoader from 'webfontloader';
 
 WebFontLoader.load({
@@ -13,8 +12,6 @@ WebFontLoader.load({
     families: ['Roboto:300,400,500,700', 'Material Icons'],
   },
 });
-
-const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={ store }>

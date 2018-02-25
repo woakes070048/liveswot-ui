@@ -1,9 +1,27 @@
-
-import { ADD_ITEM, VOTE_ITEM } from '../actions/actionTypes';
+import {
+  ADD_ITEM,
+  VOTE_ITEM,
+  FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR
+} from '../actions/actionTypes';
 
 const items = (state = [], action) => {
   let newState = state;
   switch (action.type) {
+
+    case FETCH_ITEMS:
+      break;
+    case FETCH_ITEMS_SUCCESS:
+      newState = action.response.data.map((d) => {
+        return {
+          id: d.id,
+          text: d.text,
+          cardType: d.boardtype,
+        };
+      });
+      break;
+    case FETCH_ITEMS_ERROR:
+      newState = [];
+      break;
 
     case ADD_ITEM:
       const { text, cardType } = action;
