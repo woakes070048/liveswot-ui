@@ -6,6 +6,10 @@ import Body from './Body';
 import Footer from './Footer';
 
 class App extends Component {
+  componentDidMount() {
+      this.props.onMountFetchItems();
+  }
+
   render() {
     return (
       <div>
@@ -15,6 +19,6 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;
