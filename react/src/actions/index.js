@@ -27,6 +27,6 @@ export const FetchItems = () => {
   return {
     type: CALL_API,
     types: [FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR],
-    endpoint: '/items',
+    endpoint: '/swot-item',
   };
 };

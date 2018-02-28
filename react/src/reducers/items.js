@@ -15,7 +15,7 @@ const items = (state = [], action) => {
         return {
           id: d.id,
           text: d.text,
-          cardType: d.boardtype,
+          cardType: d.cardType,
         };
       });
       break;
