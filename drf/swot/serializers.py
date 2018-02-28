@@ -1,13 +1,13 @@
 from rest_framework import serializers
-from swot.models import Item, UpVote
+from swot.models import SwotItem, Vote
 
 
-class ItemSerializer(serializers.ModelSerializer):
+class SwotItemSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Item
-		fields = ('id', 'boardtype', 'text')
+		model = SwotItem
+		fields = ('id', 'cardType', 'text')
 
-class UpVoteSerializer(serializers.ModelSerializer):
+class VoteSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = UpVote
-		fields = ('id', 'item')
+		model = Vote
+		fields = ('id', 'item', 'voteType')

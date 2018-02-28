@@ -18,24 +18,25 @@ from django.contrib import admin
 from swot import views
 from rest_framework.urlpatterns import format_suffix_patterns
 
+
+
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
 	url(
-        r'^api/items/$', 
-        views.ItemList.as_view(),
-        name='get_post_item',
+        r'^api/swot-item/$',
+        views.SwotItemList.as_view(),
+        name='get_post_delete_swot_item',
     ),
 	url(
-        r'^api/items/(?P<pk>[0-9]+)/$', 
-        views.ItemDetail.as_view(),
-        name='get_delete_update_item',
+        r'^api/swot-item/(?P<pk>[0-9]+)/$',
+        views.SwotItemDetail.as_view(),
+        name='delete_swot_item',
     ),
     url(
-        r'^api/items/(?P<pk>[0-9]+)/upvotes/$', 
-        views.UpVoteList.as_view(),
-        name='get_delete_upvote',
+        r'^api/swot-item/(?P<pk>[0-9]+)/vote/$',
+        views.VoteList.as_view(),
+        name='get_post_vote',
     ),
-    # url(r'^api/items/(?P<pk>[0-9]+)/upvotes/(?P<upvote__pk>[0-9]+)/$', views.UpVoteDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

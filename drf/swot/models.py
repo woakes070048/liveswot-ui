@@ -1,14 +1,15 @@
 from django.db import models
-from constants import BOARD_TYPES
+from constants import CARD_TYPES, VOTE_TYPES
 
-class Item(models.Model):
+class SwotItem(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
-	boardtype = models.CharField(choices=BOARD_TYPES, max_length=11)
+	cardType = models.CharField(choices=CARD_TYPES, max_length=11)
 	text = models.TextField()
 
 	class Meta:
 		ordering = ('created',)
 
-class UpVote(models.Model):
+class Vote(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
-	item = models.ForeignKey(Item, on_delete=models.CASCADE)
+	voteType = models.CharField(choices=VOTE_TYPES, max_length=4)
+	item = models.ForeignKey(SwotItem, on_delete=models.CASCADE)
