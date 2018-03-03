@@ -1,6 +1,6 @@
 
 CARD_TYPES = (
-	('strength', 'Strength'), ('weakness', 'Weakness'),
+  ('strength', 'Strength'), ('weakness', 'Weakness'),
 	('opportunity', 'Opportunity'), ('threat', 'Threat')
 )
 

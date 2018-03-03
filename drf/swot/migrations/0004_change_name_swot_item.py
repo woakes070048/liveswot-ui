@@ -8,25 +8,25 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('swot', '0003_auto_20170912_0321'),
-    ]
+  dependencies = [
+    ('swot', '0003_auto_20170912_0321'),
+  ]
 
-    operations = [
-        migrations.CreateModel(
-            name='UpVote',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True)),
-            ],
-        ),
-        migrations.RenameModel(
-            old_name='SwotItem',
-            new_name='Item',
-        ),
-        migrations.AddField(
-            model_name='upvote',
-            name='item',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='swot.Item'),
-        ),
-    ]
+  operations = [
+    migrations.CreateModel(
+      name='UpVote',
+      fields=[
+        ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+        ('created', models.DateTimeField(auto_now_add=True)),
+      ],
+    ),
+    migrations.RenameModel(
+      old_name='SwotItem',
+      new_name='Item',
+    ),
+    migrations.AddField(
+      model_name='upvote',
+      name='item',
+      field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='swot.Item'),
+    ),
+  ]

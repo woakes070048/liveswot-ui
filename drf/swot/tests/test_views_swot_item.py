@@ -93,12 +93,12 @@ class ItemDeletionTestCase(TestCase):
 	# 			content_type='application/json'
 	# 		).json())
 	# 	)
-    #
+  #
 	# 	client.delete(
 	# 		reverse('get_post_delete_swot_item', args=[1]),
 	# 		content_type='application/json',
 	# 	)
-    #
+  #
 	# 	self.assertEqual(
 	# 		status.HTTP_404_NOT_FOUND,
 	# 		client.get(

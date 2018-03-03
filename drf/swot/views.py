@@ -7,8 +7,8 @@ from swot.serializers import SwotItemSerializer, VoteSerializer
 from django.http import HttpResponseNotFound, HttpResponseBadRequest
 
 class SwotItemList(mixins.ListModelMixin,
-	                  mixins.CreateModelMixin,
-	                  generics.GenericAPIView):
+	          mixins.CreateModelMixin,
+	          generics.GenericAPIView):
 	"""
 	Request types: GET, POST
 	List all items, or create a new item.
