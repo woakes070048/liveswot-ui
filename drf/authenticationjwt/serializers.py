@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 import re
-from validate_email import validate_email
 
 from .models import User
 

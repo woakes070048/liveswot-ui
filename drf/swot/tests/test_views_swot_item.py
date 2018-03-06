@@ -1,35 +1,51 @@
 import json
 from swot.serializers import SwotItemSerializer
 from swot.models import SwotItem
-from django.test import TestCase, Client
+from django.test import TestCase
 from rest_framework import status
+from rest_framework.test import APIClient
 from django.urls import reverse
 
-client = Client()
+client = APIClient()
 
 class SimpleItemTestCase(TestCase):
-	fixtures = ['items.json']
-	def setUp(self):
-		self.valid_strength = {
-			'cardType': 'strength',
-			'text': 'Strength item #1',
-		}
-		self.valid_strength2 = {
-			'cardType': 'strength',
-			'text': 'Strength item #2',
-		}
-		self.valid_weakness = {
-			'cardType': 'weakness',
-			'text': 'Weakness item #1',
-		}
-		self.invalid_item_wrong_cardtype = {
-			'cardType': 'something',
-			'text': 'Invalid item #1',
-		}
-		self.invalid_item2_empty_text = {
-			'cardType': 'strength',
-			'text': '',
-		}
+    fixtures = ['items.json']
+
+    def setUp(self):
+        self.valid_strength = {
+        	'cardType': 'strength',
+        	'text': 'Strength item #1',
+        }
+        self.valid_strength2 = {
+        	'cardType': 'strength',
+        	'text': 'Strength item #2',
+        }
+        self.valid_weakness = {
+        	'cardType': 'weakness',
+        	'text': 'Weakness item #1',
+        }
+        self.invalid_item_wrong_cardtype = {
+        	'cardType': 'something',
+        	'text': 'Invalid item #1',
+        }
+        self.invalid_item2_empty_text = {
+        	'cardType': 'strength',
+        	'text': '',
+        }
+
+        auth_data = {'user':
+            {'email': 'imran.ariffin@liveswot.com', 'password': 'katakunci'}
+        }
+        gettoken_response = client.post(
+            reverse('authenticationjwt:login'),
+            content_type="application/json",
+            data=json.dumps(auth_data))
+
+        client.credentials(
+            HTTP_AUTHORIZATION='Bearer ' + gettoken_response.data['token']
+        )
+
+        self.token = gettoken_response.data['token']
 
 	def test_get_all_items(self):
 		response = client.get(reverse('get_post_delete_swot_item'), kwargs={})

@@ -41,10 +41,10 @@ class LoginAPIViewTestCase(TestCase):
             })
         )
 
-        self.assertEqual(
-            { "non_field_errors": [
-                "There is no such user with the email and password"
-            ]},
+        self.assertEqual({
+            "errors": {
+                "error": ["There is no such user with the email and password"],
+            }},
             response.data,
         )
 
@@ -77,10 +77,10 @@ class LoginAPIViewTestCase(TestCase):
             })
         )
 
-        self.assertEqual(
-            {'non_field_errors': [
-                'There is no such user with the email and password'
-            ]},
+        self.assertEqual({
+            'errors': {
+                'error': ['There is no such user with the email and password'],
+            }},
             response.data
         )
 
