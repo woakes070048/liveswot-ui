@@ -5,7 +5,6 @@ import { TextField, Card, CardTitle, CardText } from 'react-md';
 import { List, ListItem } from 'react-md';
 
 import VoteButton from '../VoteButton';
-import './style.css';
 import { localizedText } from '../../../../utils';
 
 const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {

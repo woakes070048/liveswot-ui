@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { AddItem, VoteItem, FetchItems } from '../actions';
+import { AddItem, VoteItem, FetchItems } from '../../actions';
 
 const filterByCardType = (cardType) => {
   return (item, index) => item.cardType === cardType;

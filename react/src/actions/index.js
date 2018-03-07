@@ -5,6 +5,7 @@ import {
   CLEAR_NEW_ITEM,
   CALL_API,
   FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR,
+  LOGIN, LOGIN_SUCCESS, LOGIN_ERROR,
 } from './actionTypes';
 
 export const AddItem = (text, cardType) => {
@@ -28,5 +29,15 @@ export const FetchItems = () => {
   type: CALL_API,
   types: [FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR],
   endpoint: '/swot-item',
+  };
+};
+
+export const Login = ({ email, password } = {email: '', password: ''}) => {
+  return {
+    type: CALL_API,
+    method: 'POST',
+    data: { email, password },
+    types: [LOGIN, LOGIN_SUCCESS, LOGIN_ERROR],
+    endpoint: '/auth/login',
   };
 };

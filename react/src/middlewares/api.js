@@ -6,7 +6,7 @@ const api = (store) => (next) => (action) => {
     return next(action);
   }
 
-  const { types, endpoint } = action;
+  const { types, method, endpoint, data = {} } = action;
 
   if (!Array.isArray(types) || types.length !== 3) {
     throw new Error('INVALID API ACTION TYPES: ' +
@@ -26,9 +26,14 @@ const api = (store) => (next) => (action) => {
     return normalAction;
   };
 
+  const config = {
+    headers: { Authorization: 'Bearer ' + store.getState('auth') },
+    method,
+  };
+
   next(convertIntoNormalAction({ type: requestActionType }));
 
-  return apiClient(endpoint).then(response => {
+  return apiClient(endpoint, config).then(response => {
     next(convertIntoNormalAction({
       type: successActionType,
       response,
