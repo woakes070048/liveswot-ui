@@ -25,8 +25,8 @@ export const ClearNewItem = (cardType) => {
 
 export const FetchItems = () => {
   return {
-    type: CALL_API,
-    types: [FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR],
-    endpoint: '/swot-item',
+  type: CALL_API,
+  types: [FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR],
+  endpoint: '/swot-item',
   };
 };

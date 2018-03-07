@@ -1,15 +1,30 @@
 import json
-from django.test import TestCase, Client
+from django.test import TestCase
+from rest_framework.test import APIClient
 from rest_framework import status
 from django.urls import reverse
 
-client = Client()
+client = APIClient()
 
 class SimpleVoteTestCase(TestCase):
-	fixtures = [ 'items.json' ]
+	fixtures = [ 'items.json', 'users.json', ]
 
 	def setUp(self):
 		self.vote_up = { 'voteType': 'up', }
+
+		auth_data = {'user':
+			{'email': 'imran.ariffin@liveswot.com', 'password': 'katakunci'}
+		}
+		gettoken_response = client.post(
+			reverse('authenticationjwt:login'),
+			content_type="application/json",
+			data=json.dumps(auth_data))
+
+		client.credentials(
+			HTTP_AUTHORIZATION='Bearer ' + gettoken_response.data['token']
+		)
+
+		self.token = gettoken_response.data['token']
 
 	def test_vote_non_existing_item_should_repond_404(self):
 		response = client.post(
@@ -60,11 +75,28 @@ class SimpleVoteTestCase(TestCase):
 		self.assertEqual(1, len(response.json()))
 
 class MultipleVotesTestCase(TestCase):
-	fixtures = [ 'items.json' ]
+	fixtures = [ 'items.json', 'users.json',]
 
 	def setUp(self):
 		self.vote_up = { 'voteType': 'up', }
 		self.vote_down = { 'voteType': 'down', }
+
+		auth_data = {
+			'user':{
+				'email': 'imran.ariffin@liveswot.com', 'password': 'katakunci'
+			}
+		}
+
+		gettoken_response = client.post(
+			reverse('authenticationjwt:login'),
+			content_type="application/json",
+			data=json.dumps(auth_data))
+
+		client.credentials(
+			HTTP_AUTHORIZATION='Bearer ' + gettoken_response.data['token']
+		)
+
+		self.token = gettoken_response.data['token']
 
 	def test_vote_up_twice_should_neutralize(self):
 		item_id = 1

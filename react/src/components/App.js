@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 class App extends Component {
   componentDidMount() {
-      this.props.onMountFetchItems();
+    this.props.onMountFetchItems();
   }
 
   render() {

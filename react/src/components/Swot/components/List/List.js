@@ -7,7 +7,7 @@ export class List extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-    	height: '300px',
+      height: '300px',
   	};
 	}
 
