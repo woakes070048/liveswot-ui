@@ -9,4 +9,8 @@ const axiosInstance = axios.create({
   headers: {},
 });
 
+// const apiClient = (config) => {
+//   return axiosInstance;
+// }
+
 export default axiosInstance;

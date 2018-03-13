@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import 'preact-material-components/Toolbar/style.css';
 import 'preact-material-components/Icon/style.css';
-import { Toolbar, Button } from 'react-md';
+import {Toolbar, Button, Avatar} from 'react-md';
 
 import { localizedText } from '../../utils';
 
-export default class Header extends Component {
-	render() {
-		return (
-			<Toolbar
-				nav={<Button icon>menu</Button>}
-				colored
-				title={ localizedText().title }
-			>
-			</Toolbar>
-		);
-	}
-}
+const Header = ({ logout, username, email, profileImg }) => {
+	return (
+		<Toolbar
+			nav={<Button icon>menu</Button>}
+			colored
+			title={ localizedText().title }
+			actions={[
+			  <Button raised secondary onClick={logout}>Log out</Button>,
+        <Avatar src={profileImg}></Avatar>
+      ]}
+		>
+		</Toolbar>
+	);
+};
+
+export default Header;

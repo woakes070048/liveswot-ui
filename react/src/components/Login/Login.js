@@ -5,7 +5,7 @@ class Login extends React.Component {
     return (
       <form onSubmit={ (event) => {
         event.preventDefault();
-        this.props.login(this.refs.email, this.refs.password);
+        this.props.login(this.refs.email.value, this.refs.password.value);
       }} >
         <input type='email' ref='email' />
         <input type='password' ref='password'/>

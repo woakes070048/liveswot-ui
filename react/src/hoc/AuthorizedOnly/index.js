@@ -1,8 +1,8 @@
 import Login from '../../components/Login';
+import authUtils from "../../utils/auth";
 
 const AuthorizedOnly = () => (component) => {
-  const localStorage = window.localStorage;
-  if (localStorage.getItem('auth')) {
+  if (authUtils.getToken()) {
     return component;
   }
   const errorMsg = 'Error: Authorization required';

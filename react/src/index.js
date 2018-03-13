@@ -8,6 +8,7 @@ import { ConnectedRouter, push } from 'react-router-redux';
 import './index.css';
 import App from './components/App';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 import { history } from './middlewares/history';
@@ -25,6 +26,7 @@ ReactDOM.render(
       <div>
         <Route exact path="/" component={ AuthorizedOnly()(App) } />
         <Route path="/login" component={ Login } />
+        <Route path="/signup" component={ Signup } />
       </div>
     </ConnectedRouter>
   </Provider>,
