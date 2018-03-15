@@ -18,8 +18,6 @@ export default class ListItem extends Component {
 	}
 
 	render() {
-		console.log('at ListItem, props:');
-    console.log(this.props);
 		return (
 			<div> {/* TableRow */}
 				<div> {/* TableRowColumn */}

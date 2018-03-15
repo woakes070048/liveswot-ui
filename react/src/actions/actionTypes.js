@@ -20,3 +20,5 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const LOGOUT = 'LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_ERROR = 'LOGOUT_ERROR';
+
+export const LOAD_TOKEN = 'LOAD_TOKEN';

@@ -3,13 +3,13 @@ import { routerReducer } from 'react-router-redux';
 
 import items from './items';
 import newItem from './newItem';
-import auth from './token';
+import token from './token';
 import user from './user';
 
 export default combineReducers({
   items,
   newItem,
-  auth,
+  token,
   user,
   router: routerReducer,
 });

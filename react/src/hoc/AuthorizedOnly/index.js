@@ -1,12 +1,13 @@
 import Login from '../../components/Login';
 import authUtils from "../../utils/auth";
 
-const AuthorizedOnly = () => (component) => {
-  if (authUtils.getToken()) {
+const AuthorizedOnly = (store) => (component) => {
+  const { token } = store.getState();
+  if (!!token) {
     return component;
   }
   const errorMsg = 'Error: Authorization required';
-  console.log(errorMsg);
+  console.error(errorMsg);
   return Login;
 }
 

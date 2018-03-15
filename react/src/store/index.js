@@ -5,13 +5,15 @@ import { routerMiddleware } from 'react-router-redux';
 import reducers from '../reducers';
 import api from '../middlewares/api/api';
 import { history } from '../middlewares/history/history';
-import refreshAuth from '../middlewares/refreshAuth/refreshAuth';
+import loadToken from '../middlewares/loadToken/loadToken';
+import dumpToken from "../middlewares/dumpToken/dumpToken";
 
 const middlewares = [ thunk ];
 
+middlewares.push(loadToken);
 middlewares.push(api);
 middlewares.push(routerMiddleware(history));
-middlewares.push(refreshAuth);
+middlewares.push(dumpToken);
 
 const store = createStore(
   reducers,

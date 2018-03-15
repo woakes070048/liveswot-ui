@@ -11,7 +11,7 @@ const items = (state = [], action) => {
     case FETCH_ITEMS:
       break;
     case FETCH_ITEMS_SUCCESS:
-      newState = action.response.data.map((d) => {
+      newState = action.data.map((d) => {
         return {
           id: d.id,
           text: d.text,

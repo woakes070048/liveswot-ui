@@ -24,7 +24,7 @@ ReactDOM.render(
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
       <div>
-        <Route exact path="/" component={ AuthorizedOnly()(App) } />
+        <Route exact path="/" component={ AuthorizedOnly(store)(App) } />
         <Route path="/login" component={ Login } />
         <Route path="/signup" component={ Signup } />
       </div>

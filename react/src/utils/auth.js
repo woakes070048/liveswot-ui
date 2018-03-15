@@ -2,7 +2,11 @@ export const AUTH_TOKEN = 'token';
 const storage = window.localStorage;
 
 export const getToken = () => {
-  return storage.getItem(AUTH_TOKEN) || '';
+  const token = storage.getItem(AUTH_TOKEN);
+  if (token === 'undefined') {
+    return null;
+  }
+  return token;
 };
 
 export const saveToken = (token) => {
