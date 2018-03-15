@@ -11,7 +11,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
-import { history } from './middlewares/history';
+import { history } from './middlewares/history/history';
 import AuthorizedOnly from './hoc/AuthorizedOnly';
 
 WebFontLoader.load({

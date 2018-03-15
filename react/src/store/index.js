@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
 
 import reducers from '../reducers';
-import api from '../middlewares/api';
-import { history } from '../middlewares/history';
-import refreshAuth from '../middlewares/refreshAuth';
+import api from '../middlewares/api/api';
+import { history } from '../middlewares/history/history';
+import refreshAuth from '../middlewares/refreshAuth/refreshAuth';
 
 const middlewares = [ thunk ];
 

@@ -1,7 +1,6 @@
-import apiClient from '../utils/apiClient';
-import { CALL_API } from '../actions/actionTypes';
-import {AUTH_TOKEN} from "../utils/auth";
-import authUtils from "../utils/auth";
+import apiClient from './apiClient';
+import { CALL_API } from '../../actions/actionTypes';
+import authUtils from "../../utils/auth";
 
 const api = (store) => (next) => (action) => {
   if (action.type !== CALL_API) {
@@ -28,21 +27,11 @@ const api = (store) => (next) => (action) => {
     return normalAction;
   };
 
-  const token = authUtils.getToken();
-  console.log('token::');
-  console.log(token);
-
-  const config = {
-    headers: { Authorization: 'Bearer ' +  token},
-    method: method || 'GET',
-    data,
-  };
-
-  console.log(config);
+  const config = { data, method };
 
   next(convertIntoNormalAction({ type: requestActionType }));
 
-  return apiClient(endpoint, config).then(response => {
+  return apiClient.request(endpoint, config).then(response => {
     next(convertIntoNormalAction({
       type: successActionType,
       response,
