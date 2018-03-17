@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { spy } from 'sinon';
 
 describe('App', () => {
-	let app = shallow(<App />);
+  const props = { onMountFetchItems: spy() };
+	let app = shallow(<App { ...props } />);
 	beforeEach(() => {});
 
 	it('should have votes as its state', () => {});
