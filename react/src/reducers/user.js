@@ -6,6 +6,8 @@ const user = (state = { username: '', email: ''}, action) => {
       const { username, email } = action;
       state = { username, email };
       break;
+    default:
+      break;
   }
   return state;
 };

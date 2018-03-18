@@ -1,6 +1,5 @@
 import apiClient from './apiClient';
 import { CALL_API } from '../../actions/actionTypes';
-import authUtils from "../../utils/auth";
 
 const api = (store) => (next) => (action) => {
   if (action.type !== CALL_API) {
@@ -23,20 +22,25 @@ const api = (store) => (next) => (action) => {
 
   const convertIntoNormalAction = data => {
     const normalAction = Object.assign({}, action, data);
-    delete normalAction[CALL_API];
+    delete normalAction.types;
     return normalAction;
   };
 
   const config = { data, method };
 
+  console.log('api middleware');
+  console.log(convertIntoNormalAction({ type: requestActionType}));
+
   next(convertIntoNormalAction({ type: requestActionType }));
 
   return apiClient.request(endpoint, config).then(response => {
+    console.log(response);
     next(convertIntoNormalAction({
       type: successActionType,
       data: { ...response.data },
     }));
   }).catch(error => {
+    console.error(error);
     next(convertIntoNormalAction({
       type: errorActionType,
       error: error.message,

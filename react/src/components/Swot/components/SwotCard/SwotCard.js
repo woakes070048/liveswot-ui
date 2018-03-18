@@ -26,7 +26,7 @@ const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
       <Card className='swot-card'>
         <CardText>
           {
-            items.length > 0 &&
+            (items.length > 0 &&
             <List>
               {
                 items.map((item, index) => (
@@ -42,7 +42,7 @@ const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
                   </ListItem>
                 ))
               }
-            </List>
+            </List>)
             || <CardTitle title={ localizedText().swot.cardType[cardType] } />
           }
         </CardText>

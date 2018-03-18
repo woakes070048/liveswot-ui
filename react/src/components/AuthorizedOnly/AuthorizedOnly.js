@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthorizedOnlyErrorView = () => {
+const AuthorizedOnly = () => {
   return (
     <p>
       Error: Authorized only
@@ -8,4 +8,4 @@ const AuthorizedOnlyErrorView = () => {
   );
 }
 
-export default AuthorizedOnlyErrorView;
+export default AuthorizedOnly;

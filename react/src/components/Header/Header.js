@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'preact-material-components/Toolbar/style.css';
 import 'preact-material-components/Icon/style.css';
 import {Toolbar, Button, Avatar} from 'react-md';

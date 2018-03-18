@@ -1,23 +1,27 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore as _createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { routerMiddleware } from 'react-router-redux';
 
 import reducers from '../reducers';
-import api from '../middlewares/api/api';
-import { history } from '../middlewares/history/history';
-import loadToken from '../middlewares/loadToken/loadToken';
-import dumpToken from "../middlewares/dumpToken/dumpToken";
+import api from '../middlewares/api';
+import history from '../middlewares/history';
+import authorize from '../middlewares/authorize';
+import authenticate from '../middlewares/authenticate';
+import initApp from '../middlewares/initApp';
 
-const middlewares = [ thunk ];
+const createStore = (reducers, middlewares) => {
+  return _createStore(
+    reducers,
+    applyMiddleware(...middlewares)
+  );
+};
 
-middlewares.push(loadToken);
-middlewares.push(api);
-middlewares.push(routerMiddleware(history));
-middlewares.push(dumpToken);
+const middlewares = [
+  thunk,
+  initApp,
+  api,
+  // authorize,
+  authenticate,
+  history,
+];
 
-const store = createStore(
-  reducers,
-  applyMiddleware(...middlewares)
-);
-
-export default store;
+export default createStore(reducers, middlewares);

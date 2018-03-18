@@ -6,8 +6,12 @@ import {
   CALL_API,
   FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR,
   LOGIN, LOGIN_SUCCESS, LOGIN_ERROR,
-  SIGNUP, SIGNUP_SUCCESS, SIGNUP_ERROR, LOGOUT, LOGOUT_SUCCESS, LOGOUT_ERROR, LOAD_TOKEN
+  SIGNUP, SIGNUP_SUCCESS, SIGNUP_ERROR, LOGOUT, LOGOUT_SUCCESS, LOGOUT_ERROR, LOAD_TOKEN, INIT_APP
 } from './actionTypes';
+
+export const InitApp = () => {
+  return { type: INIT_APP };
+};
 
 export const AddItem = (text, cardType) => {
   return { type: ADD_ITEM, text, cardType };

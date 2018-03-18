@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 
 import {Logout, LogoutSuccess} from "../../actions";
-import {authUtils} from "../../utils";
 
 const mapStateToProps = (state) => {
   const { username, email } = state;
@@ -14,8 +12,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     logout() {
       dispatch(Logout());
-      authUtils.removeToken();
-      dispatch(push('/login'));
       dispatch(LogoutSuccess());
     }
   };

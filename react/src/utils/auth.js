@@ -3,7 +3,7 @@ const storage = window.localStorage;
 
 export const getToken = () => {
   const token = storage.getItem(AUTH_TOKEN);
-  if (token === 'undefined') {
+  if (typeof token === 'undefined' || token === 'null') {
     return null;
   }
   return token;
