@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 
 import reducers from '../reducers';
 import api from '../middlewares/api';
+import log from '../middlewares/log';
 import history from '../middlewares/history';
 // import authorize from '../middlewares/authorize';
 import authenticate from '../middlewares/authenticate';
@@ -22,6 +23,7 @@ const middlewares = [
   // authorize,
   authenticate,
   history,
+  log,
 ];
 
 export default createStore(reducers, middlewares);
