@@ -1,7 +1,7 @@
 import {
   ADD_ITEM,
   VOTE_ITEM,
-  FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR
+  FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR, ADD_ITEM_SUCCESS
 } from '../actions/actionTypes';
 
 const items = (state = [], action) => {
@@ -23,10 +23,11 @@ const items = (state = [], action) => {
       newState = [];
       break;
 
-    case ADD_ITEM:
-      const { text, cardType } = action;
-      const newId = state.length;
-      newState = [ ...state, { id: newId, text, cardType, vote: 0 } ];
+    case ADD_ITEM_SUCCESS:
+      console.log('reducers.items.ADD_ITEM_SUCCESS');
+      console.log('action:');
+      console.log(action);
+      newState = [ ...state, action.data ];
       break;
 
     case VOTE_ITEM:
