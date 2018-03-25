@@ -28,16 +28,14 @@ const api = (store) => (next) => (action) => {
 
   const config = { data, method };
 
-  console.log('api middleware');
-  console.log(convertIntoNormalAction({ type: requestActionType}));
-
   next(convertIntoNormalAction({ type: requestActionType }));
 
-  return apiClient.request(endpoint, config).then(response => {
-    console.log(response);
+  return apiClient(endpoint, config).then(responseJson => {
     next(convertIntoNormalAction({
       type: successActionType,
-      data: { ...response.data },
+      data: Array.isArray(responseJson)
+        ? [ ...responseJson ]
+        : { ...responseJson }
     }));
   }).catch(error => {
     console.error(error);

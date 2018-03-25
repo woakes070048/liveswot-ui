@@ -1,34 +1,34 @@
-import axios from 'axios';
-
-import { host } from '../../config/environment';
+import { host as baseUrl} from '../../config/environment';
 import authUtils from "../../utils/auth";
 
 
-const axiosInstance = axios.create({
-  baseURL: host,
+const defaultConfig = {
   timeout: 5000,
-  headers: {},
-});
-
-const apiClient = () => {
-
-  return {
-    request: (endpoint, {
-      method = 'GET',
-      headers = {
-        'Authorization': '',
-        'Content-Type': 'application/json',
-      },
-      data = {},
-    }) => {
-      const config = { url: endpoint, method, headers, data };
-
-      const token = authUtils.getToken();
-      config.headers['Authorization'] = token ? `Bearer ${token}` : 'Bearer';
-
-      return axiosInstance.request(config);
-    }
-  };
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 };
 
-export default apiClient();
+const apiClient = (endpoint, config) => {
+
+  const url = `${baseUrl}${endpoint}`;
+  config = Object.assign(defaultConfig, config);
+
+  const token = authUtils.getToken();
+  if (token) {
+   config.headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  if (config) {
+    config.body = JSON.stringify(config.data);
+    delete config.data;
+  }
+
+  return fetch(url, config)
+    .then(response => {
+      return response.json();
+    });
+};
+
+export default apiClient;

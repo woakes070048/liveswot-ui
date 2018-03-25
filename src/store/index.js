@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import reducers from '../reducers';
 import api from '../middlewares/api';
 import history from '../middlewares/history';
-import authorize from '../middlewares/authorize';
+// import authorize from '../middlewares/authorize';
 import authenticate from '../middlewares/authenticate';
 import initApp from '../middlewares/initApp';
 
