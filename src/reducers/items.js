@@ -1,16 +1,16 @@
 import {
   ADD_ITEM,
   VOTE_ITEM,
-  FETCH_ITEMS, FETCH_ITEMS_SUCCESS, FETCH_ITEMS_ERROR, ADD_ITEM_SUCCESS
+  FETCH_SWOT_ITEMS, FETCH_SWOT_ITEMS_SUCCESS, FETCH_SWOT_ITEMS_ERROR, ADD_ITEM_SUCCESS
 } from '../actions/actionTypes';
 
 const items = (state = [], action) => {
   let newState = state;
   switch (action.type) {
 
-    case FETCH_ITEMS:
+    case FETCH_SWOT_ITEMS:
       break;
-    case FETCH_ITEMS_SUCCESS:
+    case FETCH_SWOT_ITEMS_SUCCESS:
       newState = action.data.map((d) => {
         return {
           id: d.id,
@@ -19,7 +19,7 @@ const items = (state = [], action) => {
         };
       });
       break;
-    case FETCH_ITEMS_ERROR:
+    case FETCH_SWOT_ITEMS_ERROR:
       newState = [];
       break;
 
