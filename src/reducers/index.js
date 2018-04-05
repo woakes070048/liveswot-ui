@@ -1,15 +1,19 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import items from './items';
+import swots from './swots';
+import swotItems from './swotItems';
+import votes from './votes';
 import newItem from './newItem';
 import token from './token';
-import user from './user';
+import user from './user/index';
 
 export default combineReducers({
-  items,
+  swots,
+  swotItems,
+  votes,
+  user,
   newItem,
   token,
-  user,
   router: routerReducer,
 });

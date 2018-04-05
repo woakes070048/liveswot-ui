@@ -1,18 +1,21 @@
 import { connect } from 'react-redux';
-import { AddItem, UpdateNewItem, ClearNewItem } from '../../../../actions';
+import { CreateSwotItem, UpdateNewItem, ClearNewItem } from '../../../../actions';
 
 const mapStateToProps = (state, ownProps) => {
   const { cardType } = ownProps;
+  const swotItems = Object.keys(state.swotItems.byId).map((swotItemId) => {
+    return { ...state.swotItems.byId[swotItemId] };
+  });
   return {
     text: state.newItem[cardType],
-    items: state.items.filter((item) => item.cardType === cardType),
+    items: swotItems.filter((item) => item.cardType === cardType),
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onSubmit: (text, cardType) => {
+    onSubmit: (swotId, text, cardType) => {
       dispatch(ClearNewItem(cardType));
-      dispatch(AddItem(text, cardType));
+      dispatch(CreateSwotItem(swotId, text, cardType));
     },
     onChange: (text) => {
       dispatch(UpdateNewItem(text, ownProps.cardType));

@@ -1,13 +1,17 @@
-import Login from "../components/Login";
-import Signup from "../components/Signup";
-import App from "../components/App";
-import AuthorizedOnlyHOC from "../components/AuthorizedOnly/AuthorizedOnlyHOC";
+import Login from '../components/Login';
+import Signup from '../components/Signup';
+import App from '../components/App';
+import AuthorizedOnlyHOC from '../components/AuthorizedOnly/AuthorizedOnlyHOC';
 import store from '../store';
+import Swot from '../components/Swot';
 
 export const withAuthorization = [{
   path: '/',
   component: AuthorizedOnlyHOC(store)(App),
   exact: true,
+}, {
+  path: '/swots',
+  component: AuthorizedOnlyHOC(store)(Swot),
 }];
 
 export const withoutAuthorization = [{

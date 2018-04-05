@@ -1,6 +1,12 @@
 import apiClient from './apiClient';
 import { CALL_API } from '../../actions/actionTypes';
 
+const convertIntoNormalAction = (action, data) => {
+  const normalAction = Object.assign({}, action, data);
+  delete normalAction.types;
+  return normalAction;
+};
+
 const api = (store) => (next) => (action) => {
   if (action.type !== CALL_API) {
     return next(action);
@@ -20,30 +26,22 @@ const api = (store) => (next) => (action) => {
 
   const [ requestActionType, successActionType, errorActionType ] = types;
 
-  const convertIntoNormalAction = data => {
-    const normalAction = Object.assign({}, action, data);
-    delete normalAction.types;
-    return normalAction;
-  };
-
   const config = { data, method };
 
-  next(convertIntoNormalAction({ type: requestActionType }));
+  next(convertIntoNormalAction(action, { type: requestActionType }));
 
-  return apiClient(endpoint, config).then(responseJson => {
-    next(convertIntoNormalAction({
-      type: successActionType,
-      data: Array.isArray(responseJson)
-        ? [ ...responseJson ]
-        : { ...responseJson }
-    }));
-  }).catch(error => {
-    console.log('api.error');
-    console.error(error);
-    next(convertIntoNormalAction({
-      type: errorActionType,
-      error: error.message,
-    }));
+  return apiClient(endpoint, config)
+    .then(response => {
+      next(convertIntoNormalAction(action, {
+        type: successActionType,
+        data: response.data,
+      }));
+    })
+    .catch(response => {
+      next(convertIntoNormalAction(action, {
+        type: errorActionType,
+        errors: response.data.errors,
+      }));
   });
 };
 
