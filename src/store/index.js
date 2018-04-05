@@ -5,8 +5,6 @@ import reducers from '../reducers';
 import api from '../middlewares/api';
 import log from '../middlewares/log';
 import history from '../middlewares/history';
-// import authorize from '../middlewares/authorize';
-import authenticate from '../middlewares/authenticate';
 import initApp from '../middlewares/initApp';
 
 const createStore = (reducers, middlewares) => {
@@ -20,8 +18,6 @@ const middlewares = [
   thunk,
   initApp,
   api,
-  // authorize,
-  authenticate,
   history,
   log,
 ];

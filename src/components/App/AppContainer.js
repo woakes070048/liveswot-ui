@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
-import { AddItem, VoteItem, FetchItems } from '../../actions';
+import { CreateSwotItem, Vote, FetchSwotItems } from '../../actions';
 
 const filterByCardType = (cardType) => {
   return (item, index) => item.cardType === cardType;
 };
 
-const mapStateToProps = (state = {
-  items: [ { id: '0', text: 'Halo', CardType: 'strength' } ]
+const mapStateToProps = ({
+  items = [ { id: '0', text: 'Halo', CardType: 'strength' } ]
 }) => {
-  const { items } = state;
   return {
     strengths: [ ...items ].filter(filterByCardType('strength')),
     weaknesses: [ ...items ].filter(filterByCardType('weakness')),
@@ -19,9 +18,9 @@ const mapStateToProps = (state = {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onMountFetchItems: () => { dispatch(FetchItems()); },
-    onAddItem: () => { dispatch(AddItem()); },
-    onVoteItem: () => { dispatch(VoteItem()); },
+    onMountFetchItems: () => { dispatch(FetchSwotItems()); },
+    onAddItem: () => { dispatch(CreateSwotItem()); },
+    onVoteItem: () => { dispatch(Vote()); },
   };
 }
 

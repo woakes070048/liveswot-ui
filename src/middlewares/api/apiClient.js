@@ -10,7 +10,24 @@ const defaultConfig = {
   },
 };
 
-const apiClient = (endpoint, config) => {
+const handleSuccessAndError = (response) => {
+  return new Promise((resolve, reject) => {
+    response.json().then((data) => {
+      const jsonResponse = {
+        ok: response.ok,
+        status: response.status,
+        statusText: response.statusText,
+        data
+      };
+      if (response.status >= 400) {
+        return reject(jsonResponse);
+      }
+      return resolve(jsonResponse);
+    });
+  });
+};
+
+export default (endpoint, config) => {
 
   const url = `${baseUrl}${endpoint}`;
   config = Object.assign(defaultConfig, config);
@@ -26,9 +43,5 @@ const apiClient = (endpoint, config) => {
   }
 
   return fetch(url, config)
-    .then(response => {
-      return response.json();
-    });
+    .then(handleSuccessAndError);
 };
-
-export default apiClient;
