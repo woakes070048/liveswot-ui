@@ -4,8 +4,8 @@ import 'preact-material-components/LayoutGrid/style.css';
 import 'preact-material-components/Icon/style.css';
 import 'preact-material-components/Button/style.css';
 
-import './style.css';
-import SwotCard from './components/SwotCard';
+import SwotCard from '../../components/SwotCard';
+
 
 export default class Swot extends Component {
 	render() {

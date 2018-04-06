@@ -1,6 +1,6 @@
 import { replace } from 'react-router-redux';
 
-import Login from '../Login/index';
+import Login from '../../routes/login/index';
 
 const AuthorizedOnlyHOC = (store) => (component) => {
   const { token } = store.getState();

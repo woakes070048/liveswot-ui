@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import { spy } from 'sinon';
 import List from './List';
-import Item from '../../../../objects/Item';
+import Item from '../../objects/Item';
 
 describe('List', () => {
 	let wrapper;

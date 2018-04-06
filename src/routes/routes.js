@@ -1,32 +1,76 @@
-import Login from '../components/Login';
-import Signup from '../components/Signup';
-import App from '../components/App';
-import AuthorizedOnlyHOC from '../components/AuthorizedOnly/AuthorizedOnlyHOC';
-import store from '../store';
-import Swot from '../components/Swot';
+import { connect } from 'react-redux';
+import React from 'react';
+import { Route } from 'react-router';
 
-export const withAuthorization = [{
+import Login from './login';
+import Signup from './signup';
+import Home from './home';
+import Swot from './swot';
+import ProtectedRoute from "./ProtectedRoute";
+import Body from "../components/Body/Body";
+
+
+const protectedPaths = [{
   path: '/',
-  component: AuthorizedOnlyHOC(store)(App),
+  component: Home,
   exact: true,
 }, {
-  path: '/swots',
-  component: AuthorizedOnlyHOC(store)(Swot),
+  path: `/swots/:swotId([0-9]+)/`,
+  component: Swot,
+  exact: true,
 }];
 
-export const withoutAuthorization = [{
-  path: '/login',
+const unprotectedPaths = [{
+  path: '/login/',
   component: Login,
+  exact: true,
 }, {
-  path: '/signup',
+  path: '/signup/',
   component: Signup,
+  exact: true,
 }];
 
+const errorPaths = [{
+  path: '',
+  component: connect((state) => (state))((props) => (
+    <div>404</div>
+  ))
+}];
 
+const mapProtectedPaths = (protectedPath) => ({
+  ...protectedPath,
+  isProtected: true,
+});
+
+export const mapPathsToRoutes = (_path, i) => {
+
+  const {
+    component,
+    path,
+    exact = false,
+    isProtected = false
+  } = _path;
+
+  return isProtected
+    ? (
+      <ProtectedRoute
+        key={i}
+        path={path}
+        component={Body(component)}
+        exact={exact}
+      />
+    ) : (
+      <Route
+        key={i}
+        path={path}
+        component={Body(component)}
+        exact={exact}
+      />
+    );
+};
 
 export default []
-  .concat(withAuthorization)
-  .concat(withoutAuthorization)
-  .map((path) => {
-    return { ...path, exact: path.exact ? true : false };
-  });
+  .concat(protectedPaths)
+  .map(mapProtectedPaths)
+  .concat(unprotectedPaths)
+  .concat(errorPaths);
