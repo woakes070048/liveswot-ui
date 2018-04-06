@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'preact-material-components/LayoutGrid/style.css';
 import { Grid, Cell } from 'react-md';
 
-import Swot from '../Swot';
+import { midCellStyle, gridStyle } from "./styles";
 
-class Body extends Component {
-  render() {
-    return (
-      <div>
-        <Grid>
-          <Cell size={1}></Cell>
-          <Cell size={10}>
-            <Swot />
-          </Cell>
-          <Cell size={1}></Cell>
-        </Grid>
-      </div>
 
-    );
-  }
+const Body = (Component) => (props) => {
+  return (
+    <div>
+      <Grid style={gridStyle()}>
+        <Cell size={1}></Cell>
+        <Cell size={10} style={midCellStyle()}>
+          <Component {...props} />
+        </Cell>
+        <Cell size={1}></Cell>
+      </Grid>
+    </div>
+
+  );
 }
 
 export default Body;

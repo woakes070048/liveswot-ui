@@ -1,24 +1,15 @@
 import React, { Component } from 'react';
 
-import './App.scss';
-import Header from '../Header';
-import Body from '../Body';
-import Footer from '../Footer';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.onMountFetchItems();
-  }
-
   render() {
-    return (
+    const ret = (
       <div>
-        <Header/>
-        <Body/>
-        <Footer/>
       </div>
     );
+    console.log(ret);
+    return ret;
   }
-};
+}
 
 export default App;

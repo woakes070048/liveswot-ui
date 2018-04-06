@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { CreateSwotItem, UpdateNewItem, ClearNewItem } from '../../../../actions';
+import { AddItem, UpdateNewItem, ClearNewItem } from '../../actions/index';
+
 
 const mapStateToProps = (state, ownProps) => {
   const { cardType } = ownProps;

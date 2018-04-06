@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Signup } from '../../actions';
+import { Signup } from '../../actions/index';
 
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -4,8 +4,8 @@ import 'preact-material-components/TextField/style.css';
 import { TextField, Card, CardTitle, CardText } from 'react-md';
 import { List, ListItem } from 'react-md';
 
-import VoteButton from '../VoteButton';
-import { localizedText } from '../../../../utils';
+import VoteButton from '../VoteButton/index';
+import { localizedText } from '../../utils/index';
 
 const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
   return (
