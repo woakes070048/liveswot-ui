@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import React from 'react';
+import { Route } from 'react-router';
 
 import Login from './login';
 import Signup from './signup';
 import Home from './home';
 import Swot from './swot';
 import ProtectedRoute from "./ProtectedRoute";
+import Body from "../components/Body/Body";
 
 
-export const protectedRoutes = [{
+const protectedPaths = [{
   path: '/',
   component: Home,
   exact: true,
@@ -21,7 +23,7 @@ export const protectedRoutes = [{
   component: AuthorizedOnlyHOC(store)(Swot),
 }];
 
-export const unprotectedRoutes = [{
+const unprotectedPaths = [{
   path: '/login/',
   component: Login,
   exact: true,
@@ -31,25 +33,47 @@ export const unprotectedRoutes = [{
   exact: true,
 }];
 
-export const errorRoutes = [{
+const errorPaths = [{
   path: '',
   component: connect((state) => (state))((props) => (
     <div>404</div>
   ))
 }];
 
+const mapProtectedPaths = (protectedPath) => ({
+  ...protectedPath,
+  isProtected: true,
+});
+
+export const mapPathsToRoutes = (_path, i) => {
+
+  const {
+    component,
+    path,
+    exact = false,
+    isProtected = false
+  } = _path;
+
+  return isProtected
+    ? (
+      <ProtectedRoute
+        key={i}
+        path={path}
+        component={Body(component)}
+        exact={exact}
+      />
+    ) : (
+      <Route
+        key={i}
+        path={path}
+        component={Body(component)}
+        exact={exact}
+      />
+    );
+};
+
 export default []
-  .concat(protectedRoutes)
-  .map((protectedPath) => ({
-    ...protectedPath,
-    isProtected: true,
-  }))
-  .concat(unprotectedRoutes)
-  .concat(errorRoutes)
-  .map((path) => {
-    return {
-      ...path,
-      exact: path.exact ? true : false,
-      isProtected: path.isProtected ? true : false,
-    };
-  });
+  .concat(protectedPaths)
+  .map(mapProtectedPaths)
+  .concat(unprotectedPaths)
+  .concat(errorPaths);

@@ -6,17 +6,17 @@ import { Redirect } from 'react-router-dom';
 
 const ProtectedRoute = (_props) => {
   const {
-    isAuthenticated,
+    isAuthorized,
     component: Component,
     ...props
   } = _props;
 
   return (
-    isAuthenticated
+    isAuthorized()
       ? <Component {...props}/>
       : (
         <Redirect to={{
-          path: '/login',
+          pathname: '/login',
           state: { from: props.location },
       }}/>)
   );

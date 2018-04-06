@@ -13,7 +13,7 @@ import { InitApp } from "./actions";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import routes from './routes';
-import Body from "./components/Body/Body";
+import {mapPathsToRoutes} from "./routes/routes";
 
 
 WebFontLoader.load({
@@ -31,17 +31,7 @@ ReactDOM.render(
         <Header/>
         <Switch>
           {
-            routes.map((route, i) => {
-              const { component, path, exact } = route;
-              return (
-                <Route
-                  key={i}
-                  path={path}
-                  component={Body(component)}
-                  exact={exact}
-                />
-              );
-            })
+            routes.map(mapPathsToRoutes)
           }
         </Switch>
         <Footer/>
