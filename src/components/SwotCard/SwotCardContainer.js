@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { AddItem, UpdateNewItem, ClearNewItem } from '../../actions/index';
+import { CreateSwotItem, UpdateNewItem, ClearNewItem } from '../../actions/index';
 
 
 const mapStateToProps = (state, ownProps) => {

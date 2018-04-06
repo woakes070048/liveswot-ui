@@ -7,7 +7,6 @@ class App extends Component {
       <div>
       </div>
     );
-    console.log(ret);
     return ret;
   }
 }

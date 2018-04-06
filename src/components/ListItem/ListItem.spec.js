@@ -1,13 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { expect } from 'chai';
-import { shallow, mount } from 'enzyme';
-import { spy } from 'sinon';
 import ListItem from './ListItem';
-import Item from '../../../../objects/Item';
+import Item from '../../objects/Item';
 
 describe('ListItem', () => {
-	let wrapper;
 	let item;
 	beforeEach(() => {
 		item = new Item(1, 'imranariffin', 'text 1', 'strength');

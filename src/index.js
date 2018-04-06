@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Switch, Route } from 'react-router';
+import { Switch } from 'react-router';
 import { Provider } from 'react-redux';
 import WebFontLoader from 'webfontloader';
 import { ConnectedRouter } from 'react-router-redux';

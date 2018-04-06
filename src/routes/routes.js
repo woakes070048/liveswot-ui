@@ -18,9 +18,6 @@ const protectedPaths = [{
   path: `/swots/:swotId([0-9]+)/`,
   component: Swot,
   exact: true,
-}, {
-  path: '/swots',
-  component: AuthorizedOnlyHOC(store)(Swot),
 }];
 
 const unprotectedPaths = [{
