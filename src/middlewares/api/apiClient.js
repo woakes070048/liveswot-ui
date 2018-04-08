@@ -12,6 +12,7 @@ const defaultConfig = {
 
 const handleSuccessAndError = (response) => {
   return new Promise((resolve, reject) => {
+    console.log(response);
     response.json().then((data) => {
       const jsonResponse = {
         ok: response.ok,
@@ -27,6 +28,18 @@ const handleSuccessAndError = (response) => {
   });
 };
 
+const saveToken = (response) => {
+  console.log(response);
+  if (!response.data || !response.data.user || !response.data.user.token) {
+    return response;
+  }
+
+  const token = response.data.user.token;
+  authUtils.saveToken(token);
+
+  return response;
+};
+
 export default (endpoint, config) => {
 
   const url = `${baseUrl}${endpoint}`;
@@ -37,11 +50,12 @@ export default (endpoint, config) => {
    config.headers['Authorization'] = `Bearer ${token}`;
   }
 
-  if (config) {
+  if (config && config.data) {
     config.body = JSON.stringify(config.data);
     delete config.data;
   }
 
   return fetch(url, config)
-    .then(handleSuccessAndError);
+    .then(handleSuccessAndError)
+    .then(saveToken);
 };

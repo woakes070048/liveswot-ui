@@ -38,6 +38,8 @@ const api = (store) => (next) => (action) => {
       }));
     })
     .catch(response => {
+      console.log('apiClient.catch');
+      console.error(response);
       next(convertIntoNormalAction(action, {
         type: errorActionType,
         errors: response.data.errors,

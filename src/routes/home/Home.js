@@ -1,11 +1,12 @@
 import React from 'react';
+import {FetchSwots} from "../../actions";
 
 
 class Home extends React.Component {
 
   componentDidMount() {
     // this.dispatch(FetchTeams());
-    // this.dispatch(FetchSwots());
+    this.props.dispatch(FetchSwots());
   }
 
   render() {
@@ -26,8 +27,10 @@ class Home extends React.Component {
         <div>
           <p>Swots you are contributing to:</p>
           <ul>
-            {swots.map((swot) => (
-              <li>{swot}</li>
+            {swots.map((swot, i) => (
+              <li key={i}>{
+                `swotId: ${swot.swotId}, title: ${swot.title}, creatorId:${swot.creatorId}`
+              }</li>
             ))}
           </ul>
         </div>

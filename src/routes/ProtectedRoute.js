@@ -27,10 +27,11 @@ export default connect(
       component: ownProps.component,
       isAuthorized() {
         return (
-          state.user !== {}
-          && state.user.username !== ''
-          && state.user.email !== ''
-          && !state.user.isLoading
+          !!state.token
+          // state.user !== {}
+          // && state.user.username !== ''
+          // && state.user.email !== ''
+          // && !state.user.isLoading
         );
       }
     };

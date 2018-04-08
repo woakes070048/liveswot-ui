@@ -2,7 +2,8 @@ import {
   LOGIN, LOGIN_SUCCESS, LOGIN_ERROR
 } from "../../actions/actionTypes";
 
-const initialState = {
+
+export const initialState = {
   username: '',
   email: '',
   firstName: '',
@@ -21,8 +22,10 @@ const user = (state = initialState, action) => {
       };
     }
     case LOGIN_SUCCESS: {
+      const user = action.data.user;
       return {
-        ...action.data,
+        username: user.username,
+        email: user.email,
         isLoading: false,
         errors: [],
       };
