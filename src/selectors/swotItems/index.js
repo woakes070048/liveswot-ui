@@ -1,4 +1,1 @@
-import getSwotItems from './getSwotItems';
-
-
-export default getSwotItems;
+export { default as getSwotItems } from './getSwotItems';

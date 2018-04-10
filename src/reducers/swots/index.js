@@ -17,7 +17,7 @@ const swots = (state = initialState, action) => {
     }
     case FETCH_SWOTS_SUCCESS: {
       return {
-        byId: action.data.data.reduce((swots, swot) => {
+        byId: action.data.reduce((swots, swot) => {
           swots[swot.swotId] = { ...swot };
           return swots;
         }, {}),

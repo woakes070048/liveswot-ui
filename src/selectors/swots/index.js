@@ -1,4 +1,1 @@
-import getSwots from './getSwots';
-
-
-export default getSwots;
+export { default as getSwots } from './getSwots';

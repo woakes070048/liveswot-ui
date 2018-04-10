@@ -1,4 +1,1 @@
-import getUser from './getUser';
-
-
-export default getUser;
+export { default as getUser } from './getUser';

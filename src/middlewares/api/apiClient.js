@@ -12,13 +12,12 @@ const defaultConfig = {
 
 const handleSuccessAndError = (response) => {
   return new Promise((resolve, reject) => {
-    console.log(response);
     response.json().then((data) => {
       const jsonResponse = {
         ok: response.ok,
         status: response.status,
         statusText: response.statusText,
-        data
+        data: data,
       };
       if (response.status >= 400) {
         return reject(jsonResponse);
@@ -29,7 +28,6 @@ const handleSuccessAndError = (response) => {
 };
 
 const saveToken = (response) => {
-  console.log(response);
   if (!response.data || !response.data.user || !response.data.user.token) {
     return response;
   }

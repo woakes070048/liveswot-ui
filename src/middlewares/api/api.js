@@ -34,12 +34,10 @@ const api = (store) => (next) => (action) => {
     .then(response => {
       next(convertIntoNormalAction(action, {
         type: successActionType,
-        data: response.data,
+        data: response.data.data,
       }));
     })
     .catch(response => {
-      console.log('apiClient.catch');
-      console.error(response);
       next(convertIntoNormalAction(action, {
         type: errorActionType,
         errors: response.data.errors,

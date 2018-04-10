@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 
+import { getSwots } from '../../selectors/swots';
+
 
 export default connect(
   (state, ownProps) => ({
-    swots: [],
+    swots: getSwots(state),
+    // swots: [],
     teams: [],
     userSwots: [],
     ...ownProps}),
