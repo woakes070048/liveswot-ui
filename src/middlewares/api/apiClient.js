@@ -17,7 +17,7 @@ const handleSuccessAndError = (response) => {
         ok: response.ok,
         status: response.status,
         statusText: response.statusText,
-        data
+        data: data,
       };
       if (response.status >= 400) {
         return reject(jsonResponse);
@@ -25,6 +25,17 @@ const handleSuccessAndError = (response) => {
       return resolve(jsonResponse);
     });
   });
+};
+
+const saveToken = (response) => {
+  if (!response.data || !response.data.user || !response.data.user.token) {
+    return response;
+  }
+
+  const token = response.data.user.token;
+  authUtils.saveToken(token);
+
+  return response;
 };
 
 export default (endpoint, config) => {
@@ -37,11 +48,12 @@ export default (endpoint, config) => {
    config.headers['Authorization'] = `Bearer ${token}`;
   }
 
-  if (config) {
+  if (config && config.data) {
     config.body = JSON.stringify(config.data);
     delete config.data;
   }
 
   return fetch(url, config)
-    .then(handleSuccessAndError);
+    .then(handleSuccessAndError)
+    .then(saveToken);
 };

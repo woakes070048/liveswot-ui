@@ -1,6 +1,6 @@
 import {FETCH_SWOTS, FETCH_SWOTS_ERROR, FETCH_SWOTS_SUCCESS} from "../../actions/actionTypes";
 
-const initialState = {
+export const initialState = {
   byId: {},
   errors: [],
   isLoading: false,
@@ -17,7 +17,7 @@ const swots = (state = initialState, action) => {
     }
     case FETCH_SWOTS_SUCCESS: {
       return {
-        byId: action.data.byId.reduce((swots, swot) => {
+        byId: action.data.reduce((swots, swot) => {
           swots[swot.swotId] = { ...swot };
           return swots;
         }, {}),

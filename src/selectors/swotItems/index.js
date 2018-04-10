@@ -1,0 +1,1 @@
+export { default as getSwotItems } from './getSwotItems';

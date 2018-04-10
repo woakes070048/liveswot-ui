@@ -3,6 +3,7 @@ import 'preact-material-components/List/style.css';
 import 'preact-material-components/TextField/style.css';
 import { TextField, Card, CardTitle, CardText } from 'react-md';
 import { List, ListItem } from 'react-md';
+import PropTypes from 'prop-types';
 
 import VoteButton from '../VoteButton/index';
 import { localizedText } from '../../utils/index';
@@ -49,6 +50,17 @@ const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
       </Card>
     </div>
   );
+};
+
+SwotCard.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    swotId: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired
+  })).isRequired,
+  cardType: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SwotCard;

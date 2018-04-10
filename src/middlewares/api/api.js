@@ -34,7 +34,7 @@ const api = (store) => (next) => (action) => {
     .then(response => {
       next(convertIntoNormalAction(action, {
         type: successActionType,
-        data: response.data,
+        data: response.data.data,
       }));
     })
     .catch(response => {
