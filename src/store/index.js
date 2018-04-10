@@ -20,14 +20,14 @@ const middlewares = [
   thunk,
   initApp,
   api,
-  history,
   (store) => (next) => (action) => {
     if (action.type === LOGIN_SUCCESS) {
-      console.log('success login, redirecting to root');
+      console.log('LOGIN_SUCCESS => push(`/`)');
       store.dispatch(push('/'));
     }
     return next(action);
   },
+  history,
   log,
 ];
 

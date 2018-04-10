@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+import { authUtils } from '../utils';
+
 
 const ProtectedRoute = (_props) => {
   const {
@@ -26,13 +28,7 @@ export default connect(
     return {
       component: ownProps.component,
       isAuthorized() {
-        return (
-          !!state.token
-          // state.user !== {}
-          // && state.user.username !== ''
-          // && state.user.email !== ''
-          // && !state.user.isLoading
-        );
+        return !!authUtils.getToken();
       }
     };
   }

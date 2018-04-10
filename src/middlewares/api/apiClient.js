@@ -28,11 +28,14 @@ const handleSuccessAndError = (response) => {
 };
 
 const saveToken = (response) => {
-  if (!response.data || !response.data.user || !response.data.user.token) {
+  if (
+    !response.data || !response.data.data
+    || !response.data.data.user || !response.data.data.user.token
+  ) {
     return response;
   }
 
-  const token = response.data.user.token;
+  const token = response.data.data.user.token;
   authUtils.saveToken(token);
 
   return response;

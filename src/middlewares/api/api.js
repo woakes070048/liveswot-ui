@@ -2,6 +2,9 @@ import apiClient from './apiClient';
 import { CALL_API } from '../../actions/actionTypes';
 
 const convertIntoNormalAction = (action, data) => {
+  if (!!data.errors) {
+    delete action.data;
+  }
   const normalAction = Object.assign({}, action, data);
   delete normalAction.types;
   return normalAction;
@@ -38,9 +41,20 @@ const api = (store) => (next) => (action) => {
       }));
     })
     .catch(response => {
+      if (response.data && response.data.errors) {
+        return next(convertIntoNormalAction(action, {
+          type: errorActionType,
+          errors: response.data.errors,
+        }));
+      } else if (response.error) {
+        return next(convertIntoNormalAction(action, {
+          type: errorActionType,
+          errors: [ response.error ],
+        }));
+      }
       next(convertIntoNormalAction(action, {
         type: errorActionType,
-        errors: response.data.errors,
+        errors: [ 'Error occurred but response does not provide specific error message' ],
       }));
   });
 };
