@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { CreateSwotItem, Vote, FetchSwotItems } from '../../actions';
+import { CreateSwotItem, Vote } from '../../actions';
 
 const filterByCardType = (cardType) => {
   return (item, index) => item.cardType === cardType;
@@ -18,7 +18,6 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onMountFetchItems: () => { dispatch(FetchSwotItems()); },
     onAddItem: () => { dispatch(CreateSwotItem()); },
     onVoteItem: () => { dispatch(Vote()); },
   };

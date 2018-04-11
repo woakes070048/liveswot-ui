@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Switch } from 'react-router';
-import { Provider } from 'react-redux';
+import {Switch} from 'react-router';
+import {Provider} from 'react-redux';
 import WebFontLoader from 'webfontloader';
-import { ConnectedRouter } from 'react-router-redux';
+import {ConnectedRouter} from 'react-router-redux';
 
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
-import { history } from './middlewares/history/history';
-import { InitApp } from "./actions";
+import {history} from './middlewares/history/history';
+import {InitApp} from "./actions";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import routes from './routes';

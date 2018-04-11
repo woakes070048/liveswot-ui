@@ -26,4 +26,9 @@ export default class Swot extends Component {
 			</div>
 		);
 	}
+
+  componentDidMount() {
+	  const swotId = this.props.swotId;
+	  this.props.onMountFetchItems(swotId);
+  }
 }
