@@ -7,13 +7,34 @@ import PropTypes from 'prop-types';
 
 import VoteButton from '../VoteButton/index';
 import { localizedText } from '../../utils/index';
+import {getVoteValue} from "../../selectors/votes/getVotes";
 
-const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
+
+const SwotCard = ({
+                    user,
+                    swotId,
+                    items,
+                    text,
+                    cardType,
+                    votes,
+                    voteValues,
+                    onChange,
+                    onSubmit
+}) => {
+
+  const isActive = (user, votes, swotItemId) => (votes
+    .filter((vote) => (
+      vote.creatorId === user.userId &&
+      vote.swotItemId === swotItemId
+    ))
+    .length == 1
+  );
+
   return (
     <div>
       <form method="POST" onSubmit={ (e) => {
         e.preventDefault();
-        onSubmit(text, cardType);
+        onSubmit(swotId, text, cardType);
       } }>
         <TextField
           id="id-is-required"
@@ -33,11 +54,14 @@ const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
                 items.map((item, index) => (
                   <ListItem
                     key={ index }
-                    primaryText={ item.text }
+                    primaryText={
+                      `${item.swotItemId}: ${item.text} ${isActive(user, votes, item.swotItemId)}`
+                    }
                     secondaryText={ `brownbear` }
                     rightIcon={[
-                      <VoteButton key={0} type='up'/>,
-                      <VoteButton key={1} type='down'/>,
+                      <div>{voteValues[item.swotItemId]}</div>,
+                      <VoteButton swotItemId={item.swotItemId} key={0} voteType='up'/>,
+                      <VoteButton swotItemId={item.swotItemId} key={1} voteType='down'/>,
                     ]}
                   >
                   </ListItem>
@@ -53,6 +77,7 @@ const SwotCard = ({ items, text, cardType, onChange, onSubmit }) => {
 };
 
 SwotCard.propTypes = {
+  swotId: PropTypes.number.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     swotId: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired

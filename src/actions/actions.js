@@ -135,7 +135,7 @@ export const FetchVotes = (swotId) => {
   return {
     type: CALL_API,
     types: [FETCH_VOTES, FETCH_VOTES_SUCCESS, FETCH_VOTES_ERROR],
-    endpoint: `/swots/${swotId}/items/votes`,
+    endpoint: `/swots/${swotId}/items/votes/`,
   };
 };
 
