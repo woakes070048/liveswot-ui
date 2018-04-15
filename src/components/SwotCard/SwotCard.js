@@ -1,7 +1,4 @@
 import React from 'react';
-import 'preact-material-components/List/style.css';
-import 'preact-material-components/TextField/style.css';
-import {Card, CardTitle, CardText} from 'react-md';
 import PropTypes from 'prop-types';
 
 import SwotItem from '../SwotItem';
@@ -30,8 +27,7 @@ const SwotCard = ({
             value={text}
             id={`input-${cardType}`}
             type='text'
-            onChange={(() => { console.log(text); return onChange})()}
-
+            onChange={onChange}
           />
           <label
             className={ text ? 'active' : ''}
@@ -41,18 +37,18 @@ const SwotCard = ({
           </label>
         </div>
       </form>
-      <Card className='swot-card'>
-        <CardText>
+      <div className={`card-panel`}>
+        <div>
           {
             (items.length > 0 &&
               (<ul>{
                   items.map((item, i) => (<SwotItem swotItem={item} key={i}/>))
               }</ul>)
             )
-            || <CardTitle title={localizedText().swot.cardType[cardType]} />
+            || <h1>{localizedText().swot.cardType[cardType]}</h1>
           }
-        </CardText>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };
