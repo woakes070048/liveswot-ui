@@ -28,13 +28,22 @@ describe('(selector) getVotes', () => {
     vote5 = {voteId: 5, creatorId: 102, swotItemId: 203, voteType: 'down'};
 
   describe('state has more than 0 votes', () => {
-    const state = {
-      votes: {
-        byId: {1: vote1, 2: vote2, 3: vote3, 4: vote4, 5: vote5},
-        errors: [],
-        isLoading: false,
-      }
-    };
+    let state;
+    beforeEach(() => {
+      state = {
+        votes: {
+          byId: {
+            [vote1.voteId]: vote1,
+            [vote2.voteId]: vote2,
+            [vote3.voteId]: vote3,
+            [vote4.voteId]: vote4,
+            [vote5.voteId]: vote5
+          },
+          errors: [],
+          isLoading: false,
+        }
+      };
+    });
 
     it('returns the correct array', () => {
       const votes = getVotes(state);
@@ -47,7 +56,13 @@ describe('(selector) getVotes', () => {
   describe('swotItemId argument provided', () => {
     const state = {
       votes: {
-        byId: {1: vote1, 2: vote2, 3: vote3, 4: vote4, 5: vote5},
+        byId: {
+          [vote1.voteId]: vote1,
+          [vote2.voteId]: vote2,
+          [vote3.voteId]: vote3,
+          [vote4.voteId]: vote4,
+          [vote5.voteId]: vote5
+        },
         errors: [],
         isLoading: false,
       }
