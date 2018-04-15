@@ -1,20 +1,30 @@
 import React from 'react';
 import { Button, FontIcon } from 'react-md';
+import PropTypes from 'prop-types';
 
-const VoteButton = ({ type, isActive, vote }) => (
+
+const VoteButton = ({swotItemId, voteType, isActive, onVoteItem, userId}) => (
   <span>
     <Button
       icon
-      onClick={ () => { console.log('voted!'); } }
+      onClick={() => {
+        onVoteItem(swotItemId, voteType, userId);
+      }}
       iconEl={
         <FontIcon
-          secondary={ isActive }
+          secondary={ voteType }
           >
-          { type === 'up' ? `arrow_drop_up` : `arrow_drop_down` }
+          { voteType === 'up' ? `arrow_drop_up` : `arrow_drop_down` }
         </FontIcon>
     } />
-    { vote }
   </span>
 );
+
+VoteButton.propTypes = {
+  swotItemId: PropTypes.number.isRequired,
+  voteType: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onVoteItem: PropTypes.func.isRequired,
+};
 
 export default VoteButton;

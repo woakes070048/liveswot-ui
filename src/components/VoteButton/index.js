@@ -1,4 +1,7 @@
+import {withRouter} from 'react-router';
+
 import VoteButton from './VoteButton';
 import VoteButtonContainer from './VoteButtonContainer';
 
-export default VoteButtonContainer(VoteButton);
+
+export default withRouter(VoteButtonContainer(VoteButton));

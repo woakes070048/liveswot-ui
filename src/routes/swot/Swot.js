@@ -26,4 +26,9 @@ export default class Swot extends Component {
 			</div>
 		);
 	}
+
+  componentDidMount() {
+	  this.props.onMountFetchItems();
+	  this.props.onMountFetchVotes();
+  }
 }

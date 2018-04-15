@@ -22,7 +22,6 @@ const middlewares = [
   api,
   (store) => (next) => (action) => {
     if (action.type === LOGIN_SUCCESS) {
-      console.log('LOGIN_SUCCESS => push(`/`)');
       store.dispatch(push('/'));
     }
     return next(action);

@@ -1,17 +1,25 @@
-import { connect } from 'react-redux';
-import { CreateSwotItem, UpdateNewItem, ClearNewItem } from '../../actions/index';
+import {connect} from 'react-redux';
+
+import {CreateSwotItem, UpdateNewItem, ClearNewItem} from '../../actions/index';
+import {getSwotItems} from "../../selectors/swotItems";
+import {getUser} from '../../selectors/user';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const { cardType } = ownProps;
-  const swotItems = Object.keys(state.swotItems.byId).map((swotItemId) => {
-    return { ...state.swotItems.byId[swotItemId] };
-  });
+  const
+    {cardType} = ownProps,
+    swotId = parseInt(ownProps.match.params.swotId, 10),
+    swotItems = getSwotItems(state, swotId, cardType),
+    user = getUser(state);
+
   return {
+    user,
+    swotId,
     text: state.newItem[cardType],
-    items: swotItems.filter((item) => item.cardType === cardType),
+    items: swotItems,
   };
 };
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmit: (swotId, text, cardType) => {

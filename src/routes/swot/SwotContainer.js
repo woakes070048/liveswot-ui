@@ -1,20 +1,30 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-const mapStateToProps = (props = {
-  strengths: [], weaknesses: [],
-  opportunities: [], threats: []
-}) => {
-  return Object.assign({}, {
-    strengths: [].concat(props.strengths),
-    weaknesses: [].concat(props.weaknesses),
-    opportunities: [].concat(props.opportunities),
-    threats: [].concat(props.threats),
-  });
+import {getSwotItems} from '../../selectors/swotItems';
+import {FetchSwotItems, FetchVotes} from '../../actions';
+
+
+const mapStateToProps = (state, ownProps) => {
+  const swotItems = getSwotItems(state);
+  return {
+    strengths: swotItems.filter((e) => e.cardType === 'strength'),
+    weaknesses: swotItems.filter((e) => e.cardType === 'weakness'),
+    opportunities: swotItems.filter((e) => e.cardType === 'opportunity'),
+    threats: swotItems.filter((e) => e.cardType === 'threat')
+  };
 };
 
-const mapDispatchToProps = (state, ownProps) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+
   return {
-    ...state, ...ownProps
+    onMountFetchItems() {
+      const swotId = ownProps.match.params.swotId;
+      dispatch(FetchSwotItems(swotId));
+      },
+    onMountFetchVotes() {
+      const swotId = ownProps.match.params.swotId;
+      dispatch(FetchVotes(swotId));
+      },
   };
 };
 

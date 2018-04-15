@@ -1,20 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Route } from 'react-router';
 
 import { authUtils } from '../utils';
 
 
-const ProtectedRoute = (_props) => {
-  const {
-    isAuthorized,
-    component: Component,
-    ...props
-  } = _props;
-
+const ProtectedRoute = (props) => {
+  const { isAuthorized } = props;
   return (
     isAuthorized()
-      ? <Component {...props}/>
+      ? <Route {...props}/>
       : (
         <Redirect to={{
           pathname: '/login',
@@ -26,6 +22,7 @@ const ProtectedRoute = (_props) => {
 export default connect(
   (state, ownProps) => {
     return {
+      ...state,
       component: ownProps.component,
       isAuthorized() {
         return !!authUtils.getToken();
