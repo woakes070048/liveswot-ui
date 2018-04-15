@@ -23,9 +23,6 @@ const items = (state = [], action) => {
       break;
 
     case ADD_ITEM_SUCCESS:
-      console.log('reducers.items.ADD_ITEM_SUCCESS');
-      console.log('action:');
-      console.log(action);
       newState = [ ...state, action.data ];
       break;
 

@@ -6,18 +6,18 @@ import {getVotes} from '../../selectors/votes';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const swotItemId = ownProps.swotItemId;
-  const votes = getVotes(state, swotItemId);
-  const user = getUser(state);
+  const
+    swotItemId = ownProps.swotItemId,
+    votes = getVotes(state, swotItemId),
+    user = getUser(state),
+    isUpActive = true,
+    isDownActive = false;
 
   return {
+    isUpActive,
+    isDownActive,
     userId: user.userId,
-    isActive: votes
-      .filter((vote) => (
-        vote.creatorId === user.userId &&
-        vote.swotItemId === ownProps.swotItemId
-      ))
-      .length > 0
+    ...ownProps,
   };
 };
 

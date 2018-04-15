@@ -1,30 +1,46 @@
 import React from 'react';
 import { Button, FontIcon } from 'react-md';
 import PropTypes from 'prop-types';
+import {
+  voteContainerStyles,
+  voteUpStyles,
+  voteUpContainerStyles,
+  scoreContainerStyles,
+  voteDownContainerStyles,
+  voteDownStyles,
+} from './styles';
 
 
-const VoteButton = ({swotItemId, voteType, isActive, onVoteItem, userId}) => (
-  <span>
-    <Button
-      icon
-      onClick={() => {
-        onVoteItem(swotItemId, voteType, userId);
-      }}
-      iconEl={
-        <FontIcon
-          secondary={ voteType }
-          >
-          { voteType === 'up' ? `arrow_drop_up` : `arrow_drop_down` }
-        </FontIcon>
-    } />
-  </span>
+const VoteButton = ({score, isUpActive, isDownActive, swotItemId, userId, onVoteItem}) => (
+  <div style={voteContainerStyles}>
+    <div style={voteUpContainerStyles}>
+      <div
+        style={voteUpStyles(isUpActive)}
+        onClick={() => onVoteItem(swotItemId, 'up', userId)}
+      >
+      </div>
+    </div>
+    <div style={scoreContainerStyles}
+    >{
+      score
+    }</div>
+    <div style={voteDownContainerStyles}>
+      <div
+        style={voteDownStyles(isDownActive)}
+        onClick={() => onVoteItem(swotItemId, 'down', userId)}
+      >
+      </div>
+    </div>
+  </div>
 );
 
 VoteButton.propTypes = {
   swotItemId: PropTypes.number.isRequired,
-  voteType: PropTypes.string.isRequired,
-  isActive: PropTypes.bool.isRequired,
+  userId: PropTypes.number.isRequired,
+  isUpActive: PropTypes.bool.isRequired,
+  isDownActive: PropTypes.bool.isRequired,
   onVoteItem: PropTypes.func.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default VoteButton;

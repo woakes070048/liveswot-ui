@@ -4,7 +4,7 @@ const widthPercent = 96;
 const marginLeftPercent = (100 - widthPercent) / 2;
 const marginRightPercent = marginLeftPercent;
 
-const swotItemStyles = (index) => ({
+export const swotItemStyles = (index) => ({
   backgroundColor: '#',
   width: `${widthPercent}%`,
   minHeight: '50px',
@@ -15,4 +15,16 @@ const swotItemStyles = (index) => ({
   marginRight: `${marginRightPercent}%`,
 });
 
-export default swotItemStyles;
+export const swotItemRowStyles = {
+  margin: '0'
+};
+
+export const textColumnStyles = {
+  display: 'flex',
+  flexWrap: 'wrap',
+};
+
+export const voteColumnStyles = {
+  height: '50px',
+    padding: '0 5.28px'
+};

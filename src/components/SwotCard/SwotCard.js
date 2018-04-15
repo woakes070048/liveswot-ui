@@ -43,7 +43,6 @@ const SwotCard = ({
             (items.length > 0 &&
               (<ul>{
                   items.map((item, i) => {
-                    console.log(i);
                     return (<SwotItem swotItem={item} key={i} index={i}/>);
                   })
               }</ul>)

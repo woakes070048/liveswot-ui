@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import swotItemStyles from './styles';
-// import './styles.css'
+import {
+  swotItemStyles,
+  swotItemRowStyles,
+  textColumnStyles,
+  voteColumnStyles,
+  voteContainerStyles
+} from './styles';
+import VoteButton from '../VoteButton';
+
 
 const SwotItem = ({swotItem, index}) => {
-  console.log(index);
   return (
     <li style={swotItemStyles(index)}>
-      <div className={'row'} style={{
-        margin: '0'
-      }}>
+      <div className={'row'} style={swotItemRowStyles}>
         <div className={'col m1'}>
 
         </div>
-        <div className={'col m10'} style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-        }}>
+        <div className={'col m10'} style={textColumnStyles}>
           <span>
             {
               `id:${swotItem.swotItemId};
@@ -27,51 +28,11 @@ const SwotItem = ({swotItem, index}) => {
             }
           </span>
         </div>
-        <div className={'col m1'} style={{
-          height: '50px',
-          padding: '0 5.28px'
-        }}>
-          <div style={{
-            // border:'1px solid black',
-            height: '100%',
-            width: '25px',
-            margin: '0px',
-          }}>
-            <div style={{
-              height: '14.5px',
-              width:'100%',
-              padding: '0px'
-            }}>
-              <div className={'vote-up'} style={{
-                width: 0, height: 0,
-                borderLeft: '12.5px solid transparent',
-                borderRight: '12.5px solid transparent',
-                borderBottom: '10px solid grey'
-              }}>
-
-              </div>
-            </div>
-            <div style={{
-              height: '19px',
-              width:'100%',
-              padding: '0px',
-              textAlign: 'center',
-            }}>0</div>
-            <div style={{
-              height: '14.5px',
-              width:'100%',
-              padding: '0px'
-            }}>
-              <div className={'vote-down'} style={{
-                width: 0, height: 0,
-                borderLeft: '12.5px solid transparent',
-                borderRight: '12.5px solid transparent',
-                borderTop: '10px solid grey',
-                marginTop: '4.5px'
-              }}>
-              </div>
-            </div>
-          </div>
+        <div className={'col m1'} style={voteColumnStyles}>
+          <VoteButton
+            score={swotItem.score}
+            swotItemId={swotItem.swotItemId}
+          />
         </div>
       </div>
     </li>
