@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
     user = getUser(state);
 
   return {
-    state,
     user,
     swotId,
     text: state.newItem[cardType],

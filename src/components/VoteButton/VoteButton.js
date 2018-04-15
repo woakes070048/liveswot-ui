@@ -8,9 +8,6 @@ const VoteButton = ({swotItemId, voteType, isActive, onVoteItem, userId}) => (
     <Button
       icon
       onClick={() => {
-        console.log('@@@@@@@@@@@@@@@@@@');
-        console.log(`onVoteItem(${swotItemId}, ${voteType})`);
-        console.log('@@@@@@@@@@@@@@@@@@');
         onVoteItem(swotItemId, voteType, userId);
       }}
       iconEl={
