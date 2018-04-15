@@ -1,14 +1,3 @@
-const initialState = {
-  byId: {},
-  errors: [],
-  isLoading: false,
-};
-
-const votes = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+import votes from './votes';
 
 export default votes;

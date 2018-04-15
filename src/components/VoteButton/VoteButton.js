@@ -3,7 +3,7 @@ import { Button, FontIcon } from 'react-md';
 import PropTypes from 'prop-types';
 
 
-const VoteButton = ({swotItemId, voteType, isActive, onVoteItem}) => (
+const VoteButton = ({swotItemId, voteType, isActive, onVoteItem, userId}) => (
   <span>
     <Button
       icon
@@ -11,7 +11,7 @@ const VoteButton = ({swotItemId, voteType, isActive, onVoteItem}) => (
         console.log('@@@@@@@@@@@@@@@@@@');
         console.log(`onVoteItem(${swotItemId}, ${voteType})`);
         console.log('@@@@@@@@@@@@@@@@@@');
-        onVoteItem(swotItemId, voteType);
+        onVoteItem(swotItemId, voteType, userId);
       }}
       iconEl={
         <FontIcon

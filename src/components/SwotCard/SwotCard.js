@@ -2,12 +2,10 @@ import React from 'react';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TextField/style.css';
 import { TextField, Card, CardTitle, CardText } from 'react-md';
-import { List, ListItem } from 'react-md';
 import PropTypes from 'prop-types';
 
-import VoteButton from '../VoteButton/index';
+import SwotItem from '../SwotItem';
 import { localizedText } from '../../utils/index';
-import {getVoteValue} from "../../selectors/votes/getVotes";
 
 
 const SwotCard = ({
@@ -16,19 +14,9 @@ const SwotCard = ({
                     items,
                     text,
                     cardType,
-                    votes,
-                    voteValues,
                     onChange,
-                    onSubmit
+                    onSubmit,
 }) => {
-
-  const isActive = (user, votes, swotItemId) => (votes
-    .filter((vote) => (
-      vote.creatorId === user.userId &&
-      vote.swotItemId === swotItemId
-    ))
-    .length == 1
-  );
 
   return (
     <div>
@@ -38,9 +26,9 @@ const SwotCard = ({
       } }>
         <TextField
           id="id-is-required"
-          onChange={ onChange }
-          value={ text }
-          label={ localizedText().swot.cardType[cardType] }
+          onChange={onChange}
+          value={text}
+          label={localizedText().swot.cardType[cardType]}
           lineDirection="center"
           placeholder={`Add ${localizedText().swot.cardType[cardType]}`}
         />
@@ -49,26 +37,11 @@ const SwotCard = ({
         <CardText>
           {
             (items.length > 0 &&
-            <List>
-              {
-                items.map((item, index) => (
-                  <ListItem
-                    key={ index }
-                    primaryText={
-                      `${item.swotItemId}: ${item.text} ${isActive(user, votes, item.swotItemId)}`
-                    }
-                    secondaryText={ `brownbear` }
-                    rightIcon={[
-                      <div>{voteValues[item.swotItemId]}</div>,
-                      <VoteButton swotItemId={item.swotItemId} key={0} voteType='up'/>,
-                      <VoteButton swotItemId={item.swotItemId} key={1} voteType='down'/>,
-                    ]}
-                  >
-                  </ListItem>
-                ))
-              }
-            </List>)
-            || <CardTitle title={ localizedText().swot.cardType[cardType] } />
+              (<ul>{
+                  items.map((item, i) => (<SwotItem swotItem={item} key={i}/>))
+              }</ul>)
+            )
+            || <CardTitle title={localizedText().swot.cardType[cardType]} />
           }
         </CardText>
       </Card>

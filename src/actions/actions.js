@@ -139,15 +139,13 @@ export const FetchVotes = (swotId) => {
   };
 };
 
-export const Vote = (swotItemId, voteType) => {
+export const Vote = (swotItemId, voteType, userId) => {
   return {
     type: CALL_API,
     types: [VOTE, VOTE_SUCCESS, VOTE_ERROR],
     method: 'POST',
     endpoint: `/swots/items/${swotItemId}/votes/`,
-    data: {
-      voteType: voteType,
-    }
+    data: {voteType, userId}
   };
 };
 

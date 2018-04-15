@@ -1,1 +1,1 @@
-export { default as getVotes } from './getVotes';
+export {default as getVotes} from './votes';

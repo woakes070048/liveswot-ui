@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 
-import {Vote} from "../../actions";
-import {getVotes} from "../../selectors/votes";
-import {getUser} from "../../selectors/user";
+import {Vote} from '../../actions';
+import {getUser} from '../../selectors/user';
+import {getVotes} from '../../selectors/votes';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const votes = getVotes(state);
+  const swotItemId = ownProps.swotItemId;
+  const votes = getVotes(state, swotItemId);
   const user = getUser(state);
 
   return {
+    userId: user.userId,
     isActive: votes
       .filter((vote) => (
         vote.creatorId === user.userId &&
@@ -21,8 +23,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onVoteItem(swotItemId, voteType) {
-      dispatch(Vote(swotItemId, voteType));
+    onVoteItem(swotItemId, voteType, userId) {
+      dispatch(Vote(swotItemId, voteType, userId));
     }
   };
 };
