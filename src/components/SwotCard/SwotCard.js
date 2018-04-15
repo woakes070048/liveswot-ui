@@ -37,12 +37,15 @@ const SwotCard = ({
           </label>
         </div>
       </form>
-      <div className={`card-panel`}>
+      <div className={`card-panel`} style={{'padding': '1rem 0'}}>
         <div>
           {
             (items.length > 0 &&
               (<ul>{
-                  items.map((item, i) => (<SwotItem swotItem={item} key={i}/>))
+                  items.map((item, i) => {
+                    console.log(i);
+                    return (<SwotItem swotItem={item} key={i} index={i}/>);
+                  })
               }</ul>)
             )
             || <h1>{localizedText().swot.cardType[cardType]}</h1>
