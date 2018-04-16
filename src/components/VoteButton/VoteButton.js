@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, FontIcon } from 'react-md';
 import PropTypes from 'prop-types';
 import {
   voteContainerStyles,

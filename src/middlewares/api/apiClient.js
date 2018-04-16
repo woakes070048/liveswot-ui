@@ -10,6 +10,14 @@ const defaultConfig = {
   },
 };
 
+const canHaveBody = (config) => {
+  return (
+    config && config.data
+    && config.method
+    && !(['GET', 'HEAD'].includes(config.method.toUpperCase()))
+  );
+};
+
 const handleSuccessAndError = (response) => {
   return new Promise((resolve, reject) => {
     response.json().then((data) => {
@@ -44,16 +52,18 @@ const saveToken = (response) => {
 export default (endpoint, config) => {
 
   const url = `${baseUrl}${endpoint}`;
+  const token = authUtils.getToken();
   config = Object.assign(defaultConfig, config);
 
-  const token = authUtils.getToken();
-  if (token) {
+  if (!!token) {
    config.headers['Authorization'] = `Bearer ${token}`;
   }
 
-  if (config && config.data) {
+  delete config.body;
+  if (canHaveBody(config)) {
     config.body = JSON.stringify(config.data);
     delete config.data;
+    config = {...config};
   }
 
   return fetch(url, config)

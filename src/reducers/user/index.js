@@ -8,6 +8,7 @@ export const initialState = {
   email: '',
   firstName: '',
   lastName: '',
+  userId: '',
   isLoading: false,
   errors: [],
 };
@@ -26,6 +27,7 @@ const user = (state = initialState, action) => {
       return {
         username: user.username,
         email: user.email,
+        userId: user.userId,
         isLoading: false,
         errors: [],
       };
