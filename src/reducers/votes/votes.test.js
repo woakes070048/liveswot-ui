@@ -1,6 +1,8 @@
 import {expect} from 'chai';
 
 import votes from './votes';
+import {Vote} from "../../actions";
+import {VOTE} from "../../actions/actionTypes";
 
 
 describe('(reducer) votes', () => {
@@ -20,6 +22,20 @@ describe('(reducer) votes', () => {
   });
 
   describe('action type is VOTE', () => {
-    it('');
+    it('removes existing vote by user for the voted item, if any', () => {
+      const state = {
+        byId: {1: {voteId: 1, swotItemId: 1, creatorId: 1,}},
+        isLoading: false,
+        errors: []
+      };
+      const
+        swotItemId = 1,
+        voteType = 'up',
+        userId = 1;
+      const action = {type: VOTE, data:{swotItemId, voteType, userId}};
+      const newState = votes(state, action);
+
+      expect(newState.byId[1]).to.be.undefined;
+    });
   });
 });
