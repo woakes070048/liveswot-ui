@@ -26,7 +26,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(ClearNewItem(cardType));
       dispatch(CreateSwotItem(swotId, text, cardType));
     },
-    onChange: (text) => {
+    onChange: (e) => {
+      e.preventDefault();
+      const text = e.target.value;
       dispatch(UpdateNewItem(text, ownProps.cardType));
     }
   };

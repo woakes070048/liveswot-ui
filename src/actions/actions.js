@@ -140,12 +140,20 @@ export const FetchVotes = (swotId) => {
 };
 
 export const Vote = (swotItemId, voteType, userId) => {
+  if (!swotItemId || !voteType || !userId) {
+    throw new Error('(action) `Vote`: required args: `swotItemId`, `voteType` & `userId`');
+  }
+
+  if (!['up', 'down'].includes(voteType)) {
+    throw new Error('(action) `Vote`: `voteType` arg must be either `up` or `down`');
+  }
+
   return {
     type: CALL_API,
     types: [VOTE, VOTE_SUCCESS, VOTE_ERROR],
     method: 'POST',
     endpoint: `/swots/items/${swotItemId}/votes/`,
-    data: {voteType, userId}
+    data: {voteType, userId, swotItemId}
   };
 };
 

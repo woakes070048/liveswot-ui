@@ -29,7 +29,7 @@ const api = (store) => (next) => (action) => {
 
   const [ requestActionType, successActionType, errorActionType ] = types;
 
-  const config = { data, method };
+  const config = { data: {...data}, method };
 
   next(convertIntoNormalAction(action, { type: requestActionType }));
 
@@ -54,7 +54,10 @@ const api = (store) => (next) => (action) => {
       }
       next(convertIntoNormalAction(action, {
         type: errorActionType,
-        errors: [ 'Error occurred but response does not provide specific error message' ],
+        errors: [
+          'Error occurred but response does not provide specific error message',
+          response,
+        ],
       }));
   });
 };

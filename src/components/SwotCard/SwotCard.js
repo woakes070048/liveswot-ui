@@ -1,11 +1,8 @@
 import React from 'react';
-import 'preact-material-components/List/style.css';
-import 'preact-material-components/TextField/style.css';
-import { TextField, Card, CardTitle, CardText } from 'react-md';
 import PropTypes from 'prop-types';
 
 import SwotItem from '../SwotItem';
-import { localizedText } from '../../utils/index';
+import {localizedText} from '../../utils/index';
 
 
 const SwotCard = ({
@@ -24,27 +21,36 @@ const SwotCard = ({
         e.preventDefault();
         onSubmit(swotId, text, cardType);
       } }>
-        <TextField
-          id="id-is-required"
-          onChange={onChange}
-          value={text}
-          label={localizedText().swot.cardType[cardType]}
-          lineDirection="center"
-          placeholder={`Add ${localizedText().swot.cardType[cardType]}`}
-        />
+        <div className='input-field'>
+          <input
+            className='validate'
+            value={text}
+            id={`input-${cardType}`}
+            type='text'
+            onChange={onChange}
+          />
+          <label
+            className={ text ? 'active' : ''}
+            htmlFor={`input-${cardType}`}
+          >
+            {`Add ${localizedText().swot.cardType[cardType]}`}
+          </label>
+        </div>
       </form>
-      <Card className='swot-card'>
-        <CardText>
+      <div className={`card-panel`} style={{'padding': '1rem 0'}}>
+        <div>
           {
             (items.length > 0 &&
               (<ul>{
-                  items.map((item, i) => (<SwotItem swotItem={item} key={i}/>))
+                  items.map((item, i) => {
+                    return (<SwotItem swotItem={item} key={i} index={i}/>);
+                  })
               }</ul>)
             )
-            || <CardTitle title={localizedText().swot.cardType[cardType]} />
+            || <h1>{localizedText().swot.cardType[cardType]}</h1>
           }
-        </CardText>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };

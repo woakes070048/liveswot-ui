@@ -1,3 +1,6 @@
+import jwtDecode from 'jwt-decode';
+
+
 export const AUTH_TOKEN = 'token';
 const storage = window.localStorage;
 
@@ -17,10 +20,23 @@ export const removeToken = () => {
   storage.removeItem(AUTH_TOKEN);
 };
 
+export const getUser = (token) => {
+  const decoded = jwtDecode(token);
+
+  return {
+    userId: decoded.userId,
+    username: decoded.username,
+    email: decoded.email,
+    firstName: '',
+    lastName: '',
+  };
+};
+
 const authUtils = {
   removeToken,
   getToken,
   saveToken,
+  getUser,
 };
 
 export default authUtils;

@@ -1,23 +1,35 @@
 import { connect } from 'react-redux';
 
 import {Vote} from '../../actions';
-import {getUser} from '../../selectors/user';
+// import {getUser} from '../../selectors/user';
 import {getVotes} from '../../selectors/votes';
+import authUtils from "../../utils/auth";
 
+
+const isActive = (state, swotItemId, userId, voteType) => {
+  const votes = getVotes(state, swotItemId);
+  return votes
+    .filter((v) => (
+      v.swotItemId === swotItemId
+      && v.creatorId === userId
+      && v.voteType === voteType
+    ))
+    .length > 0;
+};
 
 const mapStateToProps = (state, ownProps) => {
   const swotItemId = ownProps.swotItemId;
-  const votes = getVotes(state, swotItemId);
-  const user = getUser(state);
+  const
+    // votes = getVotes(state, swotItemId),
+    user = authUtils.getUser(authUtils.getToken()),
+    isUpActive = isActive(state, swotItemId, user.userId, 'up'),
+    isDownActive = isActive(state, swotItemId, user.userId, 'down');
 
   return {
+    isUpActive,
+    isDownActive,
     userId: user.userId,
-    isActive: votes
-      .filter((vote) => (
-        vote.creatorId === user.userId &&
-        vote.swotItemId === ownProps.swotItemId
-      ))
-      .length > 0
+    ...ownProps,
   };
 };
 

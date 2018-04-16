@@ -25,7 +25,6 @@ const votes = (state = initialState, action = {}) => {
         isLoading: true,
       };
 
-
       Object.keys(newState.byId).forEach((voteId) => {
         const
           swotItemId = action.data.swotItemId,
