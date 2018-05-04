@@ -22,14 +22,13 @@ const DropDown = ({active}) => {
 
   return (
     <ul style={styles.dropDown(active)}>
-      {items.map((item) => (
-        <li>
+      {items.map((item, i) => (
+        <li key={`item-${i}`}>
           <a href="#">
             <div style={styles.li}>
               <span style={styles.liSpan}>
                 {item.text}
                 <i
-                  id={`kebab`}
                   className={`material-icons right`}
                   style={styles.dropDownItemIcon(item.iconColor)}
                 >
