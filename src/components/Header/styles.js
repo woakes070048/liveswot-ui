@@ -1,6 +1,7 @@
 
 export const navStyles = {
-  height: '50px'
+  height: '50px',
+  background: `#599c04`,
 };
 
 export const navWrapperStyles = {
