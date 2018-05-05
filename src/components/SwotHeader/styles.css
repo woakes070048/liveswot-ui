@@ -1,4 +1,4 @@
-li:hover {
+li.dropdown-item:hover {
     /*background: #599c03;*/
     background: white;
 }

@@ -23,7 +23,7 @@ const DropDown = ({active}) => {
   return (
     <ul style={styles.dropDown(active)}>
       {items.map((item, i) => (
-        <li key={`item-${i}`}>
+        <li key={`item-${i}`} className={`dropdown-item`}>
           <a href="#">
             <div style={styles.li}>
               <span style={styles.liSpan}>
@@ -76,7 +76,7 @@ class SwotHeader extends React.Component {
 
     return (
       <div className={`row`} style={styles.root}>
-        <div className={`col m12`}>
+        <div className={`col m12 s12 l12`}>
           <div className={`card`} style={styles.card}>
             <div className={`card-content`}>
               <span className={`card-title activator`}>
