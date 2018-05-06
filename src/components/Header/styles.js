@@ -1,11 +1,14 @@
 
+const navFixed = {
+  height: '42px',
+};
+
 export const nav = {
   height: '42px',
   background: `#599c04`,
 };
 
 export const navWrapper = {
-  // paddingLeft: '10px',
   lineHeight: '42px'
 };
 
@@ -27,6 +30,7 @@ export const navMain = {
 };
 
 export default {
+  navFixed,
   nav,
   navWrapper,
   navMain,

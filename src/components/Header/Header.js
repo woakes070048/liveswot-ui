@@ -6,7 +6,7 @@ import styles from './styles';
 
 const Header = ({logout, username, email, profileImg, isLoggedIn}) => {
   return (
-    <div className='navbar-fixed'>
+    <div className='navbar-fixed' style={styles.navFixed}>
       <nav style={styles.nav}>
         <div className='nav-wrapper' style={styles.navWrapper}>
           <div className={`row`} style={{
