@@ -13,14 +13,7 @@ const SwotItem = ({swotItem, index}) => {
 
         </div>
         <div className={'col m10'} style={styles.textColumn}>
-          <span>
-            {
-              `id:${swotItem.swotItemId};
-              text:${swotItem.text};
-              score:${swotItem.score};
-              `
-            }
-          </span>
+          <span>{`${swotItem.text}`}</span>
         </div>
         <div className={'col m1'} style={styles.voteColumn}>
           <VoteButton
