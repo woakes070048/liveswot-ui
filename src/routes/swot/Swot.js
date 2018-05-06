@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
 import SwotCard from '../../components/SwotCard';
+import SwotHeader from '../../components/SwotHeader';
+import styles from './styles';
 
 
 export default class Swot extends Component {
 	render() {
 		return (
 			<div>
-				<div className='row'>
+				<SwotHeader/>
+				<div className='row' style={styles.compactRow}>
 					<div className='col m6 s12'>
 						<SwotCard cardType='strength'/>
 					</div>
@@ -15,7 +18,7 @@ export default class Swot extends Component {
 						<SwotCard cardType='weakness'/>
 					</div>
 				</div>
-				<div className='row'>
+        <div className='row' style={styles.compactRow}>
 					<div className='col m6 s12'>
 						<SwotCard cardType='opportunity'/>
 					</div>

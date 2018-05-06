@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import SwotItem from '../SwotItem';
 import {localizedText} from '../../utils/index';
+import styles from './styles';
+import './style.css';
 
 
 const SwotCard = ({
@@ -21,11 +23,12 @@ const SwotCard = ({
         e.preventDefault();
         onSubmit(swotId, text, cardType);
       } }>
-        <div className='input-field'>
+        <div className='input-field' style={styles.inputField}>
           <input
-            className='validate'
-            value={text}
             id={`input-${cardType}`}
+            className='validate'
+            style={styles.input}
+            value={text}
             type='text'
             onChange={onChange}
           />
@@ -37,11 +40,11 @@ const SwotCard = ({
           </label>
         </div>
       </form>
-      <div className={`card-panel`} style={{'padding': '1rem 0'}}>
+      <div className={`card-panel`} style={styles.cardPanel}>
         <div>
           {
             (items.length > 0 &&
-              (<ul>{
+              (<ul style={styles.swotList}>{
                   items.map((item, i) => {
                     return (<SwotItem swotItem={item} key={i} index={i}/>);
                   })
