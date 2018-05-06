@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SwotItem from '../SwotItem';
 import {localizedText} from '../../utils/index';
+import styles from './styles';
 
 
 const SwotCard = ({
@@ -21,11 +22,12 @@ const SwotCard = ({
         e.preventDefault();
         onSubmit(swotId, text, cardType);
       } }>
-        <div className='input-field'>
+        <div className='input-field' style={styles.inputField}>
           <input
-            className='validate'
-            value={text}
             id={`input-${cardType}`}
+            className='validate'
+            style={styles.input}
+            value={text}
             type='text'
             onChange={onChange}
           />
