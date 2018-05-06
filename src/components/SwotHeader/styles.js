@@ -22,8 +22,8 @@ const mid = {
 };
 
 const right = {
+  textAlign: 'right',
   display: 'table-cell',
-  width: '24px',
   height: '64px',
   verticalAlign: 'top',
 };

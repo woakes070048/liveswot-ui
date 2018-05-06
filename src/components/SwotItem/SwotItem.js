@@ -1,24 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  swotItemStyles,
-  swotItemRowStyles,
-  textColumnStyles,
-  voteColumnStyles,
-  voteContainerStyles
-} from './styles';
+import styles from './styles';
 import VoteButton from '../VoteButton';
 
 
 const SwotItem = ({swotItem, index}) => {
   return (
-    <li style={swotItemStyles(index)}>
-      <div className={'row'} style={swotItemRowStyles}>
+    <li style={styles.swotItem(index)}>
+      <div className={'row'} style={styles.swotItemRow}>
         <div className={'col m1'}>
 
         </div>
-        <div className={'col m10'} style={textColumnStyles}>
+        <div className={'col m10'} style={styles.textColumn}>
           <span>
             {
               `id:${swotItem.swotItemId};
@@ -28,7 +22,7 @@ const SwotItem = ({swotItem, index}) => {
             }
           </span>
         </div>
-        <div className={'col m1'} style={voteColumnStyles}>
+        <div className={'col m1'} style={styles.voteColumn}>
           <VoteButton
             score={swotItem.score}
             swotItemId={swotItem.swotItemId}

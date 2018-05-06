@@ -39,11 +39,11 @@ const SwotCard = ({
           </label>
         </div>
       </form>
-      <div className={`card-panel`} style={{'padding': '1rem 0'}}>
+      <div className={`card-panel`} style={styles.cardPanel}>
         <div>
           {
             (items.length > 0 &&
-              (<ul>{
+              (<ul style={styles.swotList}>{
                   items.map((item, i) => {
                     return (<SwotItem swotItem={item} key={i} index={i}/>);
                   })

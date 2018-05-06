@@ -1,11 +1,8 @@
 import React from 'react';
 import styles from './styles';
 import './styles.css';
+import PropTypes from 'prop-types';
 
-const props = {
-  title: 'Swot Title',
-  description: 'Swot Description ...',
-};
 
 const DropDown = ({active}) => {
   const items = [{
@@ -28,7 +25,7 @@ const DropDown = ({active}) => {
     <ul style={styles.dropDown(active)}>
       {items.map((item, i) => (
         <li key={`item-${i}`} className={`dropdown-item`}>
-          <a href="#">
+          <a href="!#">
             <div style={styles.li}>
               <span style={styles.liSpan}>
                 {item.text}
@@ -74,7 +71,7 @@ class SwotHeader extends React.Component {
   }
 
   render() {
-    const {title, description} = props;
+    const {title, description, swotCreator, swotDateCreated} = this.props;
     const swotImg = 'https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/25507801_10214600576038909_8129308682006032833_n.jpg?oh=f6a69fa4bb09fa9a11b1e87c176dc732&oe=5B382481';
 
     return (
@@ -87,6 +84,7 @@ class SwotHeader extends React.Component {
                   <div style={styles.swotImgWrapper}>
                     <span>
                       <img
+                        alt={title}
                         className='responsive-img'
                         src={swotImg}
                         style={styles.swotImg}
@@ -110,8 +108,11 @@ class SwotHeader extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div style={styles.right}>
+                <div className={`swot-header-right`} style={styles.right}>
                   <span className={`card-title activator`}>
+                    <span className={`swot-meta`}>
+                      created by {swotCreator} at {swotDateCreated}
+                    </span>
                     <i
                       id={`kebab`}
                       className={`material-icons right`}
@@ -130,5 +131,12 @@ class SwotHeader extends React.Component {
     );
   }
 }
+
+SwotHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  swotCreator: PropTypes.string.isRequired,
+  swotDateCreated: PropTypes.string.isRequired,
+};
 
 export default SwotHeader;
