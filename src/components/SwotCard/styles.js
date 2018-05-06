@@ -11,9 +11,14 @@ const input = {
 const cardPanel = {
   minHeight: '333px',
   maxHeight: '333px',
-  padding: '1rem 0',
+  padding: '1rem 15px 0 0',
   marginBottom: '0px',
+  marginRight: '-30px',
   overflowY: 'scroll',
+};
+
+const cardPanelWrapper = {
+  overflow: 'hidden',
 };
 
 const swotList = {
@@ -24,5 +29,6 @@ export default {
   inputField,
   input,
   cardPanel,
+  cardPanelWrapper,
   swotList,
 };

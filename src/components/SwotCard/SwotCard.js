@@ -40,8 +40,8 @@ const SwotCard = ({
           </label>
         </div>
       </form>
-      <div className={`card-panel`} style={styles.cardPanel}>
-        <div>
+      <div style={styles.cardPanelWrapper}>
+        <div className={`card-panel`} style={styles.cardPanel}>
           {
             (items.length > 0 &&
               (<ul style={styles.swotList}>{

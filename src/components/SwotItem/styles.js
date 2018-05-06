@@ -26,7 +26,21 @@ export const textColumn = {
 
 export const voteColumn = {
   height: '32px',
-  padding: '0 5.28px'
+  padding: '0 5.28px',
+};
+
+export const left = {
+  padding: '0',
+};
+
+export const creatorImgWrapper = {
+  width: '32px',
+  height: '32px',
+};
+
+export const creatorImg = {
+  height: '100%',
+  width: '100%',
 };
 
 export default {
@@ -34,4 +48,7 @@ export default {
   swotItemRow,
   textColumn,
   voteColumn,
+  left,
+  creatorImgWrapper,
+  creatorImg,
 };
