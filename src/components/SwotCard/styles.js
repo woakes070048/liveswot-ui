@@ -12,6 +12,7 @@ const cardPanel = {
   maxHeight: '333px',
   padding: '1rem 0',
   marginBottom: '0px',
+  overflowY: 'scroll',
 };
 
 const swotList = {
