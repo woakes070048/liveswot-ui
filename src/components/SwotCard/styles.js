@@ -1,5 +1,6 @@
 const inputField = {
-  margin: '0px',
+  marginTop: '16px',
+  marginBottom: '0px',
 };
 
 const input = {

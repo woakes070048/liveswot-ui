@@ -72,7 +72,8 @@ class SwotHeader extends React.Component {
 
   render() {
     const {title, description, swotCreator, swotDateCreated} = this.props;
-    const swotImg = 'https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/25507801_10214600576038909_8129308682006032833_n.jpg?oh=f6a69fa4bb09fa9a11b1e87c176dc732&oe=5B382481';
+    // const swotImg = 'https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/25507801_10214600576038909_8129308682006032833_n.jpg?oh=f6a69fa4bb09fa9a11b1e87c176dc732&oe=5B382481';
+    const swotImg = '';
 
     return (
       <div className={`row`} style={styles.root}>
@@ -83,12 +84,20 @@ class SwotHeader extends React.Component {
                 <div style={styles.left}>
                   <div style={styles.swotImgWrapper}>
                     <span>
-                      <img
-                        alt={title}
-                        className='responsive-img'
-                        src={swotImg}
-                        style={styles.swotImg}
-                      />
+                      {
+                        swotImg &&
+                        <img
+                          alt={title}
+                          className='responsive-img'
+                          src={swotImg}
+                          style={styles.swotImg}
+                        /> ||
+                          <div style={styles.swotImgFallbackWrapper}>
+                            <div style={styles.swotImgFallback}>
+                              ST
+                            </div>
+                          </div>
+                      }
                     </span>
                   </div>
                 </div>

@@ -75,7 +75,7 @@ const compactCol = {
 };
 
 const navCol = {
-  padding: '0 0 0 6px'
+  padding: '0 0 0 12px'
 };
 
 const swotImgWrapper = {
@@ -86,6 +86,19 @@ const swotImgWrapper = {
 
 const swotImg = {
   height: '100%',
+};
+
+const swotImgFallbackWrapper = {
+  paddingTop: '8px',
+  paddingBottom: '8px',
+  background: 'rgb(164, 212, 159)',
+};
+
+const swotImgFallback = {
+  fontSize: '42px',
+  textAlign: 'center',
+  lineHeight: '48px',
+  color: 'white',
 };
 
 export default {
@@ -104,4 +117,6 @@ export default {
   navCol,
   swotImgWrapper,
   swotImg,
+  swotImgFallbackWrapper,
+  swotImgFallback,
 };

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import SwotItem from '../SwotItem';
 import {localizedText} from '../../utils/index';
 import styles from './styles';
+import './style.css';
 
 
 const SwotCard = ({
