@@ -14,7 +14,7 @@ export const voteUpStyles = (isActive) => ({
   width: 0, height: 0,
   borderLeft: '12.5px solid transparent',
   borderRight: '12.5px solid transparent',
-  borderBottom: `8px solid ${isActive ? 'rgb(164, 212, 159)' : 'grey'}`,
+  borderBottom: `8px solid ${isActive ? 'rgb(89, 156, 4)' : 'grey'}`,
 });
 
 export const scoreContainerStyles = {
@@ -35,6 +35,6 @@ export const voteDownStyles = (isActive) => ({
   width: 0, height: 0,
   borderLeft: '12.5px solid transparent',
   borderRight: '12.5px solid transparent',
-  borderTop: `8px solid ${isActive ? 'rgb(164, 212, 159)' : 'grey'}`,
+  borderTop: `8px solid ${isActive ? 'rgb(89, 156, 4)' : 'grey'}`,
   marginTop: '4.5px'
 });
