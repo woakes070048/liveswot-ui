@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 
 import {getSwotItems} from '../../selectors/swotItems';
-import {FetchSwotItems, FetchVotes} from '../../actions';
+import {FetchSwotItems, FetchSwots, FetchVotes} from '../../actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -24,6 +24,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onMountFetchVotes() {
       const swotId = ownProps.match.params.swotId;
       dispatch(FetchVotes(swotId));
+      },
+    onMountFetchSwots() {
+      dispatch(FetchSwots());
       },
   };
 };

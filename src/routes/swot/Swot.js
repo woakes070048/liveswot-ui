@@ -33,5 +33,6 @@ export default class Swot extends Component {
   componentDidMount() {
 	  this.props.onMountFetchItems();
 	  this.props.onMountFetchVotes();
+	  this.props.onMountFetchSwots();
   }
 }
