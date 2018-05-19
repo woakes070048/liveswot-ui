@@ -1,5 +1,6 @@
-## React ##
+## Npm ##
 node_modules
+*.log.*
 
 ## Django ##
 *.log

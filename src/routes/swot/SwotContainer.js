@@ -1,12 +1,19 @@
 import {connect} from 'react-redux';
 
 import {getSwotItems} from '../../selectors/swotItems';
-import {FetchSwotItems, FetchVotes} from '../../actions';
+import {FetchMembers, FetchSwotItems, FetchSwots, FetchVotes} from '../../actions';
+import getSwot from '../../selectors/swots/getSwot';
 
 
 const mapStateToProps = (state, ownProps) => {
   const swotItems = getSwotItems(state);
+  const swotId = ownProps.match.params.swotId;
+  const swot = getSwot(state, swotId);
+  const {swots} = state;
+
   return {
+    swots,
+    swot,
     strengths: swotItems.filter((e) => e.cardType === 'strength'),
     weaknesses: swotItems.filter((e) => e.cardType === 'weakness'),
     opportunities: swotItems.filter((e) => e.cardType === 'opportunity'),
@@ -15,7 +22,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-
   return {
     onMountFetchItems() {
       const swotId = ownProps.match.params.swotId;
@@ -25,6 +31,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const swotId = ownProps.match.params.swotId;
       dispatch(FetchVotes(swotId));
       },
+    onMountFetchSwots() {
+      dispatch(FetchSwots());
+      },
+    onMountFetchMembers() {
+      const swotId = ownProps.match.params.swotId;
+      dispatch(FetchMembers(swotId));
+    },
   };
 };
 

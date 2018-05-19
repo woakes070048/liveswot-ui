@@ -20,7 +20,7 @@ const swotItems = (state = initialState, action) => {
     case FETCH_SWOT_ITEMS_SUCCESS: {
       return {
         byId: action.data.reduce((swotItems, swotItem) => {
-          swotItems[swotItem.swotItemId] = swotItem;
+          swotItems[swotItem.swotItemId] = {...swotItem};
           return swotItems;
           }, {}),
         errors: [],
@@ -38,7 +38,7 @@ const swotItems = (state = initialState, action) => {
       return {
         byId: {
           ...state.byId,
-          [action.data.swotId]: action.data
+          [action.data.swotItemId]: action.data
         },
         errors: [...state.errors],
         isLoading: false,

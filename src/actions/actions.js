@@ -22,7 +22,7 @@ import {
 
   LOAD_TOKEN,
   UPDATE_NEW_ITEM,
-  CLEAR_NEW_ITEM,
+  CLEAR_NEW_ITEM, FETCH_MEMBERS, FETCH_MEMBERS_SUCCESS, FETCH_MEMBERS_ERROR,
 } from './actionTypes';
 
 export const InitApp = () => {
@@ -167,4 +167,13 @@ export const ClearNewItem = (cardType) => {
 
 export const LoadToken = (token) => {
   return {type: LOAD_TOKEN, data: {token}};
+};
+
+export const FetchMembers = (swotId) => {
+  return {
+    type: CALL_API,
+    types: [FETCH_MEMBERS, FETCH_MEMBERS_SUCCESS, FETCH_MEMBERS_ERROR],
+    method: 'GET',
+    endpoint: `/members/swots/${swotId}/`,
+  };
 };
