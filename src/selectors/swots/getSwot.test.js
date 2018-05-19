@@ -4,11 +4,11 @@ import {expect} from 'chai';
 describe('(Selector) getSwot', () => {
   describe('when swot not available', () => {
     const state = {swots: {byId: {}}};
-    it('should return empty object', () => {
+    it('should return null', () => {
       const swotId = 1;
       const swot = getSwot(state, swotId);
 
-      expect(swot).to.be.an('object').that.is.empty;
+      expect(swot).to.be.null;
     });
   });
 
