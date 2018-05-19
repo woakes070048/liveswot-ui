@@ -10,6 +10,7 @@ describe('(Reducer) members', () => {
       expect(members(state, action)).to.deep.equal(state);
     });
   });
+
   describe('on action fetchMembers', () => {
     it('returns previous state with `isLoading` as true', () => {
       const state = {byId: {}, isLoading: false, errors: []};
@@ -20,6 +21,7 @@ describe('(Reducer) members', () => {
       });
     });
   });
+
   describe('on action fetchMembersSuccess', () => {
     it('returns state with all fetched members', () => {
       const state = {};
@@ -68,6 +70,7 @@ describe('(Reducer) members', () => {
       });
     });
   });
+
   describe('on action fetchMembersError', () => {
     it('returns previous state with errors from action', () => {
       const state = {byId: {1: {}, 2: {}, 3: {}}, errors: [], isLoading: true};

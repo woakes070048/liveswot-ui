@@ -71,7 +71,7 @@ class SwotHeader extends React.Component {
   }
 
   render() {
-    const {title, description, swotCreator, swotDateCreated} = this.props;
+    const {title, description, creator, swotDateCreated} = this.props;
     // const swotImg = 'https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/25507801_10214600576038909_8129308682006032833_n.jpg?oh=f6a69fa4bb09fa9a11b1e87c176dc732&oe=5B382481';
     const swotImg = '';
 
@@ -120,7 +120,7 @@ class SwotHeader extends React.Component {
                 <div className={`swot-header-right`} style={styles.right}>
                   <span className={`card-title activator`}>
                     <span className={`swot-meta`}>
-                      created by {swotCreator} at {swotDateCreated}
+                      created by {creator.userName} at {swotDateCreated}
                     </span>
                     <i
                       id={`kebab`}
@@ -142,9 +142,11 @@ class SwotHeader extends React.Component {
 }
 
 SwotHeader.propTypes = {
+  creator: PropTypes.shape({
+    userName: PropTypes.string.isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  swotCreator: PropTypes.string.isRequired,
   swotDateCreated: PropTypes.string.isRequired,
 };
 

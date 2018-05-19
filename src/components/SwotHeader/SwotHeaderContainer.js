@@ -1,20 +1,21 @@
 import {connect} from 'react-redux';
 import getSwotIdFromUrl from '../../selectors/url/getSwotIdFromUrl';
 import getSwot from '../../selectors/swots/getSwot';
-// import getMember from '../../selectors/members/getMember';
+import getSwotCreator from '../../selectors/swots/getSwotCreator';
 
 export default connect(
   (state, ownProps) => {
     const swotId = getSwotIdFromUrl(ownProps);
     const swot = getSwot(state, swotId);
-    // const {creatorId} = swot;
-    // const creatorUsername = getMember(state, creatorId);
+    const creator = getSwotCreator(state, swotId);
 
     return {
+      creator: creator || {username: ''},
       title: swot.title || '',
       description: swot.description || '',
-      swotCreator: swot.creatorId || '',
-      swotDateCreated: swot.createdAt || '', // '4.58 PM Tue May 1 2018'
+      swotDateCreated: (
+        swot.createdAt && `${swot.createdAt.substring(0, 10)} ${swot.createdAt.substring(11, 16)}`
+      ) || '',
     };
   },
   () => ({}),
