@@ -58,4 +58,8 @@ export const VOTE = 'VOTE';
 export const VOTE_SUCCESS = 'VOTE_SUCCESS';
 export const VOTE_ERROR = 'VOTE_ERROR';
 
+export const FETCH_MEMBERS = 'FETCH_MEMBERS';
+export const FETCH_MEMBERS_SUCCESS = 'FETCH_MEMBERS_SUCCESS';
+export const FETCH_MEMBERS_ERROR = 'FETCH_MEMBERS_ERROR';
+
 export const LOAD_TOKEN = 'LOAD_TOKEN';

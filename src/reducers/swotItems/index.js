@@ -38,7 +38,7 @@ const swotItems = (state = initialState, action) => {
       return {
         byId: {
           ...state.byId,
-          [action.data.swotId]: action.data
+          [action.data.swotItemId]: action.data
         },
         errors: [...state.errors],
         isLoading: false,

@@ -2,11 +2,27 @@ import React, { Component } from 'react';
 
 import SwotCard from '../../components/SwotCard';
 import SwotHeader from '../../components/SwotHeader';
+import Loading from '../../components/Loading';
 import styles from './styles';
 
 
 export default class Swot extends Component {
 	render() {
+
+	  const {swot, swots} = this.props;
+
+	  if (swots.isLoading) {
+	    return <Loading/>;
+    }
+
+    if (!swot) {
+      return <div>404</div>;
+    }
+
+    if (swots.errors.length > 0) {
+      return <div>{`${swots.errors}`}</div>
+    }
+
 		return (
 			<div>
 				<SwotHeader/>
@@ -34,5 +50,6 @@ export default class Swot extends Component {
 	  this.props.onMountFetchItems();
 	  this.props.onMountFetchVotes();
 	  this.props.onMountFetchSwots();
+	  this.props.onMountFetchMembers();
   }
 }
