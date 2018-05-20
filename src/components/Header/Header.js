@@ -17,7 +17,7 @@ const Header = ({logout, username, email, profileImg, isLoggedIn}) => {
               <a href='/' className='brand-logo'>{localizedText().title}</a>
               <ul id='nav-mobile' className='right hide-on-med-and-down'>
                 {!isLoggedIn && <li><a href='/login'>Login</a></li>}
-                {isLoggedIn && <li><a href='!#' onClick={() => logout()}>Logout</a></li>}
+                {isLoggedIn && <li><a href='' onClick={() => logout()}>Logout</a></li>}
                 {isLoggedIn &&
                 <li style={styles.navBarList}>
                   <a href='/profile'>
