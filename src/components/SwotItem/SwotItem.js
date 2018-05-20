@@ -13,7 +13,12 @@ const SwotItem = ({swotItem, index}) => {
       <div className={'row'} style={styles.swotItemRow}>
         <div className={'col s1 m1 l1'} style={styles.left}>
           <div style={styles.creatorImgWrapper}>
-            <img className={`circle img-responsive`} src={profileImg} style={styles.creatorImg} />
+            <img
+              className={`circle img-responsive`}
+              src={profileImg}
+              style={styles.creatorImg}
+              alt={`item creator: ${swotItem.creatorId}`}
+            />
           </div>
         </div>
         <div className={'col s10 m10 l10'} style={styles.textColumn}>

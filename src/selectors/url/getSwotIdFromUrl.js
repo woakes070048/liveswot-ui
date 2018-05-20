@@ -8,7 +8,7 @@ const getSwotIdFromUrl = (state) => {
     return;
   }
 
-  return parseInt(swotId);
+  return parseInt(swotId, 10);
 };
 
 export default getSwotIdFromUrl;

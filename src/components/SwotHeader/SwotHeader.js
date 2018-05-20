@@ -2,55 +2,28 @@ import React from 'react';
 import styles from './styles';
 import './styles.css';
 import PropTypes from 'prop-types';
-
-
-const DropDown = ({active}) => {
-  const items = [{
-    text: 'one',
-    icon: 'edit'
-  }, {
-    text: 'two',
-    icon: 'close',
-  }, {
-    text: 'three',
-    icon: 'add',
-    iconColor: 'blue',
-  }, {
-    text: 'four',
-    icon: 'adjust',
-    iconColor: 'red',
-  }];
-
-  return (
-    <ul style={styles.dropDown(active)}>
-      {items.map((item, i) => (
-        <li key={`item-${i}`} className={`dropdown-item`}>
-          <a href="!#">
-            <div style={styles.li}>
-              <span style={styles.liSpan}>
-                {item.text}
-                <i
-                  className={`material-icons right`}
-                  style={styles.dropDownItemIcon(item.iconColor)}
-                >
-                  {item.icon}
-                </i>
-              </span>
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
-};
+import AddMember from '../../components/AddMember';
+import DropDown from './components/DropDown';
 
 class SwotHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       active: false,
+      addMemberHidden: true,
+      userName: '',
     };
+
+    this.hideAddMember = this.hideAddMember.bind(this);
+    this.showAddMember = this.showAddMember.bind(this);
+    this.updateUserName = this.updateUserName.bind(this);
   }
+
+  hideAddMember() {this.setState({addMemberHidden: true});}
+
+  showAddMember() {this.setState({addMemberHidden: false});}
+
+  updateUserName(e) {this.setState({userName: e.target.value});}
 
   hideDropDown = (event) => {
     if (event.target.id !== 'kebab') {
@@ -76,48 +49,50 @@ class SwotHeader extends React.Component {
     const swotImg = '';
 
     return (
-      <div className={`row`} style={styles.root}>
-        <div className={`col m12 s12 l12`}>
-          <div className={`card`} style={styles.card}>
-            <div className={`card-content`} style={styles.cardContent}>
-              <div className={`row`} style={{...styles.compactRow, ...styles.layout}}>
-                <div style={styles.left}>
-                  <div style={styles.swotImgWrapper}>
+      <div>
+        <div className={`row`} style={styles.root}>
+          <div className={`col m12 s12 l12`}>
+            <div className={`card`} style={styles.card}>
+              <div className={`card-content`} style={styles.cardContent}>
+                <div className={`row`} style={{...styles.compactRow, ...styles.layout}}>
+                  <div style={styles.left}>
+                    <div style={styles.swotImgWrapper}>
                     <span>
-                      {
+                      {(
                         swotImg &&
                         <img
                           alt={title}
                           className='responsive-img'
                           src={swotImg}
                           style={styles.swotImg}
-                        /> ||
-                          <div style={styles.swotImgFallbackWrapper}>
-                            <div style={styles.swotImgFallback}>
-                              ST
-                            </div>
+                        />
+                      ) || (
+                        <div style={styles.swotImgFallbackWrapper}>
+                          <div style={styles.swotImgFallback}>
+                            ST
                           </div>
-                      }
+                        </div>
+                      )}
                     </span>
+                    </div>
                   </div>
-                </div>
-                <div style={styles.mid}>
-                  <div className={`row`} style={styles.compactRow}>
-                    <div className={`row swot-header`} style={styles.compactRow}>
-                      <div className={`col s10 m12 l12`} style={styles.navCol}>
+                  <div style={styles.mid}>
+                    <div className={`row`} style={styles.compactRow}>
+                      <div className={`row swot-header`} style={styles.compactRow}>
+                        <div className={`col s10 m12 l12`} style={styles.navCol}>
                         <span className={`card-title activator`} style={styles.cardTitle}>
                           {title}
                         </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className={`row`} style={styles.compactRow}>
-                      <div className={`col s12 m12 l12`} style={styles.navCol}>
-                        <span>{description}</span>
+                      <div className={`row`} style={styles.compactRow}>
+                        <div className={`col s12 m12 l12`} style={styles.navCol}>
+                          <span>{description}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className={`swot-header-right`} style={styles.right}>
+                  <div className={`swot-header-right`} style={styles.right}>
                   <span className={`card-title activator`}>
                     <span className={`swot-meta`}>
                       created by {creator.userName} at {swotDateCreated}
@@ -125,17 +100,24 @@ class SwotHeader extends React.Component {
                     <i
                       id={`kebab`}
                       className={`material-icons right`}
-                      onClick={() => {console.log('click!'); this.toggleDropDown();}}
+                      onClick={() => this.toggleDropDown()}
                     >
                       more_vert
                     </i>
                   </span>
+                  </div>
                 </div>
+                <DropDown active={this.state.active} showAddMember={this.showAddMember}/>
               </div>
-              <DropDown active={this.state.active}/>
             </div>
           </div>
         </div>
+        <AddMember
+          hidden={this.state.addMemberHidden}
+          hide={this.hideAddMember}
+          userName={this.state.userName}
+          updateUserName={this.updateUserName}
+        />
       </div>
     );
   }
