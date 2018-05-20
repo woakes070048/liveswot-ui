@@ -32,32 +32,6 @@ const card = {
   margin: 0,
 };
 
-const dropDown = (active) => ({
-  display: active ? 'block' : 'none',
-  width: '200px',
-  position: 'absolute',
-  right: `${12}px`,
-  top: `${12}px`,
-  margin: '0',
-  lineHeight: '12px',
-  background: 'rgb(164, 212, 159)',
-  boxShadow: `0px 8px 16px 0px rgba(0,0,0,0.2)`,
-  zIndex: 3,
-});
-
-const li = {
-  padding: '12px',
-};
-
-const liSpan = {
-  color: 'black'
-};
-
-const dropDownItemIcon = (color) => ({
-  marginTop: '-6px',
-  color: color,
-});
-
 const cardContent = {
   padding: '6px 6px 6px 6px',
 };
@@ -108,10 +82,6 @@ export default {
   card,
   cardContent,
   cardTitle,
-  dropDown,
-  li,
-  liSpan,
-  dropDownItemIcon,
   compactRow,
   compactCol,
   navCol,

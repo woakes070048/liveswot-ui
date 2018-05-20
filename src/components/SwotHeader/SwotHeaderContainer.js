@@ -10,7 +10,7 @@ export default connect(
     const creator = getSwotCreator(state, swotId);
 
     return {
-      creator: creator || {username: ''},
+      creator: creator || {userName: ''},
       title: swot.title || '',
       description: swot.description || '',
       swotDateCreated: (
