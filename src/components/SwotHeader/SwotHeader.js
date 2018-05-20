@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles';
 import './styles.css';
 import PropTypes from 'prop-types';
-import AddMember from '../../components/AddMember';
+import AddMember from './components/AddMember';
 import DropDown from './components/DropDown';
 
 class SwotHeader extends React.Component {

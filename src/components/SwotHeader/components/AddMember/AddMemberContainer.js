@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {AddMember} from '../../actions';
+import {AddMember} from '../../../../actions/index';
 
 export const mapStateToProps = () => ({});
 
