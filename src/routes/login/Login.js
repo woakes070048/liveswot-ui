@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles';
 import RequestButton from '../../components/RequestButton';
+import RequestError from "../../components/RequestError/RequestError";
 
 class Login extends React.Component {
 
@@ -16,6 +17,10 @@ class Login extends React.Component {
 
   render() {
     const {user, disabled} = this.props;
+
+    console.log('%%%%%%%%%%%%%%%%');
+    console.log(user);
+    console.log('%%%%%%%%%%%%%%%%');
 
     return (
       <div className={`row`}>
@@ -37,14 +42,16 @@ class Login extends React.Component {
                     ref='password'
                     placeholder={`Password`}
                   />
+                  <input type='submit' style={{display: 'none'}}/>
                   <RequestButton
-                    text={`signup`}
+                    text={`login`}
                     disabled={disabled}
                     requestedItem={user}
                     onClick={this.login}
                   />
                 </form>
                 <p>Not signed up yet? Signup <a href={`signup`}>here</a></p>
+                <RequestError errors={user.errors}/>
               </div>
               <div className={`col s1 m1 l1`}></div>
             </div>

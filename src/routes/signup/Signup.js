@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles';
 import RequestButton from '../../components/RequestButton';
+import RequestError from '../../components/RequestError';
 
 class Signup extends React.Component {
 
@@ -47,6 +48,7 @@ class Signup extends React.Component {
                     ref='password'
                     placeholder={`Password`}
                   />
+                  <input type='submit' style={{display: 'none'}}/>
                   <RequestButton
                     text={`signup`}
                     disabled={disabled}
@@ -55,6 +57,7 @@ class Signup extends React.Component {
                   />
                 </form>
                 <p>Already signed up? Login <a href={`login`}>here</a></p>
+                <RequestError errors={user.errors}/>
               </div>
               <div className={`col s1 m1 l1`}></div>
             </div>
