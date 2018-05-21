@@ -101,7 +101,7 @@ export const CreateSwot = (title, description) => {
   return {
     type: CALL_API,
     types: [CREATE_SWOT, CREATE_SWOT_SUCCESS, CREATE_SWOT_ERROR],
-    endpoints: `/swots/`,
+    endpoint: `/swots/`,
     method: 'POST',
     data: {title, description}
   };

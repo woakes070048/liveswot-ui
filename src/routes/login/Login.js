@@ -18,10 +18,6 @@ class Login extends React.Component {
   render() {
     const {user, disabled} = this.props;
 
-    console.log('%%%%%%%%%%%%%%%%');
-    console.log(user);
-    console.log('%%%%%%%%%%%%%%%%');
-
     return (
       <div className={`row`}>
         <div className={`col s1 m3 l3`}></div>
