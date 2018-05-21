@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import EmptyList from '../../components/EmptyList';
 import SwotList from '../../components/SwotList';
 import styles from './styles';
+import CreateSwot from '../../components/CreateSwot';
 
 class Home extends React.Component {
 
@@ -15,6 +16,7 @@ class Home extends React.Component {
 
     return (
       <div>
+        <CreateSwot/>
         <div>
           <h5>Your swots</h5>
           {(

@@ -1,4 +1,4 @@
-import {FETCH_SWOTS, FETCH_SWOTS_ERROR, FETCH_SWOTS_SUCCESS} from "../../actions/actionTypes";
+import {CREATE_SWOT_SUCCESS, FETCH_SWOTS, FETCH_SWOTS_ERROR, FETCH_SWOTS_SUCCESS} from "../../actions/actionTypes";
 
 export const initialState = {
   byId: {},
@@ -13,6 +13,13 @@ const swots = (state = initialState, action) => {
         byId: { ...state.byId },
         errors: [ ...state.errors ],
         isLoading: true,
+      };
+    }
+    case CREATE_SWOT_SUCCESS: {
+      return {
+        byId: {...state.byId, [action.data.swotId]: {...action.data}},
+        errors: [...state.errors],
+        isLoading: false,
       };
     }
     case FETCH_SWOTS_SUCCESS: {
