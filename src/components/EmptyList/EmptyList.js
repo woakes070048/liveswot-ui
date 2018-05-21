@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from "../SwotHeader/styles";
 
-const EmptyList = () => {
+const EmptyList = ({isLoading}) => {
+  let text = 'No SWOT to display';
+
+  if (isLoading) {
+    text = 'Loading ...';
+  }
+
   return (
     <div>
       <div className={`row`} style={styles.root}>
@@ -9,7 +15,7 @@ const EmptyList = () => {
           <div className={`card`} style={styles.card}>
             <div className={`card-content`} style={styles.cardContent}>
               <div className={`row`} style={{...styles.compactRow, ...styles.layout}}>
-                <h6>No SWOT to display</h6>
+                <h6>{text}</h6>
               </div>
             </div>
           </div>

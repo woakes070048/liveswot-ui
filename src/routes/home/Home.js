@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import EmptyList from '../../components/EmptyList';
-import SwotHeader from '../../components/SwotHeader/SwotHeader';
 import SwotList from '../../components/SwotList';
-
+import styles from './styles';
 
 class Home extends React.Component {
 
@@ -12,7 +11,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const {swots, userSwots} = this.props;
+    const {swots, isLoading, userSwots} = this.props;
 
     return (
       <div>
@@ -21,20 +20,21 @@ class Home extends React.Component {
           {(
             userSwots.length > 0 &&
             userSwots.map((swot, i) => (
-              <div style={{marginBottom: '1px'}}>
-                <SwotList key={i} swot={swot}/>
+              <div style={styles.listContainer} key={`userSwot-${i}`}>
+                <SwotList swot={swot}/>
               </div>))
-          ) || <EmptyList />}
+          ) || <EmptyList isLoading={isLoading} />}
         </div>
         <div>
           <h5>Swots you are contributing to</h5>
           {(
             swots.length > 0 &&
             swots.map((swot, i) => (
-              <div style={{marginBottom: '1px'}}>
-                <SwotList key={i} swot={swot}/>
+              <div style={{marginBottom: '1px'}} key={`swot-${i}`}>
+                <SwotList swot={swot}/>
               </div>))
-          ) || <SwotHeader creator={'Empty'} title={`Empty`} swotDateCreated={`Empty`}/>}
+          )
+          || (<EmptyList isLoading={isLoading} />)}
         </div>
       </div>
     );
