@@ -1,50 +1,57 @@
 import React from 'react';
-import {FetchSwots} from "../../actions";
-
+import PropTypes from 'prop-types';
+import EmptyList from '../../components/EmptyList';
+import SwotList from '../../components/SwotList';
+import styles from './styles';
 
 class Home extends React.Component {
 
   componentDidMount() {
-    // this.dispatch(FetchTeams());
-    this.props.dispatch(FetchSwots());
+    this.props.onMountFetchSwots();
   }
 
   render() {
-    const {
-      swots = [], teams = [], userSwots = [],
-    } = this.props;
+    const {swots, isLoading, userSwots} = this.props;
 
     return (
       <div>
         <div>
-          <p>Your swots:</p>
-          <ul>
-            {userSwots.map((swot) => (
-              <li>{swot}</li>
-            ))}
-          </ul>
+          <h5>Your swots</h5>
+          {(
+            userSwots.length > 0 &&
+            userSwots.map((swot, i) => (
+              <div style={styles.listContainer} key={`userSwot-${i}`}>
+                <SwotList swot={swot}/>
+              </div>))
+          ) || <EmptyList isLoading={isLoading} />}
         </div>
         <div>
-          <p>Swots you are contributing to:</p>
-          <ul>
-            {swots.map((swot, i) => (
-              <li key={i}>{
-                `swotId: ${swot.swotId}, title: ${swot.title}, creatorId:${swot.creatorId}`
-              }</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p>Your teams:</p>
-          <ul>
-            {teams.map((team) => (
-              <li>{team}</li>
-            ))}
-          </ul>
+          <h5>Swots you are contributing to</h5>
+          {(
+            swots.length > 0 &&
+            swots.map((swot, i) => (
+              <div style={{marginBottom: '1px'}} key={`swot-${i}`}>
+                <SwotList swot={swot}/>
+              </div>))
+          )
+          || (<EmptyList isLoading={isLoading} />)}
         </div>
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  swots: PropTypes.arrayOf(PropTypes.shape({
+    swotId: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    creatorId: PropTypes.number.isRequired,
+  })).isRequired,
+  userSwots: PropTypes.arrayOf(PropTypes.shape({
+    swotId: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    creatorId: PropTypes.number.isRequired,
+  })).isRequired,
+};
 
 export default Home;

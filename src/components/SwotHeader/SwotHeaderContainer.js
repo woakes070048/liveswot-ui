@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import getSwotIdFromUrl from '../../selectors/url/getSwotIdFromUrl';
 import getSwot from '../../selectors/swots/getSwot';
 import getSwotCreator from '../../selectors/swots/getSwotCreator';
+import {normalizeDate} from '../../utils/normalization';
 
 export default connect(
   (state, ownProps) => {
@@ -14,7 +15,7 @@ export default connect(
       title: swot.title || '',
       description: swot.description || '',
       swotDateCreated: (
-        swot.createdAt && `${swot.createdAt.substring(0, 10)} ${swot.createdAt.substring(11, 16)}`
+        swot.createdAt && normalizeDate(swot.createdAt)
       ) || '',
     };
   },
