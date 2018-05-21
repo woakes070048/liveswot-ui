@@ -1,6 +1,4 @@
-import {
-  LOGIN, LOGIN_SUCCESS, LOGIN_ERROR
-} from "../../actions/actionTypes";
+import * as types from '../../actions/actionTypes';
 
 
 export const initialState = {
@@ -15,14 +13,16 @@ export const initialState = {
 
 const user = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN: {
+    case types.SIGNUP:
+    case types.LOGIN: {
       return {
         ...initialState,
         isLoading: true,
         errors: [],
       };
     }
-    case LOGIN_SUCCESS: {
+    case types.SIGNUP_SUCCESS:
+    case types.LOGIN_SUCCESS: {
       const user = action.data.user;
       return {
         username: user.username,
@@ -32,7 +32,8 @@ const user = (state = initialState, action) => {
         errors: [],
       };
     }
-    case LOGIN_ERROR: {
+    case types.SIGNUP_ERROR:
+    case types.LOGIN_ERROR: {
       return {
         ...initialState,
         errors: [ ...action.errors ],

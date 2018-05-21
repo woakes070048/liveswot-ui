@@ -1,8 +1,15 @@
 import { connect } from 'react-redux';
 import { Signup } from '../../actions/index';
 
-const mapStateToProps = (state) => ({});
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapStateToProps = (state) => {
+  const {user} = state;
+  return {
+    user,
+    disabled: user.isLoading ? 'disabled' : '',
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
   signup: (email, username, password) => {
     dispatch(Signup(email, username, password));
   }
