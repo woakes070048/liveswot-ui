@@ -13,7 +13,7 @@ import {InitApp} from "./actions";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import routes from './routes';
-import {mapPathsToRoutes} from "./routes/routes";
+import {mapPathsToRoutes} from './routes/routes';
 
 
 WebFontLoader.load({
