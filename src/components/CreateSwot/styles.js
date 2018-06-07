@@ -1,4 +1,7 @@
-const container = {padding: '15px 0'};
+const container = {
+  padding: '15px 0',
+  transition: '0.45s ease-in-out',
+};
 
 const alignCenter = {textAlign: 'center'};
 

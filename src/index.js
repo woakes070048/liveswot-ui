@@ -9,7 +9,7 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 import {history} from './middlewares/history/history';
-import {InitApp} from "./actions";
+import {InitApp} from './actions';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import routes from './routes';
