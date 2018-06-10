@@ -10,12 +10,15 @@ import {
 } from './styles';
 
 
-const VoteButton = ({score, isUpActive, isDownActive, swotItemId, userId, onVoteItem}) => (
+const VoteButton = ({score, isUpActive, isDownActive, swotItemId, userId, onVoteItem, animate}) => (
   <div style={voteContainerStyles}>
     <div style={voteUpContainerStyles}>
       <div
         style={voteUpStyles(isUpActive)}
-        onClick={() => onVoteItem(swotItemId, 'up', userId)}
+        onClick={() => {
+          onVoteItem(swotItemId, 'up', userId);
+          animate();
+        }}
       >
       </div>
     </div>
@@ -26,7 +29,10 @@ const VoteButton = ({score, isUpActive, isDownActive, swotItemId, userId, onVote
     <div style={voteDownContainerStyles}>
       <div
         style={voteDownStyles(isDownActive)}
-        onClick={() => onVoteItem(swotItemId, 'down', userId)}
+        onClick={() => {
+          onVoteItem(swotItemId, 'down', userId);
+          animate();
+        }}
       >
       </div>
     </div>
