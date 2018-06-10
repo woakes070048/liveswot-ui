@@ -12,6 +12,7 @@ describe('(selector) getSwotItems', () => {
           byId: {},
           errors: [],
           isLoading: false,
+          ids: [],
         }
       };
       const swotItems = getSwotItems(state);
@@ -33,6 +34,7 @@ describe('(selector) getSwotItems', () => {
         byId: {1: swotItem},
         errors: [],
         isLoading: false,
+        ids: [1],
       }
     };
 
@@ -45,19 +47,20 @@ describe('(selector) getSwotItems', () => {
 
   describe('state has more than 1 swotItem', () => {
     const swotItem1 = {
-      swotItemId: 1, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength',
+      swotItemId: 1, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength', score: 0,
     };
     const swotItem2 = {
-      swotItemId: 2, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength',
+      swotItemId: 2, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength', score: 0,
     };
     const swotItem3 = {
-      swotItemId: 3, swotId: 102, creatorId: 201, text: 'Text', cardType: 'strength',
+      swotItemId: 3, swotId: 102, creatorId: 201, text: 'Text', cardType: 'strength', score: 0,
     };
     const state = {
       swotItems: {
         byId: {1: swotItem1, 2: swotItem2, 3: swotItem3},
         errors: [],
         isLoading: false,
+        ids: [1,2,3]
       }
     };
 
@@ -70,19 +73,20 @@ describe('(selector) getSwotItems', () => {
 
   describe('argument swotId is provided', () => {
     const swotItem1 = {
-      swotItemId: 1, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength',
+      swotItemId: 1, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength', score: 0,
     };
     const swotItem2 = {
-      swotItemId: 2, swotId: 102, creatorId: 201, text: 'Text', cardType: 'strength',
+      swotItemId: 2, swotId: 102, creatorId: 201, text: 'Text', cardType: 'strength', score: 0,
     };
     const swotItem3 = {
-      swotItemId: 3, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength',
+      swotItemId: 3, swotId: 101, creatorId: 201, text: 'Text', cardType: 'strength', score: 0,
     };
     const state = {
       swotItems: {
         byId: {1: swotItem1, 2: swotItem2, 3: swotItem3},
         errors: [],
         isLoading: false,
+        ids: [1,2,3]
       }
     };
 
