@@ -1,3 +1,14 @@
+.swot-item {
+    transition: ease-in-out 0.2s 0.2s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.swot-item.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 .swot-item:hover {
     transition: ease-in-out 0.1s;
     transform: scale(1.005);
