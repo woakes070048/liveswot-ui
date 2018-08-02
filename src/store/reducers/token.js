@@ -1,6 +1,6 @@
 import {
   LOGIN, LOGIN_SUCCESS, LOGIN_ERROR, LOAD_TOKEN, LOGOUT_SUCCESS
-} from '../actions/actionTypes';
+} from '../store/actions/actionTypes';
 import authUtils from '../utils/auth';
 
 const token = (state = authUtils.getToken(), action) => {

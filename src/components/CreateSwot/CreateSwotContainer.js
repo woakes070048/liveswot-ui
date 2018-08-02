@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {CreateSwot} from '../../actions';
+import {CreateSwot} from '../../store/actions';
 
 export default connect(
   () => ({}),

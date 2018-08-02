@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 
 import getSwots from '../../selectors/swots/getSwots';
-import {FetchSwots} from "../../actions";
+import {FetchSwots} from "../../store/actions";
 
 
 export default connect(

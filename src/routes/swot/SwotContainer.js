@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 
 import {getSwotItems} from '../../selectors/swotItems';
-import {FetchMembers, FetchSwotItems, FetchSwots, FetchVotes} from '../../actions';
+import {FetchMembers, FetchSwotItems, FetchSwots, FetchVotes} from '../../store/actions';
 import getSwot from '../../selectors/swots/getSwot';
 
 

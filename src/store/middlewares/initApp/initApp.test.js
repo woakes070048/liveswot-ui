@@ -1,7 +1,7 @@
 import { stub, spy, assert, mock } from 'sinon';
 import { expect } from 'chai';
 
-import {InitApp, LoadToken} from '../../actions';
+import {InitApp, LoadToken} from '../../actions/index';
 import initApp from './initApp';
 
 describe('initApp middleware', () => {

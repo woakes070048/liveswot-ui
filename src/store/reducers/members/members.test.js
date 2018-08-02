@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import members, {initState} from './members';
-import * as types from '../../actions/actionTypes';
+import * as types from '../../store/actions/actionTypes';
 
 describe('(Reducer) members', () => {
   describe('default state', () => {

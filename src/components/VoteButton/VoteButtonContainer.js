@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import {Vote} from '../../actions';
+import {Vote} from '../../store/actions';
 // import {getUser} from '../../selectors/user';
 import {getVotes} from '../../selectors/votes';
 import authUtils from "../../utils/auth";

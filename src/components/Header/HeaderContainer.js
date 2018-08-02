@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import {Logout, LogoutSuccess} from '../../actions';
+import {Logout, LogoutSuccess} from '../../store/actions';
 import {authUtils} from '../../utils';
 
 const mapStateToProps = (state) => {

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {CreateSwotItem, UpdateNewItem, ClearNewItem} from '../../actions/index';
+import {CreateSwotItem, UpdateNewItem, ClearNewItem} from '../../store/actions/index';
 import {getSwotItems} from "../../selectors/swotItems";
 import {getUser} from '../../selectors/user';
 
