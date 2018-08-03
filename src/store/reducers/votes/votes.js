@@ -1,4 +1,4 @@
-import {VOTE, FETCH_VOTES_SUCCESS, VOTE_SUCCESS} from "../../actions/actionTypes";
+import {VOTE, FETCH_VOTES_SUCCESS, VOTE_SUCCESS} from "../../store/actions/actionTypes";
 
 const initialState = {
   byId: {},

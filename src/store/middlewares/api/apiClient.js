@@ -1,5 +1,5 @@
-import { host as baseUrl} from '../../config/environment';
-import authUtils from "../../utils/auth";
+import { host as baseUrl} from '../../../config/environment';
+import authUtils from "../../../utils/auth";
 
 
 const defaultConfig = {

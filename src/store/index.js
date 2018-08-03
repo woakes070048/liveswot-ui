@@ -3,11 +3,11 @@ import thunk from 'redux-thunk';
 import { push } from 'react-router-redux';
 
 import reducers from '../reducers';
-import api from '../middlewares/api';
-import log from '../middlewares/log';
-import history from '../middlewares/history';
-import initApp from '../middlewares/initApp';
-import {LOGIN_SUCCESS, SIGNUP_SUCCESS} from '../actions/actionTypes';
+import api from './middlewares/api';
+import log from './middlewares/log';
+import history from './middlewares/history';
+import initApp from './middlewares/initApp';
+import {LOGIN_SUCCESS, SIGNUP_SUCCESS} from './actions/actionTypes';
 
 const createStore = (reducers, middlewares) => {
   return _createStore(

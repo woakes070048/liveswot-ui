@@ -1,4 +1,4 @@
-import { UPDATE_NEW_ITEM, CLEAR_NEW_ITEM } from '../actions/actionTypes';
+import { UPDATE_NEW_ITEM, CLEAR_NEW_ITEM } from '../store/actions/actionTypes';
 
 const newItem = (state = {
   strength: '', weakness: '',

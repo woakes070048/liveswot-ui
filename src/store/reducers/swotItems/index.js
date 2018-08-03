@@ -1,6 +1,6 @@
 import {
   FETCH_SWOT_ITEMS, FETCH_SWOT_ITEMS_SUCCESS, FETCH_SWOT_ITEMS_ERROR, CREATE_SWOT_ITEM_SUCCESS, VOTE_SUCCESS
-} from "../../actions/actionTypes";
+} from "../../store/actions/actionTypes";
 
 const initialState = {
   byId: {},

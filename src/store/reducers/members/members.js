@@ -1,4 +1,4 @@
-import * as types from '../../actions/actionTypes';
+import * as types from '../../store/actions/actionTypes';
 
 export const initState = {
   byId: {},

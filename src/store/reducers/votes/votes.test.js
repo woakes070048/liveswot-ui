@@ -1,8 +1,8 @@
 import {expect} from 'chai';
 
 import votes from './votes';
-import {Vote} from "../../actions";
-import {VOTE} from "../../actions/actionTypes";
+import {Vote} from "../../store/actions";
+import {VOTE} from "../../store/actions/actionTypes";
 
 
 describe('(reducer) votes', () => {

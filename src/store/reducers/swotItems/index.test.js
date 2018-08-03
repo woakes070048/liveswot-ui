@@ -1,6 +1,6 @@
 import swotItems from './index';
 import {expect} from 'chai';
-import {VOTE_SUCCESS} from "../../actions/actionTypes";
+import {VOTE_SUCCESS} from "../../store/actions/actionTypes";
 
 describe('(Reducer) swotItems', () => {
   describe('on action `VOTE_SUCCESS`', () => {
