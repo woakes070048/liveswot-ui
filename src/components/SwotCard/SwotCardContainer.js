@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 
-import {CreateSwotItem, UpdateNewItem, ClearNewItem} from '../../store/actions/index';
-import {getSwotItems} from "../../selectors/swotItems";
-import {getUser} from '../../selectors/user';
+import {CreateSwotItem, UpdateNewItem, ClearNewItem} from '../../store/actions';
+import {getSwotItems} from '../../store/selectors/swotItems';
+import {getUser} from '../../store/selectors/user';
 
 
 const mapStateToProps = (state, ownProps) => {

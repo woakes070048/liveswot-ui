@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
-import getSwotIdFromUrl from '../../selectors/url/getSwotIdFromUrl';
-import getSwot from '../../selectors/swots/getSwot';
-import getSwotCreator from '../../selectors/swots/getSwotCreator';
+import getSwotIdFromUrl from '../../store/selectors/url/getSwotIdFromUrl';
+import getSwot from '../../store/selectors/swots/getSwot';
+import getSwotCreator from '../../store/selectors/swots/getSwotCreator';
 import {normalizeDate} from '../../utils/normalization';
 
 export default connect(

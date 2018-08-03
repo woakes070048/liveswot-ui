@@ -2,7 +2,7 @@ import { createStore as _createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { push } from 'react-router-redux';
 
-import reducers from '../reducers';
+import reducers from './reducers';
 import api from './middlewares/api';
 import log from './middlewares/log';
 import history from './middlewares/history';

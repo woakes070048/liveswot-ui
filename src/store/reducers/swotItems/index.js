@@ -1,6 +1,7 @@
 import {
-  FETCH_SWOT_ITEMS, FETCH_SWOT_ITEMS_SUCCESS, FETCH_SWOT_ITEMS_ERROR, CREATE_SWOT_ITEM_SUCCESS, VOTE_SUCCESS
-} from "../../store/actions/actionTypes";
+  FETCH_SWOT_ITEMS, FETCH_SWOT_ITEMS_SUCCESS, FETCH_SWOT_ITEMS_ERROR,
+  CREATE_SWOT_ITEM_SUCCESS, VOTE_SUCCESS
+} from '../../actions/actionTypes';
 
 const initialState = {
   byId: {},
