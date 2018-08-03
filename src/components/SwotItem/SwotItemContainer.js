@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {getVotes} from "../../selectors/votes";
+import {getVotes} from '../../store/selectors/votes';
 
 export default connect(
   (state, ownProps) => ({

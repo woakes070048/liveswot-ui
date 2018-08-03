@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 
 import {Vote} from '../../store/actions';
-// import {getUser} from '../../selectors/user';
-import {getVotes} from '../../selectors/votes';
-import authUtils from "../../utils/auth";
+import {getVotes} from '../../store/selectors/votes';
+import authUtils from '../../utils/auth';
 
 
 const isActive = (state, swotItemId, userId, voteType) => {

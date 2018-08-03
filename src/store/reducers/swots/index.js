@@ -1,4 +1,4 @@
-import {CREATE_SWOT_SUCCESS, FETCH_SWOTS, FETCH_SWOTS_ERROR, FETCH_SWOTS_SUCCESS} from "../../store/actions/actionTypes";
+import {CREATE_SWOT_SUCCESS, FETCH_SWOTS, FETCH_SWOTS_ERROR, FETCH_SWOTS_SUCCESS} from '../../actions/actionTypes';
 
 export const initialState = {
   byId: {},
