@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles';
+import styles from './styles.scss';
 
 class CreateSwot extends React.Component {
   constructor(props) {
@@ -39,11 +39,11 @@ class CreateSwot extends React.Component {
       <form method={`POST`} onSubmit={this.submit}>
         <input type={`text`} ref={`title`} placeholder={`SWOT Title`}/>
         <input type={`text`} ref={`description`} placeholder={`Description`}/>
-        <input type={`submit`} style={{display: 'none'}}/>
-        <button className={`btn`} style={styles.submitButton} onClick={this.submit}>
+        <input type={`submit ${styles.hidden}`}/>
+        <button className={`btn ${styles["submit-button"]}`} onClick={this.submit}>
           create
         </button>
-        <button className={`btn`} style={styles.cancelButton} onClick={() => this.cancel()}>
+        <button className={`btn ${styles["cancel-button"]}`} onClick={() => this.cancel()}>
           cancel
         </button>
       </form>
@@ -51,16 +51,16 @@ class CreateSwot extends React.Component {
 
     if (!isEdit) {
       component = (
-        <button className={`btn`} style={styles.button} onClick={this.edit}>
+        <button className={`btn ${styles.button}`} onClick={this.edit}>
           create new swot
         </button>
       );
     }
 
     return (
-      <div className={`row ${isEdit ? 'card' : ''}`} style={styles.container}>
+      <div className={`row ${isEdit ? 'card' : ''} ${styles.container}`}>
         <div className={`col s0 m2 l2`}></div>
-        <div className={`col s12 m8 l8`} style={styles.alignCenter}>
+        <div className={`col s12 m8 l8 ${styles["align-center"]}`}>
           {component}
         </div>
         <div className={`col s0 m2 l2`}></div>
