@@ -1,32 +1,29 @@
 import React from 'react';
 
 import { localizedText } from '../../utils';
-import styles from './styles';
+import styles from './styles.scss';
 
 
 const Header = ({logout, username, email, profileImg, isLoggedIn}) => {
   return (
-    <div className='navbar-fixed' style={styles.navFixed}>
-      <nav style={styles.nav}>
-        <div className='nav-wrapper' style={styles.navWrapper}>
-          <div className={`row`} style={{
-            margin: '0',
-          }}>
+    <div className={`navbar-fixed ${styles["nav-fixed"]}`}>
+      <nav className={`${styles.nav}`}>
+        <div className={`nav-wrapper ${styles["nav-wrapper"]}`}>
+          <div className={`row ${styles["row-no-margin"]}`}>
             <div className={`col l1`}></div>
-            <div className={`col l10`} style={styles.navMain}>
+            <div className={`col l10 ${styles["nav-main"]}`}>
               <a href='/' className='brand-logo'>{localizedText().title}</a>
               <ul id='nav-mobile' className='right hide-on-med-and-down'>
                 {!isLoggedIn && <li><a href='/login'>Login</a></li>}
                 {isLoggedIn && <li><a href='' onClick={() => logout()}>Logout</a></li>}
                 {isLoggedIn &&
-                <li style={styles.navBarList}>
+                <li className={`${styles["nav-bar-list"]}`}>
                   <a href='/profile'>
-                    <div className='right' style={styles.profileImgWrapper}>
+                    <div className={`right ${styles["profile-img-wrapper"]}`}>
                       <img
                         alt={username}
-                        className='circle responsive-img'
+                        className={`circle responsive-img ${styles["profile-img"]}`}
                         src={profileImg}
-                        style={styles.profileImg}
                       />
                     </div>
                   </a></li>}
