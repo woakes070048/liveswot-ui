@@ -25,7 +25,7 @@ export default connect(
       ...state,
       component: ownProps.component,
       isAuthorized() {
-        return true;
+        return !!authUtils.getToken();
       }
     };
   }
