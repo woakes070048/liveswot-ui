@@ -1,0 +1,18 @@
+.button {
+  width: 100%;
+  cursor: default;
+  border-width: 0 0 0 0;
+
+  &.loading {
+    cursor: wait;
+    border-bottom: 0px;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.wrapper {
+  &.loading {
+    cursor: wait;
+  }
+}
