@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles';
+import styles from './styles.scss';
 import RequestButton from '../../components/RequestButton';
 import RequestError from '../../components/RequestError';
 
@@ -27,11 +27,11 @@ class Signup extends React.Component {
       <div className={`row`}>
         <div className={`col s1 m3 l3`}></div>
         <div className={`col s10 m6 l6`}>
-          <div className={`card`} style={styles.card}>
+          <div className={`card ${styles.card}`}>
             <div className={`row`}>
               <div className={`col s1 m1 l1`}></div>
               <div className={`col s10 m10 l10`}>
-                <h4 style={styles.title}>Signup on LiveSWOT</h4>
+                <h4 className={styles.title}>Signup on LiveSWOT</h4>
                 <form onSubmit={this.signup} >
                   <input
                     type='email'
@@ -48,7 +48,7 @@ class Signup extends React.Component {
                     ref='password'
                     placeholder={`Password`}
                   />
-                  <input type='submit' style={{display: 'none'}}/>
+                  <input type='submit' className={styles.hidden}/>
                   <RequestButton
                     text={`signup`}
                     disabled={disabled}
