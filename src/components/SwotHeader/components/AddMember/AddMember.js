@@ -1,32 +1,33 @@
 import React from 'react';
-import styles from './styles';
+import styles from './styles.scss';
 
 const AddMember = ({
                      userName='',
                      updateUserName,
-                     hidden = true,
+                     hidden = false,
                      hide,
                      addMember,
 }) => {
   return (
-    <div className={`row`} style={styles.row(hidden)}>
-      <div className={`col s12 m12 l12`} style={styles.noPadding}>
+    <div className={`row ${styles.row} ${hidden ? styles.hidden : ''}`}>
+      <div className={`col s12 m12 l12 ${styles["no-padding"]}`}>
         <form method={`POST`} onSubmit={(e) => {
           e.preventDefault();
           addMember(userName);
           hide();
         }}>
-          <div style={styles.inputContainer}>
+          <div className={styles["input-container"]}>
             <input
               value={userName}
               onChange={updateUserName}
               type={`text`}
               placeholder={'Add people to SWOT by username'}
-              style={styles.input}
+              className={styles.input}
             />
             <div
-              onClick={() => {console.log('hide!'); hide();}}
-              style={styles.closeButton}>
+                id={`some-id`}
+                onClick={() => hide()}
+                className={styles["close-button"]}>
             </div>
           </div>
         </form>
