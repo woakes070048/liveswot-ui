@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SwotCard from '../../components/SwotCard';
 import SwotHeader from '../../components/SwotHeader';
 import Loading from '../../components/Loading';
-import styles from './styles';
+import styles from './styles.scss';
 
 
 export default class Swot extends Component {
@@ -26,7 +26,7 @@ export default class Swot extends Component {
 		return (
 			<div>
 				<SwotHeader/>
-				<div className='row' style={styles.compactRow}>
+				<div className={`row ${styles["compact-row"]}`}>
 					<div className='col m6 s12'>
 						<SwotCard cardType='strength'/>
 					</div>
@@ -34,7 +34,7 @@ export default class Swot extends Component {
 						<SwotCard cardType='weakness'/>
 					</div>
 				</div>
-        <div className='row' style={styles.compactRow}>
+        <div className={`row ${styles["compact-row"]}`}>
 					<div className='col m6 s12'>
 						<SwotCard cardType='opportunity'/>
 					</div>
