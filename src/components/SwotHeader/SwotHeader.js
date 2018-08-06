@@ -76,7 +76,7 @@ class SwotHeader extends React.Component {
                   </div>
                   <div className={styles.mid}>
                     <div className={`row ${styles["compact-row"]}`}>
-                      <div className={`row swot-header ${styles["compact-row"]}`}>
+                      <div className={`row ${styles["swot-header"]} ${styles["compact-row"]}`}>
                         <div className={`col s10 m12 l12 ${styles["nav-col"]}`}>
                         <span className={`card-title activator ${styles["card-title"]}`}>
                           {title}
@@ -90,9 +90,9 @@ class SwotHeader extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className={`swot-header-right ${styles.right}`}>
-                  <span className={`card-title activator`}>
-                    <span className={`swot-meta`}>
+                  <div className={`${styles["swot-header-right"]} ${styles.right}`}>
+                  <span className={`card-title activator ${styles["card-title"]}`}>
+                    <span className={styles["swot-meta"]}>
                       created by {creator.userName} at {swotDateCreated}
                     </span>
                     <i

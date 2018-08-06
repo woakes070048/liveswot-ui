@@ -74,3 +74,36 @@
   line-height: 48px;
   color: white;
 }
+
+.dropdown-item {
+  &:hover {
+    /*background: #599c03;*/
+    background: white;
+  }
+}
+
+.swot-header {
+  &:after {
+    clear: none;
+    content: "";
+    display: table;
+  }
+}
+
+.swot-meta {
+  font-size: 0.8rem;
+}
+
+.swot-header-right {
+  width: 554px;
+}
+
+@media only screen and (max-width: 992px) {
+  .swot-meta {
+    display: none !important;
+  }
+
+  .swot-header-right {
+    width: 12px;
+  }
+}
