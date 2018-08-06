@@ -21,14 +21,14 @@ export const removeToken = () => {
 };
 
 export const getUser = (token) => {
-  const decoded = jwtDecode(token);
+  // const decoded = jwtDecode(token);
 
   return {
-    userId: decoded.userId,
-    username: decoded.username,
-    email: decoded.email,
-    firstName: '',
-    lastName: '',
+    userId: 111,
+    username: 'imranariffin',
+    email: 'imranariffin@gmail.com',
+    firstName: 'Imran',
+    lastName: 'Ariffin',
   };
 };
 

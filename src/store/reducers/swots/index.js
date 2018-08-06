@@ -1,44 +1,33 @@
 import {CREATE_SWOT_SUCCESS, FETCH_SWOTS, FETCH_SWOTS_ERROR, FETCH_SWOTS_SUCCESS} from '../../actions/actionTypes';
 
 export const initialState = {
-  byId: {},
+  byId: {
+    123: {
+      swotId: 123,
+      title: 'Title 123',
+      description: 'Description 123',
+      creatorId: 111,
+      createdAt: '2019:09:12'
+    },
+    456: {
+      swotId: 456,
+      title: 'Title 456',
+      description: 'Description 456',
+      creatorId: 222,
+    },
+    789: {
+      swotId: 789,
+      title: 'Title 789',
+      description: 'Description 789',
+      creatorId: 111,
+    }
+  },
   errors: [],
   isLoading: false,
 };
 
 const swots = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_SWOTS: {
-      return {
-        byId: { ...state.byId },
-        errors: [ ...state.errors ],
-        isLoading: true,
-      };
-    }
-    case CREATE_SWOT_SUCCESS: {
-      return {
-        byId: {...state.byId, [action.data.swotId]: {...action.data}},
-        errors: [...state.errors],
-        isLoading: false,
-      };
-    }
-    case FETCH_SWOTS_SUCCESS: {
-      return {
-        byId: action.data.reduce((swots, swot) => {
-          swots[swot.swotId] = { ...swot };
-          return swots;
-        }, {}),
-        errors: [],
-        isLoading: false,
-      };
-    }
-    case FETCH_SWOTS_ERROR: {
-      return {
-        byId: { ...state.byId },
-        errors: [ ...action.errors ],
-        isLoading: false,
-      };
-    }
     default:
       return state;
   }

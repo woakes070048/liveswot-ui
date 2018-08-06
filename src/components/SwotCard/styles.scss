@@ -1,5 +1,29 @@
+.card-panel {
+  min-height: 333px;
+  max-height: 333px;
+  padding: 1rem 15px 0 0;
+  margin-bottom: 0px;
+  margin-right: -30px;
+  overflow-y: scroll;
+};
+
+.card-panel-wrapper {
+  overflow: hidden;
+}
+
 .swot-list {
+  margin: 0px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+
+.input {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .input-fullwidth {
