@@ -1,0 +1,50 @@
+.vote-container-styles {
+  height: 100%;
+  width: 25px;
+  margin: 0;
+}
+
+.vote-up-container-styles {
+  height: 7px;
+  width: 100%;
+  padding: 0;
+}
+
+.vote-up-styles {
+  width: 0;
+  height: 0;
+  border-left: 12.5px solid transparent;
+  border-right: 12.5px solid transparent;
+  border-bottom: 8px solid rgb(89, 156, 4);
+
+  &.active {
+    border-bottom: 8px solid grey;
+  }
+}
+
+.score-container-styles {
+  font-size: 0.9rem;
+  height: 12px;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+.vote-down-container-styles {
+  height: 11px;
+  width: 100%;
+  padding: 0;
+}
+
+.vote-down-styles {
+  width: 0;
+  height: 0;
+  border-left: 12.5px solid transparent;
+  border-right: 12.5px solid transparent;
+  border-top: 8px solid rgb(89, 156, 4);
+  margin-top: 4.5px;
+
+  &.active {
+    border-top: 8px solid grey;
+  }
+}
