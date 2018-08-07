@@ -1,4 +1,4 @@
-import styles from './styles';
+import styles from './styles.scss';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -21,7 +21,7 @@ const DropDown = ({active, showAddMember}) => {
   }];
 
   return (
-    <ul style={styles.dropDown(active)}>
+    <ul className={`${styles["drop-down"]} ${active ? styles.visible: ''}`}>
       {items.map((item, i) => (
         <li
           key={`item-${i}`}
@@ -32,12 +32,11 @@ const DropDown = ({active, showAddMember}) => {
           }}
         >
           <a href="">
-            <div style={styles.li}>
-              <span style={styles.liSpan}>
+            <div className={styles.li}>
+              <span className={styles["li-span"]}>
                 {item.text}
                 <i
-                  className={`material-icons right`}
-                  style={styles.dropDownItemIcon(item.iconColor)}
+                  className={`material-icons right ${styles[`drop-down-item-icon-${i}`]}`}
                 >
                   {item.icon}
                 </i>

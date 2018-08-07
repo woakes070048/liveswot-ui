@@ -1,30 +1,29 @@
 import React from 'react';
-import styles from '../SwotHeader/styles';
+import styles from '../SwotHeader/styles.scss';
 
 const SwotList = (props) => {
   const swotImg = '';
   const {swotId, title, description, swotDateCreated, creatorUserName} = props;
   return (
     <div>
-      <div className={`row`} style={styles.root}>
+      <div className={`row ${styles.root}`}>
         <div className={`col m12 s12 l12`}>
-          <div className={`card`} style={styles.card}>
-            <div className={`card-content`} style={styles.cardContent}>
-              <div className={`row`} style={{...styles.compactRow, ...styles.layout}}>
-                <div style={styles.left}>
-                  <div style={styles.swotImgWrapper}>
+          <div className={`card ${styles.card}`}>
+            <div className={`card-content ${styles["card-content"]}`}>
+              <div className={`row ${styles["compact-row"]} ${styles.layout}`}>
+                <div className={styles.left}>
+                  <div className={styles["swot-img-wrapper"]}>
                     <span>
                       {(
                         swotImg &&
                         <img
                           alt={title}
-                          className='responsive-img'
+                          className={`responsive-img ${styles["swot-img"]}`}
                           src={swotImg}
-                          style={styles.swotImg}
                         />
                       ) || (
-                        <div style={styles.swotImgFallbackWrapper}>
-                          <div style={styles.swotImgFallback}>
+                        <div className={styles["swot-img-fallback-wrapper"]}>
+                          <div className={styles["swot-img-fallback"]}>
                             ST
                           </div>
                         </div>
@@ -32,27 +31,27 @@ const SwotList = (props) => {
                     </span>
                   </div>
                 </div>
-                <div style={styles.mid}>
-                  <div className={`row`} style={styles.compactRow}>
-                    <div className={`row swot-header`} style={styles.compactRow}>
-                      <div className={`col s10 m12 l12`} style={styles.navCol}>
-                        <span className={`card-title activator`} style={styles.cardTitle}>
+                <div className={styles.mid}>
+                  <div className={`row ${styles["compact-row"]}`}>
+                    <div className={`row swot-header ${styles["compact-row"]}`}>
+                      <div className={`col s10 m12 l12 ${styles["nav-col"]}`}>
+                        <span className={`card-title activator ${styles["card-title"]}`}>
                           <a href={`swots/${swotId}`}>
                             {title}
                           </a>
                         </span>
                       </div>
                     </div>
-                    <div className={`row`} style={styles.compactRow}>
-                      <div className={`col s12 m12 l12`} style={styles.navCol}>
+                    <div className={`row ${styles["compact-row"]}`}>
+                      <div className={`col s12 m12 l12 ${styles["nav-col"]}`}>
                         <span>{description}</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className={`swot-header-right`} style={styles.right}>
-                  <span className={`card-title activator`}>
-                    <span className={`swot-meta`}>
+                <div className={`swot-header-right ${styles.right}`}>
+                  <span className={`card-title activator ${styles["card-title"]}`}>
+                    <span className={`${styles["swot-meta"]}`}>
                       created by {creatorUserName} at {swotDateCreated}
                     </span>
                     <i

@@ -1,5 +1,0 @@
-.no-border:focus, .no-border.disabled:focus {
-    border-bottom: 0px !important;
-    border: none !important;
-    box-shadow: none !important;
-}

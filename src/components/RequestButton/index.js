@@ -1,17 +1,20 @@
 import React from 'react';
-import './styles.css';
-import styles from './styles';
+import styles from './styles.scss';
 
 const RequestButton = ({text, onClick, requestedItem}) => {
-  const disabled = requestedItem.isLoading ? 'disabled' : '';
+
+  const {isLoading} = requestedItem;
+  const {button, loading} = styles;
+
   return (
-    <input
-      type={`submit`}
-      className={`waves-effect waves-light btn no-border ${disabled}`}
-      style={styles.button(requestedItem)}
-      onClick={onClick}
-      value={text}
-    />
+      <div className={`${styles.wrapper} ${styles.loading}`}>
+        <input
+            type={`submit`}
+            className={`waves-effect waves-light btn ${button} ${isLoading ? `disabled ${loading}` : ''}`}
+            onClick={onClick}
+            value={text}
+        />
+      </div>
   );
 };
 

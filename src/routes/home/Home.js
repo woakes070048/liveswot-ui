@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import EmptyList from '../../components/EmptyList';
 import SwotList from '../../components/SwotList';
-import styles from './styles';
+import styles from './styles.scss';
 import CreateSwot from '../../components/CreateSwot';
 
 class Home extends React.Component {
@@ -22,7 +22,7 @@ class Home extends React.Component {
           {(
             userSwots.length > 0 &&
             userSwots.map((swot, i) => (
-              <div style={styles.listContainer} key={`userSwot-${i}`}>
+              <div className={styles["list-container"]} key={`userSwot-${i}`}>
                 <SwotList swot={swot}/>
               </div>))
           ) || <EmptyList isLoading={isLoading} />}

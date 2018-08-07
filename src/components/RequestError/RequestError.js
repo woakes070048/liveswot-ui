@@ -1,4 +1,4 @@
-import styles from './styles';
+import styles from './styles.scss';
 import React from 'react';
 
 class RequestError extends React.Component {
@@ -17,18 +17,14 @@ class RequestError extends React.Component {
     const hidden = closed || errors.length === 0;
 
     return (
-      <div style={{
-        margin: '0',
-        padding: '0',
-        position: 'relative',
-      }}>
+      <div className={styles.wrapper}>
         <div
-          style={styles.hide(hidden)}
+          className={`${styles.hide} ${hidden ? styles.hidden: ''}`}
           onClick={() => this.close()}
         >
         </div>
         <div
-          style={styles.container(hidden)}
+          className={`${styles.container} ${hidden ? styles.hidden: ''}`}
           onClick={() => this.close()}
         >
           <p>Error(s):</p>

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 
-import styles from './styles';
-import './styles.css';
+import styles from './styles.scss';
 import VoteButton from '../VoteButton';
 
 
@@ -26,22 +24,21 @@ class SwotItem extends React.Component {
     // }
 
     return (
-      <li style={styles.swotItem(index)} className={`swot-item ${hidden ? '' : 'show'}`}>
-        <div className={'row'} style={styles.swotItemRow}>
-          <div className={'col s1 m1 l1'} style={styles.left}>
-            <div style={styles.creatorImgWrapper}>
+      <li className={`swot-item ${styles["swot-item"]} ${hidden ? '' : styles.show} ${index === 0 ? styles.first : ''}`}>
+        <div className={`row ${styles["swot-item-row"]}`}>
+          <div className={`col s1 m1 l1 ${styles.left}`}>
+            <div className={styles["creator-img-wrapper"]}>
               <img
-                className={`circle img-responsive`}
+                className={`circle img-responsive ${styles["creator-img"]}`}
                 src={profileImg}
-                style={styles.creatorImg}
                 alt={`item creator: ${swotItem.creatorId}`}
               />
             </div>
           </div>
-          <div className={'col s10 m10 l10'} style={styles.textColumn}>
+          <div className={`col s10 m10 l10 ${styles["text-column"]}`}>
             <span>{`${swotItem.text}`}</span>
           </div>
-          <div className={'col s1 m1 l1'} style={styles.voteColumn}>
+          <div className={`col s1 m1 l1 ${styles["vote-column"]}`}>
             <VoteButton
               animate={animate}
               score={votes}

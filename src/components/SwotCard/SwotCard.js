@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import SwotItem from '../SwotItem';
 import {localizedText} from '../../utils/index';
-import styles from './styles';
-import './style.css';
+import styles from './styles.scss';
 
 const DURATION_INVISIBLE = 300;
 
@@ -32,28 +31,27 @@ class SwotCard extends React.Component {
           e.preventDefault();
           onSubmit(swotId, text, cardType);
         } }>
-          <div className='input-field' style={styles.inputField}>
+          <div className={`input-field ${styles["input-field"]}`}>
             <input
               id={`input-${cardType}`}
-              className='validate'
-              style={styles.input}
+              className={`${styles.validate} ${styles.input}`}
               value={text}
               type='text'
               onChange={onChange}
             />
             <label
-              className={ text ? 'active' : ''}
+              className={text ? styles.active : ''}
               htmlFor={`input-${cardType}`}
             >
               {`Add ${localizedText().swot.cardType[cardType]}`}
             </label>
           </div>
         </form>
-        <div style={styles.cardPanelWrapper}>
-          <div className={`card-panel`} style={styles.cardPanel}>
+        <div className={`${styles["card-panel-wrapper"]}`}>
+          <div className={`card-panel ${styles["card-panel"]}`}>
             {
               (items.length > 0 &&
-                (<ul style={styles.swotList}>{
+                (<ul className={styles["swot-list"]}>{
                   items.map((item, i) => {
                     return (
                       <SwotItem
