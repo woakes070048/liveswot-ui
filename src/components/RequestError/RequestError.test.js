@@ -1,7 +1,7 @@
-import React;
+import React from 'react';
 import {shallow} from 'enzyme';
 import {expect} from 'chai';
-import RequestError import './RequestError';
+import RequestError from './RequestError';
 
 describe('(Component) RequestError', () => {
     it('should display Error as string', () => {
