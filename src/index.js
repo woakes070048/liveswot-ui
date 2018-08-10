@@ -10,8 +10,8 @@ import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 import {history} from './store/middlewares/history/history';
 import {InitApp} from './store/actions';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './layouts/Header';
+import Footer from './layouts/Footer';
 import routes from './routes';
 import {mapPathsToRoutes} from './routes/routes';
 

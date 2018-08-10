@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { localizedText } from '../../utils';
+import { localizedText } from '../../utils/index';
 import styles from './styles.scss';
 
 

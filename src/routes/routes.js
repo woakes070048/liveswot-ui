@@ -6,8 +6,8 @@ import Login from './login';
 import Signup from './signup';
 import Home from './home';
 import Swot from './swot';
-import ProtectedRoute from "./ProtectedRoute";
-import Body from "../components/Body";
+import ProtectedRoute from './ProtectedRoute';
+import Body from '../layouts/Body';
 
 
 const protectedPaths = [{

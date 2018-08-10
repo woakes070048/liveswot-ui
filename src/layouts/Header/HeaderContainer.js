@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import {Logout, LogoutSuccess} from '../../store/actions';
-import {authUtils} from '../../utils';
+import {Logout, LogoutSuccess} from '../../store/actions/index';
+import {authUtils} from '../../utils/index';
 
 const mapStateToProps = (state) => {
   const { username, email } = state.user;
