@@ -29,7 +29,7 @@ class RequestError extends React.Component {
         >
           <p>Error(s):</p>
           {errors.map((error, i) => (
-            <p key={i}>{error}</p>
+            <p key={i}>{error.toString()}</p>
           ))}
         </div>
       </div>
