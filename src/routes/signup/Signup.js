@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './styles.scss';
 import RequestButton from '../../components/RequestButton';
 import RequestError from '../../components/RequestError';
+import {Link} from 'react-router-dom';
 
 class Signup extends React.Component {
 
@@ -56,7 +57,7 @@ class Signup extends React.Component {
                     onClick={this.signup}
                   />
                 </form>
-                <p>Already signed up? Login <a href={`login`}>here</a></p>
+                <p>Already signed up? Login <Link to={`login`}>here</Link></p>
                 <RequestError errors={user.errors}/>
               </div>
               <div className={`col s1 m1 l1`}></div>
