@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../SwotHeader/styles.scss';
+import {Link} from 'react-router-dom';
 
 const SwotList = (props) => {
   const swotImg = '';
@@ -36,9 +37,9 @@ const SwotList = (props) => {
                     <div className={`row swot-header ${styles["compact-row"]}`}>
                       <div className={`col s10 m12 l12 ${styles["nav-col"]}`}>
                         <span className={`card-title activator ${styles["card-title"]}`}>
-                          <a href={`swots/${swotId}`}>
+                          <Link to={`swots/${swotId}`}>
                             {title}
-                          </a>
+                          </Link>
                         </span>
                       </div>
                     </div>
