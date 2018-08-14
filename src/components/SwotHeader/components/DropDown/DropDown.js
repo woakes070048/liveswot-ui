@@ -1,6 +1,7 @@
 import styles from './styles.scss';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const DropDown = ({active, showAddMember}) => {
   const items = [{
@@ -31,7 +32,7 @@ const DropDown = ({active, showAddMember}) => {
             item.callBack && item.callBack();
           }}
         >
-          <a href="">
+          <Link to={'/'}>
             <div className={styles.li}>
               <span className={styles["li-span"]}>
                 {item.text}
@@ -42,7 +43,7 @@ const DropDown = ({active, showAddMember}) => {
                 </i>
               </span>
             </div>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
